@@ -1,0 +1,256 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="An impressive and flawless site template that includes various UI elements and countless features, attractive ready-made blocks and rich pages, basically everything you need to create a unique and professional website.">
+    <meta name="keywords"
+        content="bootstrap 5, business, corporate, creative, gulp, marketing, minimal, modern, multipurpose, one page, responsive, saas, sass, seo, startup, html5 template, site template">
+    <meta name="author" content="elemis">
+    <title>Sandbox - Modern & Multipurpose Bootstrap 5 Template</title>
+    <link rel="shortcut icon" href="{% static 'assets/img/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/colors/sky.css' %}">
+    <link rel="preload" href="{% static 'assets/css/fonts/urbanist.css' %}" as="style" onload="this.rel='stylesheet'">
+    <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/template-css/template.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/icofont/icofont.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Lora:wght@400;500;700&family=Merriweather:wght@400;700&family=Nunito:wght@400;500;700&family=Oswald:wght@400;500;700&family=Playfair+Display:wght@400;500;700&family=Poppins:wght@400;500;700&family=Roboto:wght@400;500;700&family=Source+Sans+Pro:wght@400;700&family=Ubuntu:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .nav-link {
+            margin-right: 30px !important;
+        }
+
+        @media (max-width:765px) {
+
+            .nav-tabs.nav-pills,
+            .nav-tabs.nav-tabs-basic {
+                flex-direction: row !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content-wrapper">
+
+        <header class="wrapper bg-light">
+            <nav class="navbar navbar-expand-lg classic transparent navbar-light" id="navbar-example2" style="box-shadow: 0 0 1.25rem rgba(30,34,40,.06);
+        background: rgba(255,255,255,.97);">
+                <div class="container flex-lg-row flex-nowrap align-items-center">
+                    <div class="navbar-brand w-100">
+                        <a href="./index.html">
+                            <img src="{% static 'assets/img/BC.png' %}" alt="" class="logo-img" />
+                        </a>
+                    </div>
+                    <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
+                        <div class="offcanvas-header d-lg-none">
+                            <h3 class="text-white fs-30 mb-0">Sandbox</h3>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                    <div class="navbar-other ms-lg-4">
+                        <ul class="navbar-nav flex-row align-items-center ms-auto">
+                            <li class="nav-item d-none d-md-block">
+                                <a href="#" class="btn btn-primary rounded-pill mx-1 mb-2 mb-md-0"
+                                    data-bs-toggle="modal" data-bs-target="#modal-signin">Logout Account</a>
+                            </li>
+                            <li class="nav-item d-lg-none">
+                                <button class="hamburger offcanvas-nav-btn"><span></span></button>
+                            </li>
+                        </ul>
+                        <!-- /.navbar-nav -->
+                    </div>
+                    <!-- /.navbar-other -->
+                </div>
+                <!-- /.container -->
+            </nav>
+            <!-- /.navbar -->
+        </header>
+        <!-- /header -->
+        <section class="wrapper bg-light" id="home">
+            <div class="container pt-8 pt-md-10 pb-4 pb-md-5 text-center">
+                <div class="row gx-lg-8 gx-xl-12 gy-10 gy-xl-0 mb-14 align-items-center">
+                    <h2 class="text-start">Your Cards</h2>
+                    <div class="col-sm-12 table-card">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Company Name</th>
+                                        <th scope="col">Mobile No</th>
+                                        <th scope="col">Whatsapp No</th>
+                                        <th scope="col">Email ID</th>
+                                        <th scope="col">Payment Status</th>
+                                        <th scope="col">User Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for obj in company_data %}
+                                    <tr>
+                                        <th scope="row">{{obj.id}}</th>
+                                        <td>{{obj.company_name}}</td>
+                                        <td>{{obj.contact_number_1}}</td>
+                                        <td>{{obj.whatsapp_number_1}}</td>
+                                        <td>{{obj.email}}</td>
+                                        <td>
+                                            <span class="badge bg-red rounded-pill">Not Paid</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex ">
+                                                <a href="{% url 'index' obj.slug %}" class="btn btn-sky rounded-pill me-2">
+                                                    <i class="uil uil-eye"></i>
+                                                    View
+                                                </a>
+                                                <a href="#" class="btn btn-red rounded-pill me-2">
+                                                    <i class="uil uil-pen"></i>
+                                                    Edit
+                                                </a>
+                                                <a href="#" class="btn btn-green rounded-pill">Pay Now</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="bg-soft-primary mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-11 col-xxl-10 mx-auto">
+                    <div class="card image-wrapper mt-5 bg-full bg-image bg-overlay bg-overlay-400 mt-n50p mb-n5"
+                        data-image-src="./assets/img/photos/bg3.jpg">
+                        <div
+                            class="card-body p-6 p-md-11 d-lg-flex flex-row align-items-lg-center justify-content-md-between text-center text-lg-start">
+                            <h3 class="display-6 mb-6 mb-lg-0 pe-lg-15 pe-xxl-18 text-white">We are trusted by over
+                                5000+ clients.
+                                Join them by using our services and grow your business.</h3>
+                            <a href="#" class="btn btn-white rounded-pill mb-0 text-nowrap">Join Us</a>
+                        </div>
+                        <!--/.card-body -->
+                    </div>
+                    <!--/.card -->
+                </div>
+                <!-- /column -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <div class="container pb-12 text-center">
+            <div class="row mt-n10 mt-lg-0">
+                <div class="col-xl-10 mx-auto">
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <div class="widget">
+                                <h4 class="widget-title">Address</h4>
+                                <address>Moonshine St. 14/05 <br class="d-none d-md-block" /> Light City, London, UK
+                                </address>
+                            </div>
+                            <!-- /.widget -->
+                        </div>
+                        <!--/column -->
+                        <div class="col-md-4">
+                            <div class="widget">
+                                <h4 class="widget-title">Phone</h4>
+                                <p>00 (123) 456 78 90 <br />00 (987) 654 32 10</p>
+                            </div>
+                            <!-- /.widget -->
+                        </div>
+                        <!--/column -->
+                        <div class="col-md-4">
+                            <div class="widget">
+                                <h4 class="widget-title">E-mail</h4>
+                                <p><a href="mailto:sandbox@email.com" class="link-body">sandbox@email.com</a> <br
+                                        class="d-none d-md-block" /><a href="mailto:help@sandbox.com"
+                                        class="link-body">help@sandbox.com</a>
+                                </p>
+                            </div>
+                            <!-- /.widget -->
+                        </div>
+                        <!--/column -->
+                    </div>
+                    <!--/.row -->
+                    <p>© 2023 Sandbox. All rights reserved.</p>
+                    <nav class="nav social justify-content-center">
+                        <a href="#"><i class="uil uil-twitter"></i></a>
+                        <a href="#"><i class="uil uil-facebook-f"></i></a>
+                        <a href="#"><i class="uil uil-dribbble"></i></a>
+                        <a href="#"><i class="uil uil-instagram"></i></a>
+                        <a href="#"><i class="uil uil-youtube"></i></a>
+                    </nav>
+                    <!-- /.social -->
+                </div>
+                <!-- /column -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <!-- MODALS -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" style="padding: 1rem;">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Share Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                </div>
+                <div class="modal-body text-center py-5"
+                    style="padding-top: 0 !important; padding-bottom: 2rem !important;">
+                    <p class="mb-3"> Share my Digital vCard in your network.</p>
+                    <div class="social-media1 mt-2"><a target="_blank"
+                            href="https://wa.me/919714403481?text=https://digitalvcard.online/p/ar-traders"><i
+                                class="share-button-whatsapp icofont-brand-whatsapp share_btn"></i></a><a
+                            class="fb-xfbml-parse-ignore" target="_blank"
+                            href="https://www.facebook.com/sharer/sharer.php?u=https://digitalvcard.online/p/ar-traders"><i
+                                class="share-button-facebook icofont-facebook share_btn"></i></a><a data-size="large"
+                            target="_blank"
+                            href="https://twitter.com/intent/tweet?text=https://digitalvcard.online/p/ar-traders"><i
+                                class="share-button-twitter icofont-twitter share_btn"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="img_1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-body text-center py-5">
+                    <img class="lb-image animation fadeIn"
+                        src="https://digitalvcard.online/api/uploads/1594467970_71926.jpeg"
+                        style="animation-duration: 0.7s;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'assets/js/plugins.js' %}"></script>
+    <script src="{% static 'assets/js/theme.js' %}"></script>
+    <script src="{% static 'assets/js/colors.js' %}"></script>
+</body>
+
+</html>

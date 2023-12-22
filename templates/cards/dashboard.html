@@ -1,0 +1,711 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="An impressive and flawless site template that includes various UI elements and countless features, attractive ready-made blocks and rich pages, basically everything you need to create a unique and professional website.">
+  <meta name="keywords"
+    content="bootstrap 5, business, corporate, creative, gulp, marketing, minimal, modern, multipurpose, one page, responsive, saas, sass, seo, startup, html5 template, site template">
+  <meta name="author" content="elemis">
+  <title>Businesscard4u</title>
+  <link rel="shortcut icon" href="{% if websitelogo %} {{ websitelogo.fav_icon.url }} {% endif %}">
+  <link rel="stylesheet" href="{% static 'assets/css/plugins.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/colors/sky.css' %}">
+  <link rel="preload" href="{% static 'assets/css/fonts/urbanist.css' %}" as="style" onload="this.rel='stylesheet'">
+  <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/template-css/template.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/icofont/icofont.min.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Lora:wght@400;500;700&family=Merriweather:wght@400;700&family=Nunito:wght@400;500;700&family=Oswald:wght@400;500;700&family=Playfair+Display:wght@400;500;700&family=Poppins:wght@400;500;700&family=Roboto:wght@400;500;700&family=Source+Sans+Pro:wght@400;700&family=Ubuntu:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    .nav-link {
+      margin-right: 30px !important;
+    }
+
+    .success-toast {
+      background: #04aa6d;
+      display: block;
+      width: max-content;
+      color: #fff;
+      border-radius: 3px;
+      border: none;
+      font-size: 16px;
+      padding: 15px 20px;
+      position: fixed;
+      top: 3%;
+      left: 99%;
+      transform: translate(-100%, 0%);
+      box-shadow: #ffffff99 0px 0px 17px 0px;
+      z-index: 100000;
+    }
+
+    .error-toast {
+      background: #9e454b;
+      display: block;
+      width: max-content;
+      color: #fff;
+      border-radius: 3px;
+      border: none;
+      font-size: 16px;
+      padding: 15px 20px;
+      position: fixed;
+      top: 3%;
+      left: 99%;
+      transform: translate(-100%, 0%);
+      box-shadow: #ffffff99 0px 0px 17px 0px;
+      z-index: 100000;
+    }
+
+    .form-control {
+      padding: 0.6rem 1rem !important;
+    }
+
+    .logo-img {
+      width: auto;
+      height: 68px;
+      object-fit: contain;
+      padding-left: 30px;
+    }
+
+    .navbar-brand {
+      padding: 4px 0 !important;
+    }
+
+    footer .logo-img {
+      width: auto;
+    }
+
+    .buttons-div .btn {
+      font-size: 15px;
+      padding: 0 15px;
+      border-radius: 6px !important;
+      height: 35px;
+    }
+
+    /*.lower-footer {*/
+    /*  border-top: 0.5px solid #00000073;*/
+    /*  padding-top: 15px;*/
+    /*  padding-bottom: 15px;*/
+    /*}*/
+
+    .card-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 30px;
+    }
+
+    @media (max-width:765px) {
+
+      .nav-tabs.nav-pills,
+      .nav-tabs.nav-tabs-basic {
+        flex-direction: row !important;
+      }
+
+      .logo-img {
+        padding-left: 0;
+      }
+
+      .card-heading {
+        display: block;
+        font-size: 22px;
+      }
+
+      .card-heading .btn-primary,
+      .card-heading .btn-success {
+        padding: 5px 10px;
+        font-size: 16px;
+        float: none !important;
+      }
+
+      .navbar-brand {
+        padding: 10px 0 !important;
+      }
+
+      .navbar-nav .dropdown-menu {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content-wrapper">
+
+    <header class="wrapper bg-light">
+      <nav class="navbar navbar-expand-lg classic transparent navbar-light" id="navbar-example2" style="box-shadow: 0 0 1.25rem rgba(30,34,40,.06);
+        background: rgba(255,255,255,.97);">
+        <div class="container flex-lg-row flex-nowrap align-items-center">
+          <div class="navbar-brand w-100">
+
+            <a href="/">
+              {% if websitelogo %}
+              <img src="{{ websitelogo.image.url }}" alt="" class="logo-img" />
+              {% else %}
+              <img src="{% static 'assets/img/BC.png' %}" alt="" class="logo-img" />
+              {% endif %}
+            </a>
+
+          </div>
+
+          <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
+            <div class="offcanvas-header d-lg-none">
+              <h3 class="text-white fs-30 mb-0">Businesscard4u</h3>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+            </div>
+          </div>
+
+          <!-- /.navbar-collapse -->
+          <div class="navbar-other ms-lg-4">
+            <ul class="navbar-nav flex-row align-items-center ms-auto">
+              {% if user.is_authenticated %}
+
+              <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle " type="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <i class="uil uil-user mr-2"> </i>
+                  &nbsp;{{ request.user }}
+                </button>
+                <ul class="dropdown-menu">
+                  <!--                  <li><a class="dropdown-item" href="#"></a></li>-->
+                  <li><a class="dropdown-item" href="/">Home</a></li>
+                  <li><a class="dropdown-item" href="{% url 'signout' %}">Logout</a></li>
+                </ul>
+              </div>
+              {% endif %}
+
+              <li class="nav-item d-none">
+                <button class="hamburger offcanvas-nav-btn"><span></span></button>
+              </li>
+
+            </ul>
+            <!-- /.navbar-nav -->
+          </div>
+          <!-- /.navbar-other -->
+        </div>
+        <!-- /.container -->
+      </nav>
+      <!-- /.navbar -->
+    </header>
+    <!-- /header -->
+    <section class="wrapper bg-light" id="home">
+      <div class="container pt-8 pt-md-10 pb-4 pb-md-5 text-center">
+        <div class="row gx-lg-8 gx-xl-12 gy-10 gy-xl-0 mb-14 align-items-center">
+          <h2 class="text-start card-heading">Dashboard
+            <div class="mt-2 mt-sm-0">
+
+              <a href="{% url 'payment_records' %}"
+                class="btn btn-success rounded-pill mx-1 mb-2 mb-md-0 float-end">Payment Records</a>
+              <a href="{% url 'create_card' %}" class="btn btn-primary rounded-pill mx-1 mb-2 mb-md-0 float-end">Create
+                New Card</a>
+            </div>
+          </h2>
+          <div class="col-sm-12 table-card mt-5 mb-4">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">#Card ID</th>
+                    <th scope="col">Company Name</th>
+                    <th scope="col">Mobile No</th>
+                    <th scope="col">Whatsapp No</th>
+                    <th scope="col">Email ID</th>
+                    <th scope="col">Payment Status</th>
+                    <th scope="col">Expiry Date</th>
+                    <th scope="col">#Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for obj in card %}
+                  <tr>
+                    <th scope="row">{{obj.id}}</th>
+                    <td>{{obj.get_basicInfo.company_name}}</td>
+                    <td>{{obj.get_basicInfo.contact_number_1}}</td>
+                    <td>{{obj.get_basicInfo.whatsapp_number_1}}</td>
+                    <td>{{obj.get_basicInfo.email}}</td>
+
+                    <td>
+                      {% if obj.payment_status is True %}
+                      <span class="badge bg-success rounded-pill">Paid</span>
+                      {% else %}
+                      <span class="badge bg-red rounded-pill">Not Paid</span>
+                      {% endif %}
+                    </td>
+
+                    <td>{{ obj.expiry_date }}</td>
+
+                    <td>
+                      <div class="d-flex buttons-div">
+
+                        {% if obj.slug and obj.active_deactive is True %}
+                        <a href="{% url 'card_template_view' obj.slug  %}" target="_blank"
+                          class="btn btn-sky rounded-pill me-2">
+                          <i class="uil uil-eye"></i>
+                        </a>
+                        {% else %}
+                        <a href="" class="btn btn-sky rounded-pill me-2 disabled">
+                          <i class="uil uil-eye"></i>
+                        </a>
+                        {% endif %}
+
+                        <a href="{% url 'add_company_info' obj.id %}" class="btn btn-secondary rounded-pill me-2">
+                          <i class="uil uil-pen"></i>
+                        </a>
+
+                        {% if obj.is_expire is True or obj.payment_status is False %}
+                        {% if obj.get_basicInfo %}
+                        <a href="{% url 'card_pricing' obj.id %}" class="btn btn-green rounded-pill me-2">Pay Now</a>
+                        {% else %}
+                        <a href="" class="btn btn-green rounded-pill disabled me-2">Pay Now</a>
+                        {% endif %}
+                        {% else %}
+                        <a href="" class="btn btn-green rounded-pill disabled me-2">Paid</a>
+                        {% endif %}
+
+                        {% if obj.active_deactive is True %}
+                        <button class="btn btn-danger rounded-pill mb-3 me-2" data-bs-toggle="modal"
+                          data-bs-target="#activedeactiveModal{{obj.id}}">
+                          <span>Deactive</span>
+                        </button>
+                        {% else %}
+                        <button class="btn btn-primary rounded-pill mb-3 me-2" data-bs-toggle="modal"
+                          data-bs-target="#activedeactiveModal{{obj.id}}">
+                          <span>Active</span>
+                        </button>
+                        {% endif %}
+
+                        <div class="modal fade modal-sm" id="activedeactiveModal{{obj.id}}" tabindex="-1"
+                          aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                              <!-- <button type="button" class="btn-close close-button" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                              <div class="modal-body" style="padding: 20px 30px;">
+                                <div class="question">
+                                  <svg style="color: #df3c4e;" xmlns="http://www.w3.org/2000/svg" width="60" height="60"
+                                    fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                    <path
+                                      d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                                  </svg>
+                                </div>
+                                <h5 class="text-p mb-0 mt-2">Do you want to {% if obj.active_deactive is True %}
+                                  Deactive {% else %} Active {% endif %}?</h5>
+                              </div>
+
+                              <div class="modal-footer" style="border: none;justify-content: center;
+                                    padding-top: 0;    padding-bottom: 20px;">
+                                <a href="{% url 'card_active_deactive' obj.pk %}">
+                                  <button class="btn btn-success" data-bs-dismiss="modal"
+                                    style="background-color: #2dc58c; border:none;">Continue</button>
+                                </a>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                                  style="background-color: #df3c4e; border:none;">Discard</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="modal fade modal-sm" id="dismissModal{{obj.id}}" tabindex="-1"
+                          aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                              <!-- <button type="button" class="btn-close close-button" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                              <div class="modal-body" style="padding: 20px 30px;">
+                                <div class="question">
+                                  <svg style="color: #df3c4e;" xmlns="http://www.w3.org/2000/svg" width="60" height="60"
+                                    fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                    <path
+                                      d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                                  </svg>
+                                </div>
+                                <p class="text-p mb-0">Do you want to Delete?</p>
+                              </div>
+
+                              <div class="modal-footer" style="border: none;justify-content: center;
+                                    padding-top: 0;    padding-bottom: 20px;">
+                                <a href="{% url 'card_delete' obj.pk %}">
+                                  <button class="btn btn-success" data-bs-dismiss="modal"
+                                    style="background-color: #2dc58c; border:none;">Continue</button>
+                                </a>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                                  style="background-color: #df3c4e; border:none;">Discard</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {% if obj.slug %}
+                        <a href="{% url 'enquiry_records' obj.slug  %}" target="_blank"
+                          class="btn btn-sky rounded-pill me-2">
+                          <!-- <i class="uil uil-eye"></i> -->
+                          Enquiry Records
+                        </a>
+                        {% else %}
+                        <a href="" target="_blank" class="btn btn-sky rounded-pill me-2 disabled">
+                          <!-- <i class="uil uil-eye"></i> -->
+                          Enquiry Records
+                        </a>
+                        {% endif %}
+
+                        <button class="btn btn-green rounded-pill mb-3 me-2" data-bs-toggle="modal"
+                          data-bs-target="#dismissModal{{obj.id}}" style="background-color: #df3c4e; border:none;">
+                          <i class="uil uil-trash-alt"></i>
+                        </button>
+                        {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- /.content-wrapper -->
+
+  <footer class="bg-soft-primary">
+    <div class="container">
+      <div class="row">
+        {% if footer %}
+        <div class="col-xl-11 col-xxl-10 mx-auto">
+          <div class="card image-wrapper bg-full bg-image bg-overlay bg-overlay-400 mt-n50p mb-n5"
+            data-image-src="{{ footer.image.url }}">
+            <div
+              class="card-body p-6 p-md-11 d-lg-flex flex-row align-items-lg-center justify-content-md-between text-center text-lg-start">
+              <h3 class="display-6 mb-6 mb-lg-0 pe-lg-15 pe-xxl-18 text-white">
+                {{ footer.joinus_description }}
+                <!-- We are trusted by over {{ footer.joinus_client|default:0 }}+ clients. Join them by using our services and grow your business.-->
+              </h3>
+              <a href="#" class="btn btn-white rounded-pill mb-0 text-nowrap">Join Us</a>
+            </div>
+            <!--/.card-body -->
+          </div>
+          {% endif %}
+          <!--/.card -->
+        </div>
+        <!-- /column -->
+      </div>
+      <!-- /.row -->
+    </div>
+
+    <div class="container pb-12 ">
+      <div class="row gy-6 gy-lg-0">
+        <div class="col-md-4 col-lg-3">
+          <div class="widget">
+            {% if websitelogo %}
+            <img src="{{ websitelogo.image.url }}" alt="" class="logo-img" />
+            {% else %}
+            <img src="{% static 'assets/img/BC.png' %}" alt="" class="logo-img" />
+            {% endif %}
+            <p>{{footer.footer_description}}</p>
+            <!--            <img class="mb-1 footer_logo" src="../static/assets/img/BC.png" alt="" width="100%" />-->
+            <!--            <p class="mb-4">© 2023 All Right Reserved.<br class="d-none d-lg-block" />Proudly Coded by Team GFTPL</p>-->
+            <nav class="nav social">
+              <a href="{{ footer.twitter_link }}" target="_blank"><i class="uil uil-twitter"></i></a>
+              <a href="{{ footer.facebook_link }}" target="_blank"><i class="uil uil-facebook-f"></i></a>
+              <a href="{{ footer.instagram_link }}" target="_blank"><i class="uil uil-instagram"></i></a>
+              <a href="{{ footer.youtube_link }}" target="_blank"><i class="uil uil-youtube"></i></a>
+            </nav>
+            <!-- /.social -->
+          </div>
+          <!-- /.widget -->
+        </div>
+        <!-- /column -->
+        <div class="col-md-4 col-lg-3">
+          <div class="widget">
+            <h4 class="widget-title mb-3">Get in Touch</h4>
+            <div class="d-flex pe-2">
+              <i class="uil uil-map-marker me-1"></i>
+              <address class="">{{footer.address}}</address>
+            </div>
+            <div class="d-flex mb-2">
+              <i class="uil uil-envelope-alt me-1"></i>
+              <a href="mailto:{{footer.email}}" style="color: #60697b;">{{footer.email}}</a>
+            </div>
+            <div class="d-flex mb-2">
+              <i class="uil uil-phone-alt me-1"></i>
+              <a href="tel:{{footer.phone_no}}" style="color: #60697b;" class="mb-0">{{footer.phone_no}}</a>
+            </div>
+          </div>
+          <!-- /.widget -->
+        </div>
+        <!-- /column -->
+        <div class="col-md-4 col-lg-3">
+          <div class="widget">
+            <h4 class="widget-title mb-3">Learn More</h4>
+            <ul class="list-unstyled  mb-0">
+              <li><a href="{% url 'about_us' %}" style="color: #60697b;">About Us</a></li>
+              <li><a href="{% url 'contact_us' %}" style="color: #60697b;">Contact Us</a></li>
+              <!--              <li><a href="#" style="color: #60697b;">Projects</a></li>-->
+              <!--              <li><a href="#" style="color: #60697b;">Terms of Use</a></li>-->
+              <li><a href="{% url 'static_page' 'Terms-&-Conditions' %}" target="_blank" style="color: #60697b;">Terms &
+                  Conditions</a></li>
+              <li><a href="{% url 'static_page' 'Shipping-&-Delivery-Policy' %}" target="_blank"
+                  style="color: #60697b;">Shipping & Delivery Policy</a></li>
+              <li><a href="{% url 'static_page' 'Refund-&-Cancellation-Policy' %}" target="_blank"
+                  style="color: #60697b;">Refund & Cancellation Policy</a></li>
+              <li><a href="{% url 'static_page' 'Privacy-Policy' %}" target="_blank" style="color: #60697b;">Privacy
+                  Policy</a></li>
+            </ul>
+          </div>
+          <!-- /.widget -->
+        </div>
+        <!-- /column -->
+        <div class="col-md-12 col-lg-3">
+          <div class="widget">
+            <h4 class="widget-title mb-3">Our Newsletter</h4>
+            <p class="mb-5">Subscribe to our newsletter to get our news & deals delivered to you.</p>
+            <div class="newsletter-wrapper">
+              <!-- Begin Mailchimp Signup Form -->
+              <div id="mc_embed_signup2">
+                <form action="{% url 'subscribe' %}" method="post" id="subscribe_form1"
+                  name="mc-embedded-subscribe-form" class="validate dark-fields" target="_blank" novalidate>
+                  <div id="mc_embed_signup_scroll2">
+                    <div class="mc-field-group input-group form-floating">
+                      <input type="email" value="" required name="email" class="required email form-control"
+                        placeholder="Email Address" id="mce-EMAIL2">
+                      <!-- <label for="mce-EMAIL2">Email Address</label> -->
+                      <input type="submit" value="Join" class="btn btn-primary">
+                    </div>
+                    <div id="mce-responses2" class="clear">
+                      <div class="response" id="mce-error-response2" style="display:none"></div>
+                      <div class="response" id="mce-success-response2" style="display:none"></div>
+                    </div>
+                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                      <input type="text" name="b_ddc180777a163e0f9f66ee014_4b1bcfa0bc" tabindex="-1" value="">
+                    </div>
+                    <div class="clear"></div>
+                  </div>
+                </form>
+                <h2 id="subscrbe_id_id"></h2>
+
+              </div>
+              <!--End mc_embed_signup-->
+            </div>
+            <!-- /.newsletter-wrapper -->
+          </div>
+          <!-- /.widget -->
+        </div>
+        <!-- /column -->
+      </div>
+      <!--/.row -->
+    </div>
+    <!-- /.container -->
+    <div class="container lower-footer">
+      <div class="text-center">
+        <p class="mb-0">© 2023 All Right Reserved. Proudly Coded by <a href="https://gftpl.in/" target="_blank"
+            style="font-weight: 600;">Team GFTPL</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="progress-wrap">
+    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+      <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+    </svg>
+  </div>
+
+  <div class="modal fade" id="modal-signin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content text-center">
+        <div class="modal-body">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h2 class="mb-3 text-start">Welcome Back</h2>
+          <p class="lead mb-6 text-start">Fill your email and password to sign in.</p>
+
+          <form class="text-start mb-3" action="{% url 'signin' %}" method="post" id="signin-form">
+            {% csrf_token %}
+            <div class="form-floating mb-4">
+              <input type="email" class="form-control" name="email" placeholder="Email" id="signin_email">
+
+            </div>
+            <div class="form-floating password-field mb-4">
+              <input type="password" class="form-control" name="password" placeholder="Password" id="signin_password">
+              <span class="password-toggle"><i class="uil uil-eye"></i></span>
+
+            </div>
+            <button type="submit" class="btn btn-primary rounded-pill btn-login w-100 mb-2">Sign In</button>
+            <div class="text-start" style="text-align: start;">
+
+              <h2 id="signin_id"></h2>
+            </div>
+          </form>
+          <!-- /form -->
+          <p class="mb-1"><a href="#" class="hover" data-bs-target="#modal-forgotPass" data-bs-toggle="modal"
+              data-bs-dismiss="modal">Forgot Password?</a></p>
+          <p class="mb-0">Don't have an account? <a href="#" data-bs-target="#modal-signup" data-bs-toggle="modal"
+              data-bs-dismiss="modal" class="hover">Sign up</a></p>
+          <!--/.social -->
+        </div>
+        <!--/.modal-content -->
+      </div>
+      <!--/.modal-body -->
+    </div>
+    <!--/.modal-dialog -->
+  </div>
+
+  <div class="modal fade" id="modal-signup" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content text-center">
+        <div class="modal-body">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h2 class="mb-3 text-start">Businesscard4u</h2>
+          <p class="lead mb-6 text-start">Registration takes less than a minute.</p>
+
+          <form class="text-start mb-3" action="{% url 'signup' %}" id="sign-form" method="POST">
+            {% csrf_token %}
+            <div class="form-floating mb-4">
+              <input type="text" class="form-control" placeholder="Name" id="sign_name" name="full_name">
+
+            </div>
+            <div class="form-floating mb-4">
+              <input type="email" class="form-control" name="email" placeholder="Email" id="sign_email">
+
+            </div>
+            <div class="form-floating password-field mb-4">
+              <input type="password" class="form-control" placeholder="Password" id="sign_password" name="password">
+              <span class="password-toggle"><i class="uil uil-eye"></i></span>
+
+            </div>
+            <div class="form-floating password-field mb-4">
+              <input type="password" class="form-control" placeholder="Confirm Password" name="confirm_password"
+                id="sign_confirm_password">
+              <span class="password-toggle"><i class="uil uil-eye"></i></span>
+
+            </div>
+            <button class="btn btn-primary rounded-pill btn-login w-100 mb-2" type="submit">Sign Up</button>
+            <div class="text-start" style="text-align: start;">
+
+              <h2 id="msg_id"></h2>
+            </div>
+          </form>
+          <!-- /form -->
+          <p class="mb-0">Already have an account? <a href="#" data-bs-target="#modal-signin" data-bs-toggle="modal"
+              data-bs-dismiss="modal" class="hover">Sign in</a></p>
+
+
+          <!--/.social -->
+        </div>
+        <!--/.modal-content -->
+      </div>
+      <!--/.modal-body -->
+    </div>
+    <!--/.modal-dialog -->
+  </div>
+
+  <div class="modal fade" id="modal-forgotPass" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content text-center">
+        <div class="modal-body">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h2 class="mb-3 text-start">Forgot Password</h2>
+          <!-- <p class="lead mb-6 text-start">Enter new password</p> -->
+          <form class="text-start mb-3" action="{% url 'forgot_password' %}" method="post" id="forget-password-form">
+            <div class="form-floating password-field mb-4">
+              <label for="loginPassword">Email</label>
+              <input type="email" required class="form-control" placeholder="Enter Your Email"
+                id="forget_password_email">
+            </div>
+
+            <button type="submit" class="btn btn-primary rounded-pill btn-login w-100 mb-2">Foregot Password</button>
+          </form>
+          <!-- /form -->
+          <!--          <p class="mb-1"><a href="#" class="hover">Forgot Password?</a></p>-->
+          <p class="mb-0">Already have an account? <a href="#" data-bs-target="#modal-signin" data-bs-toggle="modal"
+              data-bs-dismiss="modal" class="hover">Sign in</a></p>
+
+          <!--/.social -->
+        </div>
+        <!--/.modal-content -->
+      </div>
+      <!--/.modal-body -->
+    </div>
+    <!--/.modal-dialog -->
+  </div>
+  <!--/.modal -->
+  <div _ngcontent-ipa-c1="" class="chat_btn"><!---->
+    <a _ngcontent-ipa-c1="" class="static_link" href="https://wa.me/{{footer.whatsapp_no}}" target="_blank"
+      tooltip="Message Us">
+      <img _ngcontent-ipa-c1="" class="width_160" src="{% static 'assets/img/we_r_here.png' %}">
+    </a>
+  </div>
+
+  <script src="{% static 'assets/js/plugins.js' %}"></script>
+  <script src="{% static 'assets/js/theme.js' %}"></script>
+  <script src="{% static 'assets/js/colors.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+  <script>
+    function getCookie(cname) {
+      var name = cname + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1);
+        if (c.indexOf(name) == 0)
+          return c.substring(name.length, c.length);
+      }
+      return "";
+    }
+  </script>
+  <!--  subscribe -->
+  <script type="text/javascript">
+    $(document).on('submit', '#subscribe_form1', function (e) {
+      e.preventDefault();
+
+      $.ajaxSetup({
+        headers: {
+          "X-CSRFToken": getCookie("csrftoken")
+        },
+      });
+
+      $.ajax({
+        type: 'POST',
+        url: "{% url 'subscribe' %}",
+        data: {
+          email: $('#mce-EMAIL2').val(),
+
+        },
+        success: function (data) {
+          $('#mce-EMAIL2').val('');
+          var my_email = document.getElementById('mce-EMAIL2');
+          my_email.value = null;
+
+          var signin_id = document.getElementById("subscrbe_id_id");
+          signin_id.innerHTML = '';
+
+          const signin_newDiv = document.createElement("div");
+          signin_newDiv.innerHTML = data.msg;
+          console.log(data.msg)
+          signin_newDiv.classList.add('success-toast', data.color_class);
+
+          signin_id.appendChild(signin_newDiv);
+          setTimeout(function () {
+            signin_newDiv.remove();
+          }, 3000);
+
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

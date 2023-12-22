@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>New Account Created</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #333;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+      }
+
+      .message {
+        margin-bottom: 20px;
+      }
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+      .button:hover {
+        background-color: #0056b3;
+      }
+      .footer {
+        margin-top: 20px;
+        text-align: left;
+        color: #777;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+
+      <p>Dear {{ username }},</p>
+
+      <p>
+          We are delighted to inform you that your payment of {{ currency }} {{ amount }} for the Virtual card has been successfully processed. Your virtual card is now online and ready to share with your professional network.
+      </p>
+
+      <p>
+          To view your virtual card, please follow the link provided below:
+          {{ template_link }}
+      </p>
+
+      <p>
+         Your virtual card has been created based on the information you provided in your profile.
+          It is a powerful tool to help you promote your business and grow your professional network.
+          You can share your virtual card through email, text message, social media, or any other means that you find convenient.
+      </p>
+
+        <p>
+            If you have any questions or concerns, please do not hesitate to contact our support team.
+            Thank you for choosing BusinessCard4U as your professional networking partner.
+            We wish you all the best in your business endeavors!
+        </p>
+
+        <div class="footer">
+            <p>Best regards,</p>
+            <p>BusinessCard4U Team</p>
+      </div>
+
+    </div>
+  </body>
+</html>

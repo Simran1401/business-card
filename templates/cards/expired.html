@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>New Account Created</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #333;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+      }
+
+      .message {
+        margin-bottom: 20px;
+      }
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+      .button:hover {
+        background-color: #0056b3;
+      }
+      .footer {
+        margin-top: 20px;
+        text-align: left;
+        color: #777;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+
+      <p>Dear {{ username }},</p>
+
+      <p>
+          We hope this email finds you well. We would like to remind you that your subscription for your virtual card on the BusinessCard4U platform has expired.
+      </p>
+
+      <p>
+          To continue using your virtual card and enjoy the benefits of our platform,
+          we request you to complete the payment process and renew your subscription.
+
+      </p>
+
+      <p>
+         Renewing your subscription is easy. Simply log in to your BusinessCard4U account and follow the payment process.
+          If you have any questions or concerns, please do not hesitate to contact our support team.
+
+      </p>
+
+        <p>
+            We value your business and appreciate your continued support.
+            We look forward to having you onboard with us.
+
+        </p>
+
+        <div class="footer">
+            <p>Best regards,</p>
+            <p>BusinessCard4U Team</p>
+      </div>
+
+    </div>
+  </body>
+</html>

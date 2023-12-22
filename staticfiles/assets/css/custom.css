@@ -1,0 +1,241 @@
+#contact .container {
+    margin-bottom: 100px;
+}
+
+.progress-wrap {
+    left: 1.5rem !important;
+    right: 0 !important;
+}
+
+.static_link[_ngcontent-ipa-c1] {
+    padding: 0;
+    border: 0;
+    position: fixed;
+    z-index: 16000160;
+    bottom: 0;
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 0;
+    right: 0;
+}
+
+.width_160 {
+    width: 160px;
+}
+
+.form-tab::after {
+    content: '';
+       /* display: flex; */
+       height: 2px;
+       width: 100%;
+       background: #5eb9f0;
+       position: absolute;
+       top: 30%;
+       left: 100%;
+       transform: translate(-50%,-50%);
+       z-index: 0;
+}
+
+.seven::after{
+    content: '';
+    display: none;
+}
+
+.form-tab{
+    display: flex;
+    margin-right: 0;
+    align-items: baseline;
+    border-bottom: none !important;
+    margin-right: 0 !important;
+    position: relative;
+}
+
+.form-tab span{
+    background-color: #5eb9f0;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-tabs .form-tab.active span{
+    background-color: #3f78e0;
+}
+
+.form-tabs .form-tab.active::after{
+    background: #3f78e0;
+}
+
+.form-tabs{
+    justify-content: center;
+}
+
+.form-tab .d-flex{
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.logo-img{
+    width: 12%;
+}
+
+.form-floating label{
+    position: initial !important;
+    padding: 0 !important;
+}
+
+input::placeholder {
+    display: block;
+    color: black;
+    visibility: visible;
+}
+
+.colors{
+    width: 30px;
+    height: 30px;
+    border-radius: 25%;
+    background-color: #3f78e0;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.colors:active, .colors:focus, .colors:focus-visible{
+    border: 2px solid #000;
+}
+
+.colors.active{
+    border: 2px solid #000;
+}
+
+.d_flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-check{
+    text-align: left;
+}
+
+.template-box img{
+    width: 100%;
+}
+
+.template_tab{
+    height: 600px;
+    margin-bottom: 100px;
+}
+
+.template_tab .col-md-5{
+    overflow: auto;
+    height: 100%;
+}
+
+.last_part{
+    padding-top: 20px;
+}
+
+#color_1{
+    background-color: dodgerblue;
+}
+
+#color_2{
+    background-color: tomato;
+}
+
+#color_3{
+    background-color: orange;
+}
+
+#color_4{
+    background-color: mediumseagreen;
+}
+
+#color_5{
+    background-color: violet;
+}
+
+#color_6{
+    background-color: brown;
+}
+
+#color_7{
+    background-color: blueviolet;
+}
+
+#color_8{
+    background-color: chocolate;
+}
+
+#color_9{
+    background-color: crimson;
+}
+
+#color_10{
+    background-color: darkgreen;
+}
+
+#color_11{
+    background-color: darkmagenta;
+}
+
+#color_12{
+    background-color: deeppink;
+}
+
+#color_13{
+    background-color: gold;
+}
+
+#color_14{
+    background-color: green;
+}
+
+#color_15{
+    background-color: black;
+}
+
+@media (max-width:1280px) {
+    .logo-img{
+        width: 17%;
+    }
+}
+
+@media (max-width:992px) {
+    .logo-img{
+        width: 28%;
+        
+    }
+    .navbar-brand{
+        padding: 0 !important;
+    }
+
+    .template_tab{
+        height: 800px;
+    }
+
+    .gallery_imgs {
+        width: 49%;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+@media (max-width:765px) {
+    .contact-box {
+        padding: 0.5rem !important;
+    }
+
+    .logo-img{
+        width: 45%;
+    }
+
+    .template_tab{
+        height: auto;
+    }
+}

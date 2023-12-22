@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ cominfo.company_name }}</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% if cominfo.logo %} {{ cominfo.logo.url }} {% endif %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'assets_one/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'assets_one/icofont/icofont.min.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'assets_one/css/custom.css' %}">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Lora:wght@400;500;700&family=Merriweather:wght@400;700&family=Nunito:wght@400;500;700&family=Oswald:wght@400;500;700&family=Playfair+Display:wght@400;500;700&family=Poppins:wght@400;500;700&family=Roboto:wght@400;500;700&family=Source+Sans+Pro:wght@400;700&family=Ubuntu:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .logo-img {
+            width: 100px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        a.nav-link[_ngcontent-oid-c1] {
+            color: #fff !important;
+            font-family: 'Montserrat';
+        }
+
+        .social-media1 {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            padding-left: 10px;
+        }
+
+        .tooltip {
+            opacity: 1;
+            top: -110%;
+            left: 50%;
+            transform: translate(-50%, 0);
+            background: #000000bf;
+            width: max-content;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: .3s;
+        }
+
+        .tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            height: 0;
+            /* background: #000; */
+            width: 0;
+            left: 50%;
+            transform: translate(-50%, 0);
+            border-top: 10px solid #000000bf;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+        }
+
+        #copyVCardUrl,
+        #copyVCardUrl2,  #copyVCardUrl3 {
+            position: relative;
+        }
+
+        .btn-close {
+            position: absolute;
+            left: 98%;
+            top: 5%;
+            transform: translate(-100%, 0);
+            z-index: 2;
+        }
+
+        .insta{
+            
+background: #f09433; 
+background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+        }
+
+        .fb{
+            background-color: #3b5998 !important;
+        }
+
+        .twitter{
+            background-color: #1da1f2 !important;
+        }
+
+        .yt{
+            background-color: #ff0000 !important;
+        }
+
+        .lin{
+            background-color: #0e76a8 !important;
+        }
+
+        .pin{
+            background-color: #b7081b !important;
+        }
+
+        .btn__div{
+            text-align: center;
+        }
+
+        .glow-on-hover {
+            width: 200px;
+            height: 40px;
+            border: none;
+            outline: none;
+            font-weight: 600;
+            color: #fff;
+            font-size: 14px;
+            background: #111;
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+            border-radius: 10px;
+        }
+
+        .glow-on-hover:before {
+            content: '';
+            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+            position: absolute;
+            top: -2px;
+            left:-2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing 20s linear infinite;
+            opacity: 1;
+            transition: opacity .3s ease-in-out;
+            border-radius: 10px;
+        }
+
+        .glow-on-hover:active {
+            color: #000
+        }
+
+        .glow-on-hover:after {
+            z-index: -1;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+        }
+
+        .whatsapp-btn{
+            background-color: #25D366;
+            height: 40px;
+            border: none;
+            color: #fff;
+            width: 75%;
+        }
+
+        .whatsapp_form input{
+            height: 40px;
+            border: 1px solid #9c9c9c;
+            margin-right: 6px;
+            width: 96%;
+        }
+
+        .intl-tel-input,
+        .iti{
+            width: 100%;
+        }
+
+        @keyframes glowing {
+            0% { background-position: 0 0; }
+            50% { background-position: 400% 0; }
+            100% { background-position: 0 0; }
+        }
+
+        @media (max-width:765px) {
+            .tooltip {
+                top: -100%;
+                left: 100%;
+                transform: translate(-100%,0);
+            }
+            .tooltip::after{
+                left: 85%;
+            }
+            .social-media1 .tooltip{
+                top: -70%;
+                left: 50%;
+                transform: translate(-50%,0);
+            }
+            .tooltip::after{
+                left: 50%;
+            }
+
+            .whatsapp-btn{
+                width: 100%;
+                font-size: 12px;
+            }
+            .whatsapp_form input{
+                font-size: 12px;
+            }
+
+        }
+
+        @media (max-width:320px) {
+            .tooltip {
+                top: -100%;
+                left: 100%;
+                transform: translate(-100%,0);
+            }
+
+            .tooltip::after{
+                left: 85%;
+            }
+
+            .modal .share-btn {
+                font-size: 10px;
+            }
+
+            #vCardUrl,
+            #vCardUrl2, #vCardUrl3 {
+                font-size: 12px;
+            }
+
+            .first_part{
+                padding: 10px;
+            }
+
+            .details-box p{
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav _ngcontent-oid-c1="" class="navbar bg-dark fixed-bottom justify-content-between flex-nowrap flex-row  ">
+        <div _ngcontent-oid-c1="" class="collapse navbar-collapse show" id="navbarCollapse">
+
+            <ul _ngcontent-oid-c1="" class="nav navbar-nav flex-row mr-auto w-100 nav-justified webMenu">
+                <li _ngcontent-oid-c1="" class="nav-item cursor-pointer"><a _ngcontent-oid-c1="" class="nav-link"
+                        href="#scrollspyHeading1"><i _ngcontent-oid-c1="" aria-hidden="true"
+                            class="fa fa-home"></i>Home</a></li>
+                <li _ngcontent-oid-c1="" class="nav-item cursor-pointer"><a _ngcontent-oid-c1="" class="nav-link"
+                        href="#scrollspyHeading2"><i _ngcontent-oid-c1="" aria-hidden="true"
+                            class="fa fa-book"></i>About Us</a></li>
+                {% if setting.prodcut_and_service_section is True %}
+
+                {% if productandservice %}
+                <li _ngcontent-oid-c1="" class="nav-item cursor-pointer"><a _ngcontent-oid-c1="" class="nav-link"
+                        href="#scrollspyHeading3"><i _ngcontent-oid-c1="" aria-hidden="true"
+                            class="fa fa-shopping-bag"></i>Products</a></li>
+                {% endif %}
+                {% endif %}
+
+                {% if setting.payment_option_section is True %}
+
+                {% if bankdetail %}
+                <li _ngcontent-oid-c1="" class="nav-item cursor-pointer active"><a _ngcontent-oid-c1="" class="nav-link"
+                        href="#scrollspyHeading4" style="font-weight: 400;"><i _ngcontent-oid-c1="" aria-hidden="true"
+                            class="fa fa-money"></i>Payments</a>
+                </li>
+                {% endif %}
+                {% endif %}
+
+                {% if setting.gallery_section is True %}
+
+                {% if gallery %}
+                <li _ngcontent-oid-c1="" class="nav-item cursor-pointer"><a _ngcontent-oid-c1="" class="nav-link"
+                        href="#scrollspyHeading5"><i _ngcontent-oid-c1="" aria-hidden="true"
+                            class="fa fa-picture-o"></i>Gallery</a></li>
+                            {% endif %}
+                            {% endif %}
+
+                            {% if setting.video_section is True %}
+
+                            {% if social.video_link %}
+                <li _ngcontent-oid-c1="" class="nav-item cursor-pointer"><a _ngcontent-oid-c1="" class="nav-link"
+                        href="#scrollspyHeading6"><i _ngcontent-oid-c1="" aria-hidden="true"
+                            class="fa fa-video-camera"></i>Videos</a></li>
+                            {% endif %}
+                            {% endif %}
+
+                <li _ngcontent-oid-c1="" class="nav-item cursor-pointer"><a _ngcontent-oid-c1="" class="nav-link"
+                        href="#scrollspyHeading7"><i _ngcontent-oid-c1="" aria-hidden="true"
+                            class="fa fa-commenting"></i>Enquiry</a></li>
+            </ul>
+            <ul _ngcontent-oid-c1="" class="nav navbar-nav flex-row mr-auto w-100 nav-justified mobileMenu">
+                <li _ngcontent-oid-c1="" class="nav-item cursor-pointer"><a _ngcontent-oid-c1="" class="nav-link"
+                        href="#scrollspyHeading1"><i _ngcontent-oid-c1="" aria-hidden="true" class="fa fa-home"></i></a>
+                </li>
+                <li _ngcontent-oid-c1="" class="nav-item cursor-pointer"><a _ngcontent-oid-c1="" class="nav-link"
+                        href="#scrollspyHeading2"><i _ngcontent-oid-c1="" aria-hidden="true" class="fa fa-book"></i></a>
+                </li>
+                {% if setting.prodcut_and_service_section is True %}
+
+                {% if productandservice %}
+                <li _ngcontent-oid-c1="" class="nav-item cursor-pointer"><a _ngcontent-oid-c1="" class="nav-link"
+                        href="#scrollspyHeading3"><i _ngcontent-oid-c1="" aria-hidden="true"
+                            class="fa fa-shopping-bag"></i></a></li>
+                            {% endif %}
+                            {% endif %}
+
+                            {% if setting.payment_option_section is True %}
+
+                {% if bankdetail %}
+                <li _ngcontent-oid-c1="" class="nav-item cursor-pointer active"><a _ngcontent-oid-c1="" class="nav-link"
+                        href="#scrollspyHeading4"><i _ngcontent-oid-c1="" aria-hidden="true"
+                            class="fa fa-money"></i></a></li>
+                            {% endif %}
+                            {% endif %}
+
+                            {% if setting.gallery_section is True %}
+
+                            {% if gallery %}
+                <li _ngcontent-oid-c1="" class="nav-item cursor-pointer"><a _ngcontent-oid-c1="" class="nav-link"
+                        href="#scrollspyHeading5"><i _ngcontent-oid-c1="" aria-hidden="true"
+                            class="fa fa-picture-o"></i></a></li>
+                            {% endif %}
+                            {% endif %}
+
+                            {% if setting.video_section is True %}
+
+                            {% if social.video_link %}
+                <li _ngcontent-oid-c1="" class="nav-item cursor-pointer"><a _ngcontent-oid-c1="" class="nav-link"
+                        href="#scrollspyHeading6"><i _ngcontent-oid-c1="" aria-hidden="true"
+                            class="fa fa-video-camera"></i></a></li>
+                            {% endif %}
+                            {% endif %}
+                <li _ngcontent-oid-c1="" class="nav-item cursor-pointer"><a _ngcontent-oid-c1="" class="nav-link"
+                        href="#scrollspyHeading7"><i _ngcontent-oid-c1="" aria-hidden="true"
+                            class="fa fa-commenting"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div _ngcontent-oid-c1="" class="profile_content pt-0 main_bg col-sm-12 mb-5"
+        style="background-image:url('{{ setting.bg_image.image.url }}');">
+        <div _ngcontent-oid-c1="" class="row w-100 m-0">
+            <div _ngcontent-oid-c1="" class="mx-auto p-2 col-md-4 main_card">
+                <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example"
+                    tabindex="0">
+                    {% if setting.view_count is True %}
+
+                    <div _ngcontent-oid-c1="" id="scrollspyHeading1" class="card  mb-1" id="step1">
+                        <div _ngcontent-oid-c1="" class="card-body top-part">
+                            <div class="logo">
+                                <a href="/">
+                                    <img src="{% if cominfo.logo %} {{ cominfo.logo.url }} {% endif %}" alt=""
+                                        class="logo-img" />
+                                </a>
+                            </div>
+                            <div _ngcontent-oid-c1="" class="views-label">
+                                <i _ngcontent-oid-c1="" class="fa fa-eye view_label_icon"></i> Views: <b
+                                    _ngcontent-oid-c1="">{{ card.views }}</b>
+                            </div>
+                        </div>
+
+                        <div _ngcontent-oid-c1="" class="card-body text-center first_part">
+                            <img _ngcontent-oid-c1="" class="company-logo"
+                                src="{% if cominfo.profile_picture %} {{ cominfo.profile_picture.url }} {% endif %}">
+                            <div _ngcontent-oid-c1="" class="firmname head_font"> {{ cominfo.name }} </div>
+                            <!-- <hr _ngcontent-oid-c1="" class="colorgraph1 "> -->
+                            <h5 _ngcontent-oid-c1="" class="m-0 manager_name head_font"> {{ cominfo.designation }} </h5>
+                            <h5 _ngcontent-oid-c1="" class="mt-2 manager_name head_font"> </h5>
+                            <div _ngcontent-oid-c1="" class="social-media  mt-4 mb-3">
+                                <a _ngcontent-oid-c1="" class="btn  btn-sm   mt-0" target="_blank"
+                                    href="tel:+{{ cominfo.contact_number_1}}" style="font-weight: 600;">
+                                    <i _ngcontent-oid-c1="" class="icofont-phone"></i>
+                                </a>
+                                <a _ngcontent-oid-c1="" class="btn  btn-sm ml-2  mt-0" target="_blank"
+                                    href="https://wa.me/{{ cominfo.whatsapp_number_1 }}?text=Got reference from your Digital vCard. Want to know more about your products and services."
+                                    style="font-weight: 600;">
+                                    <i _ngcontent-oid-c1="" class="icofont-whatsapp"></i>
+                                </a>
+
+                                {% if cominfo.google_map_link %}
+                                <a _ngcontent-oid-c1="" class="btn  btn-sm ml-2   mt-0" target="_blank"
+                                    href="{{ cominfo.google_map_link }}" style="font-weight: 600;">
+                                    <i _ngcontent-oid-c1="" class="icofont-google-map"></i>
+                                </a>
+                                {% endif %}
+
+                                <a _ngcontent-oid-c1="" class="btn  btn-sm ml-2  mt-0" rel="publisher" target="_blank"
+                                    href="mailto:{{ cominfo.email }}" style="font-weight: 600;">
+                                    <i _ngcontent-oid-c1="" class="icofont-envelope"></i>
+                                </a>
+                            </div>
+                            <div _ngcontent-oid-c1="" class="card details-box  mt-4">
+                                <div _ngcontent-oid-c1="" class="card-body  text-start">
+                                    <div _ngcontent-oid-c1="" class="info">
+
+                                        <div _ngcontent-oid-c1="" class="address">
+                                            <p ><i _ngcontent-oid-c1="" href=""
+                                                    class="icofont-google-map"></i>{{ cominfo.address }}</p>
+                                        </div>
+
+                                        <div _ngcontent-oid-c1="" class="email">
+                                            <p _ngcontent-oid-c1=""><i _ngcontent-oid-c1=""
+                                                    class="icofont-envelope"></i><a _ngcontent-oid-c1="" target="_blank"
+                                                    href="mailto:amanullahe6@gmail.com">{{ cominfo.email }} </a></p>
+                                        </div>
+                                        <div _ngcontent-oid-c1="" class="row">
+                                            <div _ngcontent-oid-c1="" class="col-sm-12">
+                                                <div _ngcontent-oid-c1="" class="timing">
+                                                    <p _ngcontent-oid-c1=""><i class="icofont-clock-time"></i>
+                                                        Mon - Sat : 9-30 AM to 6-30 PM 
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div _ngcontent-oid-c1="" class="col-sm-12">
+                                                <div _ngcontent-oid-c1="" class="phone">
+                                                    <p _ngcontent-oid-c1=""><i _ngcontent-oid-c1=""
+                                                            class="icofont-phone"></i>{{ cominfo.contact_number_1 }}</p>
+                                                </div>
+                                            </div>
+
+                                            <div _ngcontent-oid-c1="" class="col-sm-12">
+                                                <div _ngcontent-oid-c1="" class="phone">
+                                                    <p _ngcontent-oid-c1=""><i _ngcontent-oid-c1=""
+                                                            class="icofont-whatsapp"></i>{{ cominfo.whatsapp_number_1 }}
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <!-- <div class="btn__div mb-3">
+                                        <button class="glow-on-hover" type="button">SHOP NOW</button>
+                                        <button class="btn  btn-sm  mt-3 font-weight-600 share-btn" style="padding: 5px 30px;">
+                                            SHOP NOW
+                                        </button>
+                                    </div> -->
+
+                                    <form class="whatsapp_form"  onsubmit="return process(event)"  method="POST">
+                                        {% csrf_token %}
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            <input type="tel" name="whatsappnumber" class="form-control" id="phone" placeholder="Whatsapp Number" required>
+                                            <button type="submit" class="whatsapp-btn" name="whatsapp">
+                                                <i class="icofont-whatsapp"></i> Share On Whatsapp
+                                            </button>
+                                        </div>
+                                        <div class="alert alert-info" style="display: none"></div>
+                                        <div class="alert alert-error" style="display: none"></div>
+                                    </form>
+                                    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+                                    <script>
+                                        const phoneInputField = document.querySelector("#phone");
+                                        const phoneInput = window.intlTelInput(phoneInputField, {
+                                            utilsScript:
+                                                "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+                                            initialCountry: "IN"
+                                        });
+                                    
+                                        const info = document.querySelector(".alert-info");
+                                        const error = document.querySelector(".alert-error");
+                                    
+                                        function process(event) {
+                                            event.preventDefault();
+                                            const phoneNumber = phoneInput.getNumber();
+                                    
+                                            info.style.display = "none";
+                                            error.style.display = "none";
+                                    
+                                            if (phoneInput.isValidNumber()) {
+                                                info.style.display = "none";
+                                    
+                                                // Construct the WhatsApp URL
+                                                const message = "{{request.build_absolute_uri }}"; // Replace with your page URL
+                                                const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+                                    
+                                                // Open WhatsApp URL in a new tab or window
+                                                window.open(whatsappUrl, "_blank");
+                                            } else {
+                                                error.style.display = "";
+                                                error.innerHTML = `<i class="fa fa-times-circle"></i> Invalid mobile number`;
+                                                return false;
+                                            }
+                                        }
+                                    </script>
+                                    
+
+                                    <div  class="social-media-div info d-flex justify-content-center mt-3 mb-2" >
+                                        {% if social.instagram %}
+                                        <a href="{{ social.instagram }}"><i class="icofont-instagram insta"></i></a>
+                                        {% endif %}
+
+                                        {% if social.facebook %}
+                                        <a href="{{ social.facebook }}" ><i class="icofont-facebook fb"></i></a>
+
+                                        {% endif %}
+                                        {% if social.twitter %}
+                                        <a href="{{ social.twitter }}"><i class="icofont-twitter twitter"></i></a>
+                                        {% endif %}
+
+                                        {% if social.youtube %}
+                                        <a href="{{ social.youtube }}"><i class="icofont-youtube-play yt"></i></a>
+                                        {% endif %}
+                                        {% if social.linkedin %}
+                                        <a href="{{ social.linkedin }}"><i class="icofont-linkedin lin"></i></a>
+                                        {% endif %}
+                                        {% if social.pinterest %}
+                                        <a href="{{ social.pinterest }}" ><i class="icofont-pinterest pin"></i></a>
+                                        {% endif %}
+                                    </div>
+
+                                    <div _ngcontent-oid-c1="" class="row">
+                                        <div _ngcontent-oid-c1="" class="col-md-12 text-center">
+                                            <button class="btn  btn-sm me-2 mt-3 font-weight-600 share-btn"
+                                                data-bs-toggle="modal" data-bs-target="#exampleModal" type="button"
+                                                fdprocessedid="teu0eo">
+                                                <i class="fa fa-share-alt share_b"></i> &nbsp;Share
+                                            </button>
+                                            <button class="btn  btn-sm  mt-3 font-weight-600 share-btn" id="save-btn">
+                                                <i class="fa fa-address-book-o" aria-hidden="true"></i>&nbsp;
+                                                Save Contact
+                                            </button>
+                                            <input type="text" style="display: none;" value="{{cominfo.address}}" id="contact_address">
+                                         
+                                            <script>
+                                              
+                                                var saveBtn = document.getElementById("save-btn");
+                                                var _address= document.getElementById("contact_address");
+                                                console.log(_address.value);
+                                                saveBtn.addEventListener("click", function () {
+                                                    var contact = {
+                                                        name: "{{cominfo.name}}",
+                                                        phone: "{{ cominfo.contact_number_1}}",
+                                                        address: _address.value,
+                                                        email: "{{cominfo.email}}",
+                                                        designation: "{{cominfo.designation}}",
+                                                        company: "{{cominfo.company_name}}",
+                                                        website: "{{request.build_absolute_uri }}"
+                                                    };
+                                                    console.log(contact.designation);
+                                                    var vcard = "BEGIN:VCARD\nVERSION:4.0\nFN:" + contact.name + "\nTEL:" + contact.phone + "\nEMAIL:" + contact.email +
+                                                        "\nADR;TYPE=work:;;" + contact.address + ";;;;" +
+                                                        "\nURL:" + contact.website +
+                                                        "\nTITLE:" + contact.designation +
+                                                        "\nORG:" + contact.company +
+                                                        "\nEND:VCARD";
+                                                    var blob = new Blob([vcard], { type: "text/vcard;charset=utf-8" });
+                                                    var url = URL.createObjectURL(blob);
+
+                                                    const newLink = document.createElement('a');
+                                                    newLink.href = url;
+                                                    newLink.download = contact.name + ".vcf";
+                                                    newLink.textContent = contact.name;
+
+                                                    if (document.createEvent) {
+                                                        var event = document.createEvent('MouseEvents');
+                                                        event.initEvent('click', true, true);
+                                                        newLink.dispatchEvent(event);
+                                                    } else {
+                                                        newLink.click();
+                                                    }
+                                                });
+
+                                                // var saveBtn = document.getElementById("save-btn");
+                                                // saveBtn.addEventListener("click", function () {
+                                                // var contact = {
+                                                //     name: "{{cominfo.name}}",
+                                                //     phone: "{{ cominfo.contact_number_1}}",
+                                                //     email: "{{cominfo.email}}"
+                                                // };
+                                                // var vcard = "BEGIN:VCARD\nVERSION:4.0\nFN:" + contact.name + "\nTEL;TYPE=work,voice:" + contact.phone + "\nEMAIL:" + contact.email + "\nEND:VCARD";
+                                                // var blob = new Blob([vcard], { type: "text/vcard" });
+                                                // var url = URL.createObjectURL(blob);
+                                                
+                                                // const newLink = document.createElement('a');
+                                                // newLink.download = contact.name + ".vcf";
+                                                // newLink.textContent = contact.name;
+                                                // newLink.href = url;
+                                                
+                                                // newLink.click();
+                                                // });
+                                            </script>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endif %}
+
+                    {% if setting.about_us_section is True %}
+
+                    <div _ngcontent-oid-c1="" id="scrollspyHeading2" class="card  mb-1" id="step2">
+                        <div _ngcontent-oid-c1="" class="card-body">
+                            <h4 _ngcontent-oid-c1="" class="text-center head_font">ABOUT US</h4>
+                            <hr _ngcontent-oid-c1="" class="colorgraph1 ">
+                            <div _ngcontent-oid-c1="" class="company-address">
+                                {% if cominfo.company_name %}
+                                <div _ngcontent-oid-c1="" class=" row col-md-12" style="flex-wrap: nowrap;"><label
+                                        _ngcontent-oid-c1=""
+                                        class="about_width_30 col-form-label font-weight-bold p-0 pb-2"
+                                        for="staticEmail">Company Name</label>
+                                    <div _ngcontent-oid-c1="" class=" width_5 text-center font-weight-bold"> : </div>
+                                    <div _ngcontent-oid-c1="" class="width_66"> {{ cominfo.company_name }} </div>
+                                </div>
+                                {% endif %}
+
+                                {% if about.estblishment_year.year %}
+                                <div _ngcontent-oid-c1="" class="row col-md-12" style="flex-wrap: nowrap;"><label
+                                        _ngcontent-oid-c1=""
+                                        class="about_width_30 col-form-label font-weight-bold p-0 pb-2"
+                                        for="staticEmail">Year of Est</label>
+                                    <div _ngcontent-oid-c1="" class=" width_5 text-center font-weight-bold"> : </div>
+                                    <div _ngcontent-oid-c1="" class="width_66"> {{ about.estblishment_year.year }}
+                                    </div>
+                                </div>
+                                {% endif %}
+
+                                {% if about.business_nature %}
+                                <div _ngcontent-oid-c1="" class="row col-md-12" style="flex-wrap: nowrap;"><label
+                                        _ngcontent-oid-c1=""
+                                        class="about_width_30 col-form-label font-weight-bold p-0 pb-2"
+                                        for="staticEmail">Nature of Business</label>
+                                    <div _ngcontent-oid-c1="" class="width_5 text-center font-weight-bold"> : </div>
+                                    <div _ngcontent-oid-c1="" class="width_66"><span
+                                            _ngcontent-oid-c1="">{{about.business_nature }}</span></div>
+                                </div>
+                                {% endif %}
+
+                                {% if about.GSTIN_No %}
+                                    <div _ngcontent-oid-c1="" class="row col-md-12" style="flex-wrap: nowrap;"><label
+                                            _ngcontent-oid-c1=""
+                                            class="about_width_30 col-form-label font-weight-bold p-0 pb-2"
+                                            for="staticEmail">GSTIN</label>
+                                        <div _ngcontent-oid-c1="" class="width_5 text-center font-weight-bold"> : </div>
+                                        <div _ngcontent-oid-c1="" class="width_66"><span
+                                                _ngcontent-oid-c1="">{{about.GSTIN_No }}</span></div>
+                                    </div>
+                                {% endif %}
+
+                                {% if about.Desc %}
+                                <div _ngcontent-oid-c1="" class="col-md-12 pl-0 pr-0">
+                                    <div _ngcontent-oid-c1="" class=" w-100 text-justify ">
+                                        <div _ngcontent-oid-c1="" class="p_custom">
+                                            {{ about.Desc|safe }}
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
+
+                                {% if about.upload_documents %}
+                                <div _ngcontent-oid-c1="" class="row"><a _ngcontent-oid-c1="" class="document-wrapper"
+                                        download="" target="_blank"
+                                        href="{% if about.upload_documents %} {{ about.upload_documents.url }} {% endif %}">
+                                        <div _ngcontent-oid-c1="" class="pdf-icon"><i _ngcontent-oid-c1=""
+                                                class="fa fa-file-pdf-o pdf_red"></i></div>
+                                        <div _ngcontent-oid-c1="" class="pdf-number">{{ about.document_name|default:'Documents'}}
+                                        </div>
+                                        <div _ngcontent-oid-c1="" class="download-icon"><i _ngcontent-oid-c1=""
+                                                class="fa fa-download"></i></div>
+                                    </a>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endif %}
+
+                    {% if setting.prodcut_and_service_section is True %}
+
+                    {% if productandservice %}
+
+                    <div _ngcontent-oid-c1="" id="scrollspyHeading3" class="card   mb-1" id="step3">
+                        <div _ngcontent-oid-c1="" class="card-body">
+                            <h4 _ngcontent-oid-c1="" class="text-center head_font"> PRODUCTS </h4>
+                            <hr _ngcontent-oid-c1="" class="colorgraph1">
+                            {% for x in productandservice %}
+                            <div _ngcontent-oid-c1="" class="product-services">
+                                <div _ngcontent-oid-c1="" class="card bg-light mt-3">
+                                    <div _ngcontent-oid-c1="" class="card-header text-center">
+                                        <h6 _ngcontent-oid-c1="" class="font-weight-xl head_font"> {{ x.name }} </h6>
+                                    </div>
+                                    <div _ngcontent-oid-c1="" class="card-img-top"><img _ngcontent-oid-c1=""
+                                            class="product-img text-center" src="{{ x.image.url }}"></div>
+                                    <div _ngcontent-oid-c1="" class="bg_white"
+                                        style="display: flex; margin-top:8px;justify-content: space-between;align-items: center;">
+
+                                        {% if x.price %}
+                                        <p _ngcontent-oid-c1="" class="prod_p" style="padding-left: 12px;">Price:
+                                            {{ x.Currency|default:'' }} {{ x.price }}</p>
+                                        {% endif %}
+
+                                        <p _ngcontent-oid-c1="" class="prod_p"></p><a _ngcontent-oid-c1=""
+                                            class="btn btn-sm enuery" target="_blank"
+                                            href="https://wa.me/{{ cominfo.whatsapp_number_1 }}?text=Hi, I am interested in your product/service: {{ x.name }}.. Please provide more details."
+                                            style=" font-weight: 600;">Enquiry</a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    {% endif %}
+
+                    {% endif %}
+
+                    {% if setting.payment_option_section is True %}
+
+                    {% if bankdetail %}
+                    <div _ngcontent-oid-c1="" id="scrollspyHeading4" class="card   mb-1" id="step4">
+                        <div _ngcontent-oid-c1="" class="card-body">
+                            <h4 _ngcontent-oid-c1="" class="text-center head_font">PAYMENTS</h4>
+                            <hr _ngcontent-oid-c1="" class="colorgraph1 ">
+                            <div _ngcontent-oid-c1="" class="payment-details">
+
+                                
+                                    <h5 class="head_font ">UPI Payments :</h5>
+                                <div _ngcontent-oid-c1="" class="">
+                                        <div _ngcontent-oid-c1="" class="pt-2">
+                                            {% if bankdetail.type_of_QR == 'GooglePay' %}
+                                            {% if bankdetail.payment_number %}
+                                                <div _ngcontent-oid-c1="" class="row p-0 m-0 w-100 col-md-12" style="flex-wrap: nowrap;">
+                                                    <label _ngcontent-oid-c1=""
+                                                        class="width_30 col-form-label font-weight-bold p-0 pb-2"
+                                                        for="staticEmail">GooglePay No.</label>
+                                                    <div _ngcontent-oid-c1="" class="width_5 text-center font-weight-bold"> :
+                                                    </div>
+                                                    <div _ngcontent-oid-c1="" class="width_70"> {{ bankdetail.payment_number}}
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                            {% endif %}
+
+                                            {% if bankdetail.UPI_number %}
+                                            <div _ngcontent-oid-c1="" class="row p-0 m-0 w-100 col-md-12 align-items-center pb-2" style="flex-wrap: nowrap;">
+                                                <label _ngcontent-oid-c1="" style="padding-bottom: 0 !important;"
+                                                    class="width_30 col-form-label font-weight-bold p-0 pb-0"
+                                                    for="staticEmail">UPI Id</label>
+                                                <div _ngcontent-oid-c1="" class="width_5 text-center font-weight-bold"> :
+                                                </div>
+                                                <div _ngcontent-oid-c1="" class="width_70 d-flex justify-content-between align-items-center"> 
+                                                   <span id="vCardUrl3">{{ bankdetail.UPI_number }}</span>
+                                                    <button href="#" class="btn share-btn btn-rounded" id="copyVCardUrl3"
+                                                        style="color: #fff;">
+                                                        <i class="copy-button icofont-copy copy_btn"></i>
+                                                        <div class="tooltip" style="visibility: hidden;" id="tool_tip3">Copied to
+                                                            clipboard</div>
+                                                    </button>
+                                                </div>
+                                                <script>
+                                                    document.addEventListener("DOMContentLoaded", function () {
+                                                        var copyButton = document.getElementById("copyVCardUrl3");
+                                                        var vCardUrl = document.getElementById("vCardUrl3");
+                
+                                                        copyButton.addEventListener("click", function () {
+                                                            var textToCopy = vCardUrl.textContent;
+                
+                                                            // Remove extra spaces and newlines
+                                                            textToCopy = textToCopy.replace(/\s+/g, ' ').trim();
+                
+                                                            navigator.clipboard.writeText(textToCopy)
+                                                                .then(function () {
+                                                                    document.getElementById('tool_tip3').style.visibility = 'visible';
+                                                                    setTimeout(() => {
+                                                                        document.getElementById('tool_tip3').style.visibility = 'hidden';
+                                                                    }, 1000);
+                                                                })
+                                                                .catch(function (err) {
+                                                                    console.error("Could not copy text to clipboard:", err);
+                                                                });
+                                                        });
+                                                    });
+                
+                                                </script>
+                                            </div>
+                                            {% endif %}
+
+                                            {% if bankdetail.type_of_QR == 'Paytm' %}
+                                                {% if bankdetail.payment_number %}
+                                                    <div _ngcontent-oid-c1="" class="row p-0 m-0 w-100 col-md-12" style="flex-wrap: nowrap;">
+                                                        <label _ngcontent-oid-c1=""
+                                                            class="width_30 col-form-label font-weight-bold p-0 pb-2"
+                                                            for="staticEmail">
+                                                            Paytm No.</label>
+                                                        <div _ngcontent-oid-c1="" class="width_5 text-center font-weight-bold"> :
+                                                        </div>
+                                                        <div _ngcontent-oid-c1="" class="width_70"> {{ bankdetail.payment_number}}
+                                                        </div>
+                                                    </div>
+
+                                                {% endif %}
+                                            {% endif %}
+
+
+                                            {% if bankdetail.type_of_QR == 'Phonepe' %}
+                                                {% if bankdetail.payment_number %}
+                                                    <div _ngcontent-oid-c1="" class="row p-0 m-0 w-100 col-md-12" style="flex-wrap: nowrap;">
+                                                        <label _ngcontent-oid-c1=""
+                                                            class="width_30 col-form-label font-weight-bold p-0 pb-2"
+                                                            for="staticEmail">
+                                                            Phonepe No.</label>
+                                                        <div _ngcontent-oid-c1="" class="width_5 text-center font-weight-bold"> :
+                                                        </div>
+                                                        <div _ngcontent-oid-c1="" class="width_70">{{ bankdetail.payment_number}}
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                            {% endif %}
+
+                                            <hr class="mb-0">
+                                            {% if bankdetail.uplaod_QR_image %}
+                                                <div _ngcontent-oid-c1="" class="row mt-3 mb-3" style="flex-wrap: nowrap;">
+                                                    <div _ngcontent-oid-c1="" class="col-md-12 text-center ">
+                                                        <!-- <label class="width_100 col-form-label font-weight-bold p-0 pb-2"
+                                                            for="staticEmail">{{ bankdetail.type_of_QR }}</label> -->
+                                                        <div _ngcontent-oid-c1="" class="width_100"><img _ngcontent-oid-c1="" class="qr_img" style="object-fit: contain;"
+                                                                src="{{ bankdetail.uplaod_QR_image.url }}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+
+                                <hr _ngcontent-oid-c1="">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 _ngcontent-oid-c1="" class="head_font mb-0">Account Details: </h5>
+                                    <button href="#" class="btn share-btn btn-rounded" id="copyVCardUrl2"
+                                        style="color: #fff;">
+                                        <i class="copy-button icofont-copy copy_btn"></i>
+                                        <div class="tooltip" style="visibility: hidden;" id="tool_tip2">Copied to
+                                            clipboard</div>
+                                    </button>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function () {
+                                            var copyButton = document.getElementById("copyVCardUrl2");
+                                            var vCardUrl = document.getElementById("vCardUrl2");
+
+                                            copyButton.addEventListener("click", function () {
+                                                var textToCopy = vCardUrl.textContent;
+
+                                                // Remove extra spaces and newlines
+                                                textToCopy = textToCopy.replace(/\s+/g, ' ').trim();
+
+                                                navigator.clipboard.writeText(textToCopy)
+                                                    .then(function () {
+                                                        document.getElementById('tool_tip2').style.visibility = 'visible';
+                                                        setTimeout(() => {
+                                                            document.getElementById('tool_tip2').style.visibility = 'hidden';
+                                                        }, 1000);
+                                                    })
+                                                    .catch(function (err) {
+                                                        console.error("Could not copy text to clipboard:", err);
+                                                    });
+                                            });
+                                        });
+
+                                    </script>
+                                </div>
+                                <div _ngcontent-oid-c1="" class="">
+                                    <div _ngcontent-oid-c1="" class="pt-2" id="vCardUrl2">
+                                        {% if bankdetail.Ac_holder_name %}
+                                        <div _ngcontent-oid-c1="" class="row tab-color col-md-12 p-2"
+                                            style="flex-wrap: nowrap;">
+                                            <label _ngcontent-oid-c1="" style="padding-bottom: 0 !important;"
+                                                class="width_30 col-form-label font-weight-bold p-0" for="staticEmail">
+                                                Account Holder Name</label>
+                                            <div _ngcontent-oid-c1="" class="width_5 text-center font-weight-bold"> :
+                                            </div>
+                                            <div _ngcontent-oid-c1="" class="width_70"> {{ bankdetail.Ac_holder_name }}
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                        {% if bankdetail.bank_name %}
+                                        <div _ngcontent-oid-c1="" class="row tab-color col-md-12 p-2"
+                                            style="flex-wrap: nowrap;">
+                                            <label _ngcontent-oid-c1="" style="padding-bottom: 0 !important;"
+                                                class="width_30 col-form-label font-weight-bold p-0"
+                                                for="staticEmail">Bank Name</label>
+                                            <div _ngcontent-oid-c1="" class="width_5 text-center font-weight-bold"> :
+                                            </div>
+                                            <div _ngcontent-oid-c1="" class="width_70"> {{ bankdetail.bank_name }}
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                        {% if bankdetail.Account_number %}
+                                        <div _ngcontent-oid-c1="" class="row tab-color col-md-12 p-2"
+                                            style="flex-wrap: nowrap;">
+                                            <label _ngcontent-oid-c1="" style="padding-bottom: 0 !important;"
+                                                class="width_30 col-form-label font-weight-bold p-0" for="staticEmail">
+                                                Account Number</label>
+                                            <div _ngcontent-oid-c1="" class="width_5 text-center font-weight-bold"> :
+                                            </div>
+                                            <div _ngcontent-oid-c1="" class="width_70"> {{ bankdetail.Account_number }}
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                        {% if bankdetail.branch_name %}
+                                        <div _ngcontent-oid-c1="" class="row tab-color col-md-12 p-2"
+                                            style="flex-wrap: nowrap;">
+                                            <label _ngcontent-oid-c1="" style="padding-bottom: 0 !important;"
+                                                class="width_30 col-form-label font-weight-bold p-0" for="staticEmail">
+                                                Branch</label>
+                                            <div _ngcontent-oid-c1="" class="width_5 text-center font-weight-bold"> :
+                                            </div>
+                                            <div _ngcontent-oid-c1="" class="width_70"> {{ bankdetail.branch_name }}
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                        {% if bankdetail.IFSC_code %}
+                                        <div _ngcontent-oid-c1="" class="row tab-color col-md-12 p-2"
+                                            style="flex-wrap: nowrap;">
+                                            <label _ngcontent-oid-c1="" style="padding-bottom: 0 !important;"
+                                                class="width_30 col-form-label font-weight-bold p-0" for="staticEmail">
+                                                IFSC code</label>
+                                            <div _ngcontent-oid-c1="" class="width_5 text-center font-weight-bold"> :
+                                            </div>
+                                            <div _ngcontent-oid-c1="" class="width_70"> {{ bankdetail.IFSC_code }}
+                                            </div>
+                                        </div>
+                                        {% endif %}
+
+                                        {% if bankdetail.account_type %}
+                                        <div _ngcontent-oid-c1="" class="row tab-color col-md-12 p-2" style="flex-wrap: nowrap;">
+                                            <label _ngcontent-oid-c1="" style="padding-bottom: 0 !important;"
+                                                class="width_30 col-form-label font-weight-bold p-0" for="staticEmail">
+                                                Account Type</label>
+                                            <div _ngcontent-oid-c1="" class="width_5 text-center font-weight-bold"> :
+                                            </div>
+                                            <div _ngcontent-oid-c1="" class="width_70"> {{ bankdetail.account_type }}
+                                            </div>
+                                        </div>
+                                        {% endif %}
+
+                                        {% if bankdetail.IBAN_number %}
+                                        <div _ngcontent-oid-c1="" class="row tab-color col-md-12 p-2"
+                                            style="flex-wrap: nowrap;">
+                                            <label _ngcontent-oid-c1="" style="padding-bottom: 0 !important;"
+                                                class="width_30 col-form-label font-weight-bold p-0" for="staticEmail">
+                                                IBAN Number</label>
+                                            <div _ngcontent-oid-c1="" class="width_5 text-center font-weight-bold"> :
+                                            </div>
+                                            <div _ngcontent-oid-c1="" class="width_70"> {{ bankdetail.IBAN_number }}
+                                            </div>
+                                        </div>
+                                        {% endif %}
+
+                                        {% if bankdetail.SWIFT_code %}
+                                        <div _ngcontent-oid-c1="" class="row tab-color col-md-12 p-2"
+                                            style="flex-wrap: nowrap;">
+                                            <label _ngcontent-oid-c1="" style="padding-bottom: 0 !important;"
+                                                class="width_30 col-form-label font-weight-bold p-0" for="staticEmail">
+                                                SWIFT Code</label>
+                                            <div _ngcontent-oid-c1="" class="width_5 text-center font-weight-bold"> :
+                                            </div>
+                                            <div _ngcontent-oid-c1="" class="width_70"> {{ bankdetail.SWIFT_code }}
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endif %}
+
+                    {% if setting.gallery_section is True %}
+
+                    {% if gallery %}
+
+                    <div _ngcontent-oid-c1="" id="scrollspyHeading5" class="card  mb-1" id="step5">
+                        <div _ngcontent-oid-c1="" class="card-body">
+                            <h4 _ngcontent-oid-c1="" class="text-center head_font">GALLERY</h4>
+                            <hr _ngcontent-oid-c1="" class="colorgraph1 ">
+                            <div _ngcontent-oid-c1="" class="row gallery-images justify-content-center">
+                                {% for g in gallery %}
+                                <div _ngcontent-oid-c1="" class="col-sm-4 mt-3 gallery_imgs">
+                                    <button type="button"
+                                        style="width:100%;border: none; background: transparent; padding: 0;"
+                                        data-bs-toggle="modal" data-bs-target="#img{{g.id}}">
+                                        <img _ngcontent-oid-c1="" alt="Image 1"
+                                            class="img-responsive img-fluid galery_img" src="{{ g.image.url }}">
+                                    </button>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% endif %}
+
+                    {% if setting.video_section is True %}
+
+                        {% if social.video_link %}
+                            <!-- <div _ngcontent-oid-c1="" id="scrollspyHeading6" class="card   mb-2" id="step6">
+                                <div _ngcontent-oid-c1="" class="card-body">
+                                    <h4 _ngcontent-oid-c1="" class="text-center head_font">VIDEOS</h4>
+                                    <hr _ngcontent-oid-c1="" class="colorgraph1 ">
+                                    <div _ngcontent-oid-c1="" class="container-fluid">
+                                        <div _ngcontent-oid-c1="" class="embed-responsive embed-responsive-16by9 mt-3">
+                                            <div _ngcontent-oid-c1="">
+                                                <iframe src="{{ social.video_link}}" frameborder="0"
+                                                    allowfullscreen=""></iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div _ngcontent-oid-c1="" id="scrollspyHeading6" class="card mb-1" id="step6">
+                                <div _ngcontent-oid-c1="" class="card-body">
+                                    <h4 _ngcontent-oid-c1="" class="text-center head_font">VIDEOS</h4>
+                                    <hr _ngcontent-oid-c1="" class="colorgraph1 ">
+                                    <div _ngcontent-oid-c1="" class="container-fluid">
+                                        <div _ngcontent-oid-c1="" class="embed-responsive embed-responsive-16by9 mt-3">
+                                            <div _ngcontent-oid-c1="" id="videoContainer">
+                                                <!-- Video will be displayed here -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <script>
+                                document.addEventListener("DOMContentLoaded", function () {
+                                    var videoLink = "{{ social.video_link }}";
+                                    var videoId = extractVideoIdFromLink(videoLink);
+                                    var videoContainer = document.getElementById("videoContainer");
+                            
+                                    if (videoId) {
+                                        var embedCode = generateEmbedCodeFromVideoId(videoId);
+                                        videoContainer.innerHTML = embedCode;
+                                    } else {
+                                        videoContainer.innerHTML = "Invalid YouTube Video Link";
+                                    }
+                            
+                                    // Extracts the video ID from a YouTube video link
+                                    function extractVideoIdFromLink(link) {
+                                        var match = link.match(/(?:\?|&)v=([^&]+)/);
+                                        return match ? match[1] : null;
+                                    }
+                            
+                                    // Generates the embed code from a YouTube video ID
+                                    function generateEmbedCodeFromVideoId(videoId) {
+                                        return `
+                                            <iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
+                                        `;
+                                    }
+                                });
+                            </script>
+                            
+                        {% endif %}
+
+                    {% endif %}
+
+
+                    {% if setting.enquiry_section is True %}
+
+                    <div _ngcontent-oid-c1="" id="scrollspyHeading7" class="card mb-1">
+                        <div _ngcontent-oid-c1="" class="card-body">
+                            <h4 _ngcontent-oid-c1="" class="text-center head_font">ENQUIRY FORM</h4>
+                            <hr _ngcontent-oid-c1="" class="colorgraph1">
+
+                            <form id="enquiry-form_id" action="{% url 'enquiry' %}" method="POST">
+
+                                <div class="form-group">
+                                    <input class="form-control input-lg ng-untouched ng-pristine ng-invalid"
+                                        id="enqirer_name" name="enqirer_name" placeholder="Your Name" type="text" />
+                                </div>
+
+                                <div class="form-group">
+                                    <input class="form-control input-lg ng-untouched ng-pristine ng-invalid"
+                                        id="enqirer_mobile_number" maxlength="10" minlength="10" name="mobile_number"
+                                        placeholder="Mobile Number" tabindex="3" type="text">
+                                </div>
+
+                                <div class="form-group">
+                                    <textarea class="form-control input-lg ng-untouched ng-pristine ng-invalid"
+                                        id="enqier_messages" name="messages" placeholder="Enter Message" tabindex="5"
+                                        type="text">
+                                </textarea>
+                                </div>
+
+                                <button class="btn send-btn btn-block btn-lg" type="submit">SEND</button>
+
+                                <div class="text-start" style="text-align: start;">
+                                    <h2 id="enquiry_msg_id"></h2>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                </div>
+
+                <div _ngcontent-oid-c1="" class="create_card"><a href="/" style="color: #000;" target="_blank">Made with  Businesscards4u.in</a></div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div _ngcontent-oid-c1="" class="modal-content">
+                <!-- <div _ngcontent-oid-c1="" class="modal-header"> -->
+                <!-- <h5 _ngcontent-oid-c1="" class="modal-title" id="exampleModalLongTitle">Share Profile </h5> -->
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <!-- </div> -->
+
+                <p id="vCardUrl" style="display: none;">{{ request.build_absolute_uri }}</p>
+
+                <div class="modal-body text-center py-5" style="padding-top: 2rem !important;">
+                    <h2 class="mb-3"> Share your digital card Now!</h2>
+                    <div class="social-media1 mt-2">
+                        <p id="vCardUrl" class="mb-0 me-2">{{ request.build_absolute_uri }}</p>
+                        <button href="#" class="btn share-btn btn-rounded" id="copyVCardUrl" style="color: #fff;">
+                            Copy to Clipboard <i class="copy-button icofont-copy copy_btn"></i>
+                            <div class="tooltip" style="visibility: hidden;" id="tool_tip">Copied to clipboard</div>
+                        </button>
+                    </div>
+                </div>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        var copyButton = document.getElementById("copyVCardUrl");
+                        var vCardUrl = document.getElementById("vCardUrl");
+
+                        copyButton.addEventListener("click", function () {
+                            var textToCopy = vCardUrl.textContent;
+
+                            navigator.clipboard.writeText(textToCopy)
+                                .then(function () {
+                                    document.getElementById('tool_tip').style.visibility = 'visible';
+                                    setTimeout(() => {
+
+                                        document.getElementById('tool_tip').style.visibility = 'hidden';
+                                    }, 1000);
+                                })
+                                .catch(function (err) {
+                                    console.error("Could not copy URL to clipboard:", err);
+                                });
+                        });
+                    });
+
+                </script>
+
+            </div>
+        </div>
+    </div>
+
+
+    {% for g in gallery %}
+    <div class="modal fade" id="img{{g.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div _ngcontent-oid-c1="" class="modal-content">
+                <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div _ngcontent-oid-c1="" class="modal-body text-center py-5">
+                    <img class="lb-image animation fadeIn" src="{{ g.image.url }}" style="animation-duration: 0.7s;">
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <script>
+        let primary_font = "{{ setting.primary_font}}"
+        let secondry_font = "{{ setting.secondry_font}}"
+        let color_bg = "{{ setting.color}}"
+        let font_color = "{{ setting.font_color}}"
+
+        const color2 = document.querySelector(':root');
+        color2.style.setProperty('--blue_font', color_bg);
+        console.log(color2);
+
+        const fontColor = document.querySelector(':root');
+        fontColor.style.setProperty('--font_color', font_color);
+        console.log(fontColor);
+
+        const fontFamily1 = document.querySelector(':root');
+        fontFamily1.style.setProperty('--font_family1', primary_font);
+        console.log(fontFamily1);
+
+        const fontFamily2 = document.querySelector(':root');
+        fontFamily2.style.setProperty('--font_family2', secondry_font);
+        console.log(fontFamily2);
+
+    </script>
+
+
+    <script src="{% static 'assets/js/plugins.js' %}"></script>
+    <script src="{% static 'assets/js/theme.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script>
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1);
+                if (c.indexOf(name) == 0)
+                    return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+    </script>
+
+    <script type="text/javascript">
+        $(document).on('submit', '#enquiry-form_id', function (e) {
+            e.preventDefault();
+
+            $.ajaxSetup({
+                headers: {
+                    "X-CSRFToken": getCookie("csrftoken")
+                },
+            });
+
+            $.ajax({
+                type: 'POST',
+                url: "{% url 'enquiry' %}",
+                data: {
+                    mobile: $('#enqirer_mobile_number').val(),
+                    name: $('#enqirer_name').val(),
+                    message: $('#enqier_messages').val(),
+                    card_id: "{{ cominfo.card_id.id }}",
+        },
+            success: function (data) {
+                $('#enqirer_mobile_number').val('');
+                var my_email = document.getElementById('enqirer_mobile_number');
+                my_email.value = null;
+
+                var my_name = document.getElementById('enqirer_name');
+                my_name.value = null;
+
+                var my_message = document.getElementById('enqier_messages');
+                my_message.value = null;
+
+                var contact_id = document.getElementById("enquiry_msg_id");
+                contact_id.innerHTML = '';
+
+                const contact_newDiv = document.createElement("div");
+                contact_newDiv.innerHTML = data.msg;
+                console.log(data.msg)
+                contact_newDiv.classList.add(data.color_class);
+
+                contact_id.appendChild(contact_newDiv);
+                setTimeout(function () {
+                    contact_newDiv.remove();
+                }, 3000);
+
+            }
+      });
+    });
+    </script>
+
+
+</body>
+
+</html>

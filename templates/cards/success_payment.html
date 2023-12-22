@@ -1,0 +1,776 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Static Page</title>
+</head>
+<body>
+
+{{ get_page.description|safe }}
+
+</body>
+</html> -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="An impressive and flawless site template that includes various UI elements and countless features, attractive ready-made blocks and rich pages, basically everything you need to create a unique and professional website.">
+    <meta name="keywords"
+        content="bootstrap 5, business, corporate, creative, gulp, marketing, minimal, modern, multipurpose, one page, responsive, saas, sass, seo, startup, html5 template, site template">
+    <meta name="author" content="elemis">
+    <title>Businesscard4u</title>
+    <link rel="shortcut icon" type="image/x-icon"
+        href="{% if websitelogo %} {{ websitelogo.fav_icon.url }} {% endif %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/plugins.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/colors/sky.css' %}" />
+    <link rel="preload" href="{% static 'assets/css/fonts/urbanist.css' %}" as="style" onload="this.rel='stylesheet'" />
+    <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}" />
+
+    <style>
+        .form-control {
+            padding: 0.6rem 1rem !important;
+        }
+
+        .logo-img {
+            width: 60%;
+            height: 68px;
+            object-fit: contain;
+        }
+
+        .footer_logo {
+            height: 90px;
+            width: 190px;
+        }
+
+        #services {
+            margin-bottom: 80px;
+        }
+
+        footer .logo-img {
+            width: auto;
+        }
+
+        /*.lower-footer {*/
+        /*    border-top: 0.5px solid #00000073;*/
+        /*    padding-top: 15px;*/
+        /*    padding-bottom: 15px;*/
+        /*}*/
+
+        .success{
+            font-size: 30px;
+            font-weight: 600;
+            color: #000;
+            margin-top: -45px;
+        }
+
+        .card-body{
+            text-align: -webkit-center;
+        }
+
+        .card{
+            width: 35%;
+            box-shadow: none;
+            background-color: #f7f7f7;
+            margin: auto;
+        }
+
+        lottie-player{
+            width: 300px;
+            height: 300px;
+        }
+
+        @media (max-width:992px) {
+            .navbar-nav .dropdown-menu {
+                position: absolute;
+                left: -40%;
+            }
+
+            .card{
+                width: 50%;
+            }
+
+            lottie-player{
+                width: 100%;
+                height: 300px;
+            }
+        }
+
+        @media (max-width:765px) {
+
+            lottie-player{
+                width: 100%;
+                height: 300px;
+            }
+
+            .lead {
+                font-size: 16px !important;
+            }
+
+            .card{
+                width: 100%;
+            }
+
+            .navbar-brand {
+                padding: 10px 0 !important;
+            }
+
+            .logo-img {
+                width: auto;
+                height: 68px;
+                object-fit: contain;
+            }
+
+            .offcanvas-header {
+                padding-top: 0.5rem;
+                padding-bottom: .5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <header class="wrapper bg-light">
+            <nav class="navbar navbar-expand-lg classic transparent navbar-light" id="navbar-example2">
+                <div class="container flex-lg-row flex-nowrap align-items-center">
+                    <div class="navbar-brand w-100">
+                        <a href="/" class="w-100 d-block">
+                            {% if websitelogo %}
+                            <img src="{{ websitelogo.image.url }}" alt="" class="logo-img" />
+                            {% else %}
+                            <img src="{% static 'assets/img/BC.png' %}" alt="" class="logo-img" />
+                            {% endif %}
+                        </a>
+                    </div>
+                    <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
+                        <div class="offcanvas-header d-lg-none">
+                            <h3 class="text-white fs-30 mb-0">Sandbox</h3>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown dropdown-mega">
+                                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="{% url 'home' %}">About</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="{% url 'home' %}">Services</a>
+
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="{% url 'home' %}">Features</a>
+                                </li>
+                                <li class="nav-item dropdown dropdown-mega">
+                                    <a class="nav-link" href="{% url 'home' %}">Pricing</a>
+                                </li>
+                                <li class="nav-item dropdown dropdown-mega">
+                                    <a class="nav-link" href="{% url 'home' %}">Demo Videos </a>
+                                </li>
+                                <li class="nav-item dropdown dropdown-mega">
+                                    <a class="nav-link" href="{% url 'home' %}">Contact </a>
+                                </li>
+                            </ul>
+                            <div class="offcanvas-footer d-lg-none">
+                                <div>
+                                    <a href="mailto:first.last@email.com" class="link-inverse">info@email.com</a>
+                                    <br /> 00 (123) 456 78 90 <br />
+                                    <nav class="nav social social-white mt-4">
+                                        <a href="#"><i class="uil uil-twitter"></i></a>
+                                        <a href="#"><i class="uil uil-facebook-f"></i></a>
+                                        <a href="#"><i class="uil uil-dribbble"></i></a>
+                                        <a href="#"><i class="uil uil-instagram"></i></a>
+                                        <a href="#"><i class="uil uil-youtube"></i></a>
+                                    </nav>
+                                    <!-- /.social -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                    <div class="navbar-other ms-lg-4">
+                        <ul class="navbar-nav flex-row align-items-center ms-auto">
+                            {% if user.is_authenticated %}
+
+                              <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                  aria-expanded="false">
+                                  <i class="uil uil-user mr-2"> </i>
+                                  &nbsp;{{ request.user }}
+                                </button>
+                                <ul class="dropdown-menu">
+                                  <!--                  <li><a class="dropdown-item" href="#"></a></li>-->
+                                  <li><a class="dropdown-item" href="{% url 'mycard' %}">Dashboard</a></li>
+                                  <li><a class="dropdown-item" href="{% url 'signout' %}">Logout</a></li>
+                                </ul>
+                              </div>
+
+                              {% else %}
+
+                              <li class="nav-item d-none d-md-block">
+                                <a href="#" class="btn btn-primary rounded-pill mx-1 mb-2 mb-md-0" data-bs-toggle="modal"
+                                  data-bs-target="#modal-signin">Sign In</a>
+                              </li>
+
+                              <li class="nav-item d-lg-none">
+                                <button class="hamburger offcanvas-nav-btn"><span></span></button>
+                              </li>
+
+                              {% endif %}
+
+                        </ul>
+                        <!-- /.navbar-nav -->
+                    </div>
+                    <!-- /.navbar-other -->
+                </div>
+                <!-- /.container -->
+            </nav>
+            <!-- /.navbar -->
+        </header>
+
+
+        <div class="container mb-16">
+            <div class="row">
+                <!-- <aside class="col-xl-3 sidebar sticky-sidebar mt-md-0 py-16 d-none d-xl-block">
+                    <div class="widget">
+                        <h6 class="widget-title fs-17 mb-2 ps-xl-5">On this page</h6>
+                        <nav class="ps-xl-5" id="sidebar-nav">
+                            <ul class="list-unstyled fs-sm lh-sm text-reset">
+                                <li><a class="nav-link scroll active" href="#snippet-1">Cookie</a></li>
+                                <li><a class="nav-link scroll" href="#snippet-2">Subscription</a></li>
+                                <li><a class="nav-link scroll" href="#snippet-3">Sign In</a></li>
+                                <li><a class="nav-link scroll" href="#snippet-4">Sign Up</a></li>
+                                <li><a class="nav-link scroll" href="#snippet-5">Popup</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </aside> -->
+                <!-- /column -->
+                <div class="col-xl-12 pt-10">
+                    <section id="snippet-1" class="wrapper pt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_gaxn5gzy.json" background="transparent"  speed="1"  style="width: 300px; height: 300px;" autoplay></lottie-player>
+                                <p class="success mb-0">Payment Successful</p>
+                                <!-- <img src="{% static 'success2.webp' %}" style="width: 100%;height:55vh" alt=""> -->
+                                <h3 class="mb-5 mt-0 text-center mt-2">
+                                    <a href="{% url 'home' %}">Back To Home</a>
+                                </h3>
+
+                            </div>
+                        </div>
+                        <!--/.card -->
+                    </section>
+                </div>
+                <!-- /column -->
+            </div>
+            <!-- /.row -->
+        </div>
+    </div>
+
+    <!-- /.content-wrapper -->
+
+<!--    <footer class="bg-soft-primary">-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
+<!--                {% if footer %}-->
+<!--                <div class="col-xl-11 col-xxl-10 mx-auto">-->
+<!--                    <div class="card image-wrapper bg-full bg-image bg-overlay bg-overlay-400 mt-n50p mb-n5"-->
+<!--                        data-image-src="{{ footer.image.url }}">-->
+<!--                        <div-->
+<!--                            class="card-body p-6 p-md-11 d-lg-flex flex-row align-items-lg-center justify-content-md-between text-center text-lg-start">-->
+<!--                            <h3 class="display-6 mb-6 mb-lg-0 pe-lg-15 pe-xxl-18 text-white">-->
+<!--                                {{ footer.joinus_description }}-->
+<!--                                &lt;!&ndash; We are trusted by over {{ footer.joinus_client|default:0 }}+ clients. Join them by using our services and grow your business.&ndash;&gt;-->
+<!--                            </h3>-->
+<!--                            <a href="#" class="btn btn-white rounded-pill mb-0 text-nowrap">Join Us</a>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash;/.card-body &ndash;&gt;-->
+<!--                    </div>-->
+<!--                    {% endif %}-->
+<!--                    &lt;!&ndash;/.card &ndash;&gt;-->
+<!--                </div>-->
+<!--                &lt;!&ndash; /column &ndash;&gt;-->
+<!--            </div>-->
+<!--            &lt;!&ndash; /.row &ndash;&gt;-->
+<!--        </div>-->
+
+<!--        <div class="container pb-12 ">-->
+<!--            <div class="row gy-6 gy-lg-0">-->
+<!--                <div class="col-md-4 col-lg-3">-->
+<!--                    <div class="widget">-->
+<!--                        {% if websitelogo %}-->
+<!--                        <img src="{{ websitelogo.image.url }}" alt="" class="logo-img" />-->
+<!--                        {% else %}-->
+<!--                        <img src="{% static 'assets/img/BC.png' %}" alt="" class="logo-img" />-->
+<!--                        {% endif %}-->
+<!--                        <p>{{footer.footer_description}}</p>-->
+<!--                        &lt;!&ndash;            <img class="mb-1 footer_logo" src="../static/assets/img/BC.png" alt="" width="100%" />&ndash;&gt;-->
+<!--                        &lt;!&ndash;            <p class="mb-4">© 2023 All Right Reserved.<br class="d-none d-lg-block" />Proudly Coded by Team GFTPL</p>&ndash;&gt;-->
+<!--                        <nav class="nav social">-->
+<!--                            <a href="{{ footer.twitter_link }}" target="_blank"><i class="uil uil-twitter"></i></a>-->
+<!--                            <a href="{{ footer.facebook_link }}" target="_blank"><i class="uil uil-facebook-f"></i></a>-->
+<!--                            <a href="{{ footer.instagram_link }}" target="_blank"><i class="uil uil-instagram"></i></a>-->
+<!--                            <a href="{{ footer.youtube_link }}" target="_blank"><i class="uil uil-youtube"></i></a>-->
+<!--                        </nav>-->
+<!--                        &lt;!&ndash; /.social &ndash;&gt;-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash; /.widget &ndash;&gt;-->
+<!--                </div>-->
+<!--                &lt;!&ndash; /column &ndash;&gt;-->
+<!--                <div class="col-md-4 col-lg-3">-->
+<!--                    <div class="widget">-->
+<!--                        <h4 class="widget-title mb-3">Get in Touch</h4>-->
+<!--                        <div class="d-flex pe-2">-->
+<!--                            <i class="uil uil-map-marker me-1"></i>-->
+<!--                            <address class="">{{footer.address}}</address>-->
+<!--                        </div>-->
+<!--                        <div class="d-flex mb-2">-->
+<!--                            <i class="uil uil-envelope-alt me-1"></i>-->
+<!--                            <a href="mailto:{{footer.email}}" style="color: #60697b;">{{footer.email}}</a>-->
+<!--                        </div>-->
+<!--                        <div class="d-flex mb-2">-->
+<!--                            <i class="uil uil-phone-alt me-1"></i>-->
+<!--                            <a href="tel:{{footer.phone_no}}" style="color: #60697b;"-->
+<!--                                class="mb-0">{{footer.phone_no}}</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash; /.widget &ndash;&gt;-->
+<!--                </div>-->
+<!--                &lt;!&ndash; /column &ndash;&gt;-->
+<!--                <div class="col-md-4 col-lg-3">-->
+<!--                    <div class="widget">-->
+<!--                        <h4 class="widget-title mb-3">Learn More</h4>-->
+<!--                        <ul class="list-unstyled  mb-0">-->
+<!--                            <li><a href="{% url 'about_us' %}" style="color: #60697b;">About Us</a></li>-->
+<!--                            <li><a href="{% url 'contact_us' %}" style="color: #60697b;">Contact Us</a></li>-->
+<!--                            &lt;!&ndash;              <li><a href="#" style="color: #60697b;">Projects</a></li>&ndash;&gt;-->
+<!--                            &lt;!&ndash;              <li><a href="#" style="color: #60697b;">Terms of Use</a></li>&ndash;&gt;-->
+<!--                            <li><a href="{% url 'static_page' 'Terms-&-Conditions' %}" target="_blank"-->
+<!--                                    style="color: #60697b;">Terms & Conditions</a></li>-->
+<!--                            <li><a href="{% url 'static_page' 'Shipping-&-Delivery-Policy' %}" target="_blank"-->
+<!--                                    style="color: #60697b;">Shipping & Delivery Policy</a></li>-->
+<!--                            <li><a href="{% url 'static_page' 'Refund-&-Cancellation-Policy' %}" target="_blank"-->
+<!--                                    style="color: #60697b;">Refund & Cancellation Policy</a></li>-->
+<!--                            <li><a href="{% url 'static_page' 'Privacy-Policy' %}" target="_blank"-->
+<!--                                    style="color: #60697b;">Privacy Policy</a></li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash; /.widget &ndash;&gt;-->
+<!--                </div>-->
+<!--                &lt;!&ndash; /column &ndash;&gt;-->
+<!--                <div class="col-md-12 col-lg-3">-->
+<!--                    <div class="widget">-->
+<!--                        <h4 class="widget-title mb-3">Our Newsletter</h4>-->
+<!--                        <p class="mb-5">Subscribe to our newsletter to get our news & deals delivered to you.</p>-->
+<!--                        <div class="newsletter-wrapper">-->
+<!--                            &lt;!&ndash; Begin Mailchimp Signup Form &ndash;&gt;-->
+<!--                            <div id="mc_embed_signup2">-->
+<!--                                <form-->
+<!--                                    action="https://elemisfreebies.us20.list-manage.com/subscribe/post?u=aa4947f70a475ce162057838d&amp;id=b49ef47a9a"-->
+<!--                                    method="post" id="mc-embedded-subscribe-form2" name="mc-embedded-subscribe-form"-->
+<!--                                    class="validate dark-fields" target="_blank" novalidate>-->
+<!--                                    <div id="mc_embed_signup_scroll2">-->
+<!--                                        <div class="mc-field-group input-group form-floating">-->
+<!--                                            <input type="email" value="" name="EMAIL"-->
+<!--                                                class="required email form-control" placeholder="Email Address"-->
+<!--                                                id="mce-EMAIL2">-->
+<!--                                            &lt;!&ndash; <label for="mce-EMAIL2">Email Address</label> &ndash;&gt;-->
+<!--                                            <input type="submit" value="Join" name="subscribe"-->
+<!--                                                id="mc-embedded-subscribe2" class="btn btn-primary">-->
+<!--                                        </div>-->
+<!--                                        <div id="mce-responses2" class="clear">-->
+<!--                                            <div class="response" id="mce-error-response2" style="display:none"></div>-->
+<!--                                            <div class="response" id="mce-success-response2" style="display:none"></div>-->
+<!--                                        </div>-->
+<!--                                        &lt;!&ndash; real people should not fill this in and expect good things - do not remove this or risk form bot signups&ndash;&gt;-->
+<!--                                        <div style="position: absolute; left: -5000px;" aria-hidden="true">-->
+<!--                                            <input type="text" name="b_ddc180777a163e0f9f66ee014_4b1bcfa0bc"-->
+<!--                                                tabindex="-1" value="">-->
+<!--                                        </div>-->
+<!--                                        <div class="clear"></div>-->
+<!--                                    </div>-->
+<!--                                </form>-->
+<!--                            </div>-->
+<!--                            &lt;!&ndash;End mc_embed_signup&ndash;&gt;-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; /.newsletter-wrapper &ndash;&gt;-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash; /.widget &ndash;&gt;-->
+<!--                </div>-->
+<!--                &lt;!&ndash; /column &ndash;&gt;-->
+<!--            </div>-->
+<!--            &lt;!&ndash;/.row &ndash;&gt;-->
+<!--        </div>-->
+<!--        &lt;!&ndash; /.container &ndash;&gt;-->
+<!--        <div class="container lower-footer">-->
+<!--            <div class="text-center">-->
+<!--                <p class="mb-0">© 2023 All Right Reserved. Proudly Coded by Team GFTPL</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </footer>-->
+
+<!--    <div class="progress-wrap">-->
+<!--        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">-->
+<!--            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />-->
+<!--        </svg>-->
+<!--    </div>-->
+
+<!--    <div class="modal fade" id="modal-signin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--        <div class="modal-dialog modal-dialog-centered modal-sm">-->
+<!--            <div class="modal-content text-center">-->
+<!--                <div class="modal-body">-->
+<!--                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--                    <h2 class="mb-3 text-start">Welcome Back</h2>-->
+<!--                    <p class="lead mb-6 text-start">Fill your email and password to sign in.</p>-->
+
+<!--                    <form class="text-start mb-3" action="{% url 'signin' %}" method="post" id="signin-form">-->
+<!--                        {% csrf_token %}-->
+<!--                        <div class="form-floating mb-4">-->
+<!--                            <input type="email" class="form-control" name="email" placeholder="Email" id="signin_email">-->
+
+<!--                        </div>-->
+<!--                        <div class="form-floating password-field mb-4">-->
+<!--                            <input type="password" class="form-control" name="password" placeholder="Password"-->
+<!--                                id="signin_password">-->
+<!--                            <span class="password-toggle"><i class="uil uil-eye"></i></span>-->
+
+<!--                        </div>-->
+<!--                        <button type="submit" class="btn btn-primary rounded-pill btn-login w-100 mb-2">Sign In</button>-->
+<!--                        <div class="text-start" style="text-align: start;">-->
+
+<!--                            <h2 id="signin_id"></h2>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                    &lt;!&ndash; /form &ndash;&gt;-->
+<!--                    <p class="mb-1"><a href="#" class="hover" data-bs-target="#modal-forgotPass" data-bs-toggle="modal"-->
+<!--                            data-bs-dismiss="modal">Forgot Password?</a></p>-->
+<!--                    <p class="mb-0">Don't have an account? <a href="#" data-bs-target="#modal-signup"-->
+<!--                            data-bs-toggle="modal" data-bs-dismiss="modal" class="hover">Sign up</a></p>-->
+<!--                    &lt;!&ndash;/.social &ndash;&gt;-->
+<!--                </div>-->
+<!--                &lt;!&ndash;/.modal-content &ndash;&gt;-->
+<!--            </div>-->
+<!--            &lt;!&ndash;/.modal-body &ndash;&gt;-->
+<!--        </div>-->
+<!--        &lt;!&ndash;/.modal-dialog &ndash;&gt;-->
+<!--    </div>-->
+
+<!--    <div class="modal fade" id="modal-signup" tabindex="-1">-->
+<!--        <div class="modal-dialog modal-dialog-centered modal-sm">-->
+<!--            <div class="modal-content text-center">-->
+<!--                <div class="modal-body">-->
+<!--                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--                    <h2 class="mb-3 text-start">Sign up to Sandbox</h2>-->
+<!--                    <p class="lead mb-6 text-start">Registration takes less than a minute.</p>-->
+
+<!--                    <form class="text-start mb-3" action="{% url 'signup' %}" id="sign-form" method="POST">-->
+<!--                        {% csrf_token %}-->
+<!--                        <div class="form-floating mb-4">-->
+<!--                            <input type="text" class="form-control" placeholder="Name" id="sign_name" name="full_name">-->
+
+<!--                        </div>-->
+<!--                        <div class="form-floating mb-4">-->
+<!--                            <input type="email" class="form-control" name="email" placeholder="Email" id="sign_email">-->
+
+<!--                        </div>-->
+<!--                        <div class="form-floating password-field mb-4">-->
+<!--                            <input type="password" class="form-control" placeholder="Password" id="sign_password"-->
+<!--                                name="password">-->
+<!--                            <span class="password-toggle"><i class="uil uil-eye"></i></span>-->
+
+<!--                        </div>-->
+<!--                        <div class="form-floating password-field mb-4">-->
+<!--                            <input type="password" class="form-control" placeholder="Confirm Password"-->
+<!--                                name="confirm_password" id="sign_confirm_password">-->
+<!--                            <span class="password-toggle"><i class="uil uil-eye"></i></span>-->
+
+<!--                        </div>-->
+<!--                        <button class="btn btn-primary rounded-pill btn-login w-100 mb-2" type="submit">Sign Up</button>-->
+<!--                        <div class="text-start" style="text-align: start;">-->
+
+<!--                            <h2 id="msg_id"></h2>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                    &lt;!&ndash; /form &ndash;&gt;-->
+<!--                    <p class="mb-0">Already have an account? <a href="#" data-bs-target="#modal-signin"-->
+<!--                            data-bs-toggle="modal" data-bs-dismiss="modal" class="hover">Sign in</a></p>-->
+
+
+<!--                    &lt;!&ndash;/.social &ndash;&gt;-->
+<!--                </div>-->
+<!--                &lt;!&ndash;/.modal-content &ndash;&gt;-->
+<!--            </div>-->
+<!--            &lt;!&ndash;/.modal-body &ndash;&gt;-->
+<!--        </div>-->
+<!--        &lt;!&ndash;/.modal-dialog &ndash;&gt;-->
+<!--    </div>-->
+
+<!--    <div class="modal fade" id="modal-forgotPass" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--        <div class="modal-dialog modal-dialog-centered modal-sm">-->
+<!--            <div class="modal-content text-center">-->
+<!--                <div class="modal-body">-->
+<!--                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--                    <h2 class="mb-3 text-start">Forgot Password</h2>-->
+<!--                    &lt;!&ndash; <p class="lead mb-6 text-start">Enter new password</p> &ndash;&gt;-->
+<!--                    <form class="text-start mb-3" action="{% url 'forgot_password' %}" method="post"-->
+<!--                        id="forget-password-form">-->
+<!--                        <div class="form-floating password-field mb-4">-->
+<!--                            <label for="loginPassword">Email</label>-->
+<!--                            <input type="email" required class="form-control" placeholder="Enter Your Email"-->
+<!--                                id="forget_password_email">-->
+<!--                        </div>-->
+
+<!--                        <button type="submit" class="btn btn-primary rounded-pill btn-login w-100 mb-2">Foregot-->
+<!--                            Password</button>-->
+<!--                    </form>-->
+<!--                    &lt;!&ndash; /form &ndash;&gt;-->
+<!--                    &lt;!&ndash;          <p class="mb-1"><a href="#" class="hover">Forgot Password?</a></p>&ndash;&gt;-->
+<!--                    <p class="mb-0">Already have an account? <a href="#" data-bs-target="#modal-signin"-->
+<!--                            data-bs-toggle="modal" data-bs-dismiss="modal" class="hover">Sign in</a></p>-->
+
+<!--                    &lt;!&ndash;/.social &ndash;&gt;-->
+<!--                </div>-->
+<!--                &lt;!&ndash;/.modal-content &ndash;&gt;-->
+<!--            </div>-->
+<!--            &lt;!&ndash;/.modal-body &ndash;&gt;-->
+<!--        </div>-->
+<!--        &lt;!&ndash;/.modal-dialog &ndash;&gt;-->
+<!--    </div>-->
+<!--    &lt;!&ndash;/.modal &ndash;&gt;-->
+<!--    <div _ngcontent-ipa-c1="" class="chat_btn">&lt;!&ndash;&ndash;&gt;-->
+<!--        <a _ngcontent-ipa-c1="" class="static_link" href="https://wa.me/{{footer.phone_no}}" target="_blank"-->
+<!--            tooltip="Message Us">-->
+<!--            <img _ngcontent-ipa-c1="" class="width_160" src="{% static 'assets/img/we_r_here.png' %}">-->
+<!--        </a>-->
+<!--    </div>-->
+
+<!--    <script src="{% static 'assets/js/plugins.js' %}"></script>-->
+<!--    <script src="{% static 'assets/js/theme.js' %}"></script>-->
+<!--    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
+
+
+<!--    <script>-->
+<!--        function getCookie(cname) {-->
+<!--            var name = cname + "=";-->
+<!--            var ca = document.cookie.split(';');-->
+<!--            for (var i = 0; i < ca.length; i++) {-->
+<!--                var c = ca[i];-->
+<!--                while (c.charAt(0) == ' ') c = c.substring(1);-->
+<!--                if (c.indexOf(name) == 0)-->
+<!--                    return c.substring(name.length, c.length);-->
+<!--            }-->
+<!--            return "";-->
+<!--        }-->
+<!--    </script>-->
+
+<!--    <script type="text/javascript">-->
+<!--        $(document).on('submit', '#sign-form', function (e) {-->
+<!--            e.preventDefault();-->
+
+
+<!--            $.ajaxSetup({-->
+<!--                headers: {-->
+<!--                    "X-CSRFToken": getCookie("csrftoken")-->
+<!--                },-->
+<!--            });-->
+
+<!--            $.ajax({-->
+<!--                type: 'POST',-->
+<!--                url: "{% url 'signup' %}",-->
+<!--                data: {-->
+<!--                    name: $('#sign_name').val(),-->
+<!--                    email: $('#sign_email').val(),-->
+<!--                    password: $('#sign_password').val(),-->
+<!--                    confirm_password: $('#sign_confirm_password').val(),-->
+<!--                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),-->
+
+<!--                },-->
+<!--                success: function (data) {-->
+
+<!--                    $('#sign_email').val('');-->
+<!--                    var my_email = document.getElementById('sign_email');-->
+<!--                    my_email.value = null;-->
+
+<!--                    var my_name = document.getElementById('sign_name');-->
+<!--                    my_name.value = null;-->
+
+<!--                    var my_password = document.getElementById('sign_password');-->
+<!--                    my_password.value = null;-->
+
+<!--                    var my_confirm_password = document.getElementById('sign_confirm_password');-->
+<!--                    my_confirm_password.value = null;-->
+
+<!--                    var msg_id = document.getElementById("msg_id");-->
+<!--                    msg_id.innerHTML = '';-->
+
+<!--                    const msg_newDiv = document.createElement("div");-->
+<!--                    msg_newDiv.innerHTML = data.msg;-->
+<!--                    console.log(data.msg)-->
+<!--                    msg_newDiv.classList.add('success-toast', data.color_class);-->
+
+<!--                    msg_id.appendChild(msg_newDiv);-->
+<!--                    setTimeout(function () {-->
+<!--                        msg_newDiv.remove();-->
+<!--                    }, 3000);-->
+
+<!--                }-->
+<!--            });-->
+<!--        });-->
+
+<!--    </script>-->
+
+
+<!--    <script type="text/javascript">-->
+<!--        $(document).on('submit', '#send_contact-form', function (e) {-->
+<!--            e.preventDefault();-->
+
+<!--            $.ajaxSetup({-->
+<!--                headers: {-->
+<!--                    "X-CSRFToken": getCookie("csrftoken")-->
+<!--                },-->
+<!--            });-->
+
+<!--            $.ajax({-->
+<!--                type: 'POST',-->
+<!--                url: "{% url 'send' %}",-->
+<!--                data: {-->
+<!--                    email: $('#contact_email').val(),-->
+<!--                    name: $('#contact_name').val(),-->
+<!--                    message: $('#contact_message').val(),-->
+
+<!--                },-->
+<!--                success: function (data) {-->
+<!--                    $('#contact_email').val('');-->
+<!--                    var my_email = document.getElementById('contact_email');-->
+<!--                    my_email.value = null;-->
+
+<!--                    var my_name = document.getElementById('contact_name');-->
+<!--                    my_name.value = null;-->
+
+<!--                    var my_message = document.getElementById('contact_message');-->
+<!--                    my_message.value = null;-->
+
+<!--                    var contact_id = document.getElementById("contact_id");-->
+<!--                    contact_id.innerHTML = '';-->
+
+<!--                    const contact_newDiv = document.createElement("div");-->
+<!--                    contact_newDiv.innerHTML = data.msg;-->
+<!--                    console.log(data.msg)-->
+<!--                    contact_newDiv.classList.add('success-toast', data.color_class);-->
+
+<!--                    contact_id.appendChild(contact_newDiv);-->
+<!--                    setTimeout(function () {-->
+<!--                        contact_newDiv.remove();-->
+<!--                    }, 3000);-->
+
+<!--                }-->
+<!--            });-->
+<!--        });-->
+
+<!--    </script>-->
+
+
+
+<!--    <script type="text/javascript">-->
+<!--        $(document).on('submit', '#signin-form', function (e) {-->
+<!--            e.preventDefault();-->
+
+<!--            $.ajaxSetup({-->
+<!--                headers: {-->
+<!--                    "X-CSRFToken": getCookie("csrftoken")-->
+<!--                },-->
+<!--            });-->
+
+<!--            $.ajax({-->
+<!--                type: 'POST',-->
+<!--                url: "{% url 'signin' %}",-->
+<!--                data: {-->
+<!--                    email: $('#signin_email').val(),-->
+<!--                    password: $('#signin_password').val(),-->
+
+<!--                },-->
+<!--                success: function (data) {-->
+<!--                    $('#signin_email').val('');-->
+<!--                    var my_email = document.getElementById('signin_email');-->
+<!--                    my_email.value = null;-->
+
+<!--                    var my_password = document.getElementById('signin_password');-->
+<!--                    my_password.value = null;-->
+
+<!--                    var signin_id = document.getElementById("signin_id");-->
+<!--                    signin_id.innerHTML = '';-->
+
+<!--                    const signin_newDiv = document.createElement("div");-->
+<!--                    signin_newDiv.innerHTML = data.msg;-->
+<!--                    console.log(data.msg)-->
+<!--                    signin_newDiv.classList.add('success-toast', data.color_class);-->
+
+<!--                    signin_id.appendChild(signin_newDiv);-->
+<!--                    setTimeout(function () {-->
+<!--                        signin_newDiv.remove();-->
+<!--                        if (data.redirect_url) {-->
+<!--                            window.location.href = data.redirect_url;-->
+<!--                        }-->
+<!--                    }, 300);-->
+
+<!--                }-->
+<!--            });-->
+<!--        });-->
+<!--    </script>-->
+
+
+
+<!--    <script type="text/javascript">-->
+<!--        $(document).on('submit', '#forget-password-form', function (e) {-->
+<!--            e.preventDefault();-->
+
+<!--            $.ajaxSetup({-->
+<!--                headers: {-->
+<!--                    "X-CSRFToken": getCookie("csrftoken")-->
+<!--                },-->
+<!--            });-->
+
+<!--            $.ajax({-->
+<!--                type: 'POST',-->
+<!--                url: "{% url 'forgot_password' %}",-->
+<!--                data: {-->
+<!--                    email: $('#forget_password_email').val(),-->
+<!--                },-->
+
+<!--                success: function (data) {-->
+<!--                    // alert(data.msg)-->
+<!--                    $('#forget_password_email').val('');-->
+<!--                    var my_email = document.getElementById('forget_password_email');-->
+<!--                    my_email.value = null;-->
+
+<!--                    var contact_id = document.getElementById("contact_id");-->
+<!--                    contact_id.innerHTML = '';-->
+
+<!--                    const signin_newDiv = document.createElement("div");-->
+<!--                    signin_newDiv.innerHTML = data.msg;-->
+<!--                    console.log(data.msg)-->
+<!--                    signin_newDiv.classList.add('success-toast', data.color_class);-->
+
+<!--                    contact_id.appendChild(signin_newDiv);-->
+<!--                    setTimeout(function () {-->
+<!--                        signin_newDiv.remove();-->
+<!--                    }, 5000);-->
+<!--                }-->
+<!--            });-->
+<!--        });-->
+<!--    </script>-->
+
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+
+</body>
+
+</html>

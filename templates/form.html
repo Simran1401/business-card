@@ -1,0 +1,1793 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="An impressive and flawless site template that includes various UI elements and countless features, attractive ready-made blocks and rich pages, basically everything you need to create a unique and professional website.">
+  <meta name="keywords"
+    content="bootstrap 5, business, corporate, creative, gulp, marketing, minimal, modern, multipurpose, one page, responsive, saas, sass, seo, startup, html5 template, site template">
+  <meta name="author" content="elemis">
+  <title>Sandbox - Modern & Multipurpose Bootstrap 5 Template</title>
+  <link rel="shortcut icon" href="{% static 'assets/img/favicon.png' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/plugins.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/colors/sky.css' %}">
+  <link rel="preload" href="{% static 'assets/css/fonts/urbanist.css' %}" as="style" onload="this.rel='stylesheet'">
+  <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/template-css/template.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/icofont/icofont.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/message.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Lora:wght@400;500;700&family=Merriweather:wght@400;700&family=Nunito:wght@400;500;700&family=Oswald:wght@400;500;700&family=Playfair+Display:wght@400;500;700&family=Poppins:wght@400;500;700&family=Roboto:wght@400;500;700&family=Source+Sans+Pro:wght@400;700&family=Ubuntu:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    .nav-link {
+      margin-right: 30px !important;
+    }
+
+    @media (max-width:765px) {
+
+      .nav-tabs.nav-pills,
+      .nav-tabs.nav-tabs-basic {
+        flex-direction: row !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content-wrapper">
+
+    <header class="wrapper bg-light">
+      <nav class="navbar navbar-expand-lg classic transparent navbar-light" id="navbar-example2" style="box-shadow: 0 0 1.25rem rgba(30,34,40,.06);
+        background: rgba(255,255,255,.97);">
+        <div class="container flex-lg-row flex-nowrap align-items-center">
+          <div class="navbar-brand w-100">
+            <a href="./index.html">
+              <img src="{% static 'assets/img/BC.png' %}" alt="" class="logo-img" />
+            </a>
+          </div>
+          <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
+            <div class="offcanvas-header d-lg-none">
+              <h3 class="text-white fs-30 mb-0">Sandbox</h3>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+            </div>
+          </div>
+          <!-- /.navbar-collapse -->
+          <div class="navbar-other ms-lg-4">
+            <ul class="navbar-nav flex-row align-items-center ms-auto">
+              <li class="nav-item d-none d-md-block">
+                <a href="{% url 'signout' %}" class="btn btn-primary rounded-pill mx-1 mb-2 mb-md-0" 
+                  >Logout Account</a>
+              </li>
+              <li class="nav-item d-lg-none">
+                <button class="hamburger offcanvas-nav-btn"><span></span></button>
+              </li>
+            </ul>
+            <!-- /.navbar-nav -->
+          </div>
+          <!-- /.navbar-other -->
+        </div>
+        <!-- /.container -->
+      </nav>
+      <!-- /.navbar -->
+    </header>
+    <!-- /header -->
+
+    <section class="wrapper bg-light" id="home">
+      <div class="container pt-8 pt-md-10 pb-4 pb-md-5 text-center">
+        <div class="row gx-lg-8 gx-xl-12 gy-10 gy-xl-0 mb-14 align-items-center">
+          <div class="col-sm-12">
+            <form id="regForm" action="{% url 'forms' %}" method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+
+              <!-- Circles which indicates the steps of the form: -->
+              <div class="tab_box">
+                <div class="step">
+                  <p class="nav-link active">Company Info</p>
+                </div>
+                <div class="step">
+                  <p class="nav-link">Social & Video</p>
+                </div>
+                <div class="step">
+                  <p class="nav-link">About Info</p>
+                </div>
+                <div class="step">
+                  <p class="nav-link">Services</p>
+                </div>
+                <div class="step">
+                  <p class="nav-link">Bank Details</p>
+                </div>
+                <div class="step">
+                  <p class="nav-link">Gallery</p>
+                </div>
+                <div class="step m-0">
+                  <p class="nav-link">Settings</p>
+                </div>
+              </div>
+              <!-- One "tab" for each step in the form: -->
+              <div class="tab">
+                <h3 class="pb-2">Basic Informations</h3>
+                <div class="row gx-4">
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_name">Business or Company Name*</label>
+                      <input id="form_name" type="text" name="company_name" class="form-control" placeholder="Jane" required>
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your first name.
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /column -->
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_lastname">Name *</label>
+                      <input id="form_name" type="text" name="name" class="form-control" placeholder="Name" required>
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your name.
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /column -->
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_email">Designation </label>
+                      <input id="form_designation" type="text" name="designation" class="form-control"
+                        placeholder="Enter Your Designation">
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your designation.
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /column -->
+
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_email">Contact Number 1 *</label>
+                      <input id="form_designation" type="number" name="contact_number_1" class="form-control"
+                        placeholder="Enter Your contact number 1" required>
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your contact number 1.
+                      </div>
+                    </div>
+                  </div>
+                  <!--/column -->
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_email">Contact Number 2</label>
+                      <input id="form_designation" type="number" name="contact_number_2" class="form-control"
+                        placeholder="Enter Your contact number 2">
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your contact number 2.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_email">Whatsapp Number 1 *</label>
+                      <input id="form_designation" type="number" name="whatsapp_number_1" class="form-control"
+                        placeholder="Enter Your Whatsapp number 1" required>
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your Whatsapp number 1.
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /column -->
+                
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_email">Whatsapp Number 2</label>
+                      <input id="form_designation" type="number" name="whatsapp_number_2" class="form-control"
+                        placeholder="Enter Your Whatsapp number 2">
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your Whatsapp number 2.
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /column -->
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_email">Landline Number</label>
+                      <input id="form_designation" type="number" name="landline_number" class="form-control"
+                        placeholder="Enter Your Landline Number">
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your Landline number .
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /column -->
+
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_email">Email ID*</label>
+                      <input id="form_designation" type="email" name="email" class="form-control"
+                        placeholder="Enter Your email" value="{{user.email}}" required>
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter valid email.
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /column -->
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_email">Website URL ( http://www.domain.com )</label>
+                      <input id="form_designation" type="text" name="website_url" class="form-control"
+                        placeholder="http://www.domain.com">
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter valid url.
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /column -->
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_email">Google Map Link</label>
+                      <input id="form_designation" type="text" name="google_map_link" class="form-control"
+                        placeholder="Google Map Link">
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter valid url.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_message">Upload Logo/Profile*</label>
+                      <input required accept="image/jpeg,image/jpg,image/png" class="form-control file_input"
+                        formcontrolname="logofile" name="upload_company_profile" placeholder="Upload Company Logo" type="file"
+                        style="line-height: inherit;padding-top: 0.6rem;
+                          padding-bottom: 0.6rem;">
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your Address.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="validationFileField"> Country*</label>
+                      <select id="country" class="form-select form-control" name="country" required>
+                        <option value="">Select a country</option>
+                    </select>
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please select a country code.
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /column -->
+
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_email"> City*</label>
+                      
+                        <select id="state" class="form-select form-control" name="state" required>
+                          <option value="">Select a state</option>
+                      </select>
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please select a country code.
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- /column -->
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_email"> State*</label>
+                      
+                        <select id="city" class="form-select form-control" name="city" required>
+                          <option value="">Select a city</option>
+                      </select>
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please select a country code.
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- /column -->
+                  <div class="col-md-12">
+                    <div class="form-floating mb-4">
+                      <label for="form_message">Address *</label>
+                      <textarea id="form_message" name="address" class="form-control" placeholder="Your Address"
+                        style="height: 150px" required></textarea>
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your Address.
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /column -->
+                 
+                  <!-- /column -->
+                </div>
+              </div>
+              <div class="tab">
+                <h3 class="pb-2">SOCIAL & VIDEO LINKS</h3>
+                <div class="row gx-4">
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_name">Facebook (optional)</label>
+                      <input id="form_name" type="text" name="facebook" class="form-control"
+                        placeholder="Share your Facebook Account" required>
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your first name.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_name">Instagram (optional)</label>
+                      <input id="form_name" type="text" name="instagram" class="form-control"
+                        placeholder="Share your Instagram Account" required>
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your first name.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_name">YouTube (optional)</label>
+                      <input id="form_name" type="text" name="youtube" class="form-control"
+                        placeholder="Share your YouTube Account">
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your first name.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_name">Twitter (optional)</label>
+                      <input id="form_name" type="text" name="twitter" class="form-control"
+                        placeholder="Share your Twitter Account">
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your first name.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_name">LinkedIn (optional)</label>
+                      <input id="form_name" type="text" name="linkedin" class="form-control"
+                        placeholder="Share your LinkedIn Account">
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your first name.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_name">Pinterest (optional)</label>
+                      <input id="form_name" type="text" name="pinterest" class="form-control"
+                        placeholder="Share your Pinterest Account">
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your first name.
+                      </div>
+                    </div>
+                  </div>
+                 
+                  <div class="col-md-4">
+                    <p class="text-start mb-0">Video Embed URL
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                        style="color: #28a745; margin-left: 5px;" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                        <path
+                          d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                      </svg>
+                    </p>
+                    <div class="form-floating mb-4">
+                      <label for="form_name">Youtube Video Link1 (optional)</label>
+                      <input id="form_name" type="text" name="video_link" class="form-control"
+                        placeholder="Share your Youtube Video Link1">
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your first name.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab">
+                <h3 class="pb-2">ABOUT INFO</h3>
+                <div class="row gx-4">
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_name">Establishment Year*</label>
+                      <input id="form_name" type="date" name="estblishment_year" class="form-control"
+                        placeholder="Enter Your establishment">
+                      <!-- <select class="form-select pt-0" id="form-select" name="estblishment_year" required>
+                        <option selected disabled value="">Select Establishment Year</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Customer Support">Customer
+                          Support</option>
+                      </select> -->
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your first name.
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /column -->
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_lastname">Nature of Business *</label>
+                      <!-- <input id="form_lastname" type="text" name="business_nature" class="form-control"
+                      placeholder="business Nature"> -->
+                       <select class="form-select pt-0" id="form-select" name="business_nature" required>
+                        <option selected disabled value="">Select </option>
+                        {% for choice in nature %}
+                        <option value="{{choice.id}}">{{ choice.title }}</option>
+                        {% endfor %}
+                        
+                      </select> 
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your name.
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /column -->
+                  
+                  <div class="col-md-6">
+                    <div class="form-floating mb-4">
+                      <label for="form_message">Upload Documents</label>
+                      <input required class="form-control file_input"
+                        formcontrolname="logofile" name="upload_documents" placeholder="Upload Company Logo" type="file"
+                        style="line-height: inherit;padding-top: 0.6rem;
+                                        padding-bottom: 0.6rem;">
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your Address.
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /column -->
+                  <div class="col-md-6">
+                    <div class="form-floating mb-4">
+                      <label for="form_message">GSTIN No</label>
+                      <input id="form_message" name="GSTIN_No" type="text" class="form-control"
+                        placeholder="Ente Your GSTIN No"></input>
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your Address.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-floating mb-4">
+                      <label for="content">About</label>
+                      <textarea id="content" type="textarea" name="Desc" class="form-control"
+                        placeholder="Add description"></textarea>
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your designation.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab">
+                <h3 class="pb-2">PRODUCTS/SERVICES</h3>
+                <div class="row gx-4">
+                  <div class="col-md-6">
+                    <div class="form-floating mb-4">
+                      <label for="form_name">Type:</label>
+                      <div class="d-flex">
+                        <div class="form-check me-5">
+                          <input class="form-check-input" type="radio" name="type" id="flexRadioDefault1">
+                          <label class="form-check-label" for="flexRadioDefault1"> Products
+                          </label>
+                        </div>
+                        <div class="form-check mb-4">
+                          <input class="form-check-input" type="radio" name="type" id="flexRadioDefault2"
+                            checked>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            Services</label>
+                        </div>
+                      </div>
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your first name.
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /column -->
+                  <div class="col-md-6">
+                    <div class="form-floating mb-4">
+                      <label for="form_lastname">Product Name*</label>
+                      <input id="form_lastname" type="text" name="" class="form-control"
+                      placeholder="Enter Product Name">
+                      <!-- <select class="form-select pt-0" id="form-select" name="product_name" required>
+                        <option selected disabled value="">Enter Your Product Name</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Customer Support">Customer
+                          Support</option>
+                      </select> -->
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your name.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-floating mb-4">
+                      <label for="form_message">Select Product/Service Image*</label>
+                      <input required accept="image/jpeg,image/jpg,image/png" class="form-control file_input"
+                        formcontrolname="logofile" name="image" value="upload" placeholder="Upload Company Logo" type="file"
+                        style="line-height: inherit;padding-top: 0.6rem;
+                                        padding-bottom: 0.6rem;" multiple>
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      
+                      <div class="invalid-feedback">
+                        Please enter your Address.
+                      </div>
+                      <button >Add</button>
+                    </div>
+                  </div>
+                  
+                  <!-- /column -->
+                  <div class="col-md-3">
+                    <div class="form-floating mb-4">
+                      <label for="form_message">Select Currency</label>
+                      <select class="form-select pt-0" id="form-select" name="Currency" required>
+                        <option value="INR">INR</option>
+                        <option value="USB">USB</option>
+                      </select> 
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your Address.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-floating mb-4">
+                      <label for="form_message">Enter Price</label>
+                      <input _ngcontent-cfj-c1="" class="form-control" name="price"
+                        placeholder="Enter Your Product Price" type="text">
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your Address.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab">
+                <h3 class="pb-2">BANK DETAILS (OPTIONAL)</h3>
+                <div class="row gx-4">
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_name">Bank Name*</label>
+                      <input id="form_name" type="text" name="bank_name" class="form-control"
+                        placeholder="Enter Your Bank Name">
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your first name.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_name">Account No</label>
+                      <input id="form_name" type="number" name="Account_number" class="form-control"
+                        placeholder="Enter Your Account Number">
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your first name.
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /column -->
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_email">Branch Name </label>
+                      <input id="form_designation" type="text" name="branch_name" class="form-control"
+                        placeholder="Enter Your Branch Name">
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your designation.
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /column -->
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_email"> IFSC code</label>
+                      <input id="form_designation" type="text" name="IFSC_code" class="form-control"
+                        placeholder="Enter Your IFSC code">
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please select a country code.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_email"> AC Holder Name</label>
+                      <input id="form_designation" type="text" name="Ac_holder_name" class="form-control"
+                        placeholder="Account Holder Name">
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please select a country code.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_email">Account Type</label>
+                      <input id="form_designation" type="text" name="account_type" class="form-control"
+                        placeholder="Account Type">
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please select a country code.
+                      </div>
+                    </div>
+                  </div>
+                  <h4 class="mt-5">Account Details (International Usage)</h4>
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_email"> IBAN Number</label>
+                      <input id="form_designation" type="text" name="IBAN_number" class="form-control"
+                        placeholder="Enter Your IBAN Number">
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please select a country code.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_email">SWIFT Code</label>
+                      <input id="form_designation" type="text" name="SWIFT_code" class="form-control"
+                        placeholder="Enter Your SWIFT Code">
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please select a country code.
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /column -->
+                  <h4 class="mt-5">Online Transfer</h4>
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_email">Type of QR</label>
+                      <select class="form-select pt-0" id="form-select" name="Currency" required>
+                        
+                        <option value="GooglePay">GooglePay</option>
+                        <option value="Paytm">Paytm</option>
+                        <option value="Phonepe">Phonepe</option>
+                        <option value="Other">Other</option>
+                        
+                      </select>
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your contact number 1.
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- /column -->
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_message">Upload QR Image</label>
+                      <input accept="image/jpeg,image/jpg,image/png" class="form-control file_input"
+                        formcontrolname="logofile" name="uplaod_QR_image" placeholder="Upload Company Logo" type="file"
+                        style="line-height: inherit;padding-top: 0.6rem;
+                                        padding-bottom: 0.6rem;">
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your Address.
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-4">
+                    <div class="form-floating mb-4">
+                      <label for="form_email">Enter Number</label>
+                      <input id="form_designation" type="number" name="payment_number" class="form-control"
+                        placeholder="Enter Your Phonepe Number">
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter your contact number 1.
+                      </div>
+                    </div>
+                  </div>
+                
+                 
+                  <!-- /column -->
+                </div>
+              </div>
+              <div class="tab">
+                <h3 class="pb-2">GALLERY (OPTIONAL)</h3>
+                <div class="row gx-4">
+                  <div class="col-md-6">
+                    <div class="form-floating mb-4">
+                      <label for="form_message">Choose Gallery images ( Upload Upto 20 Images
+                        )</label>
+                      <input accept="image/jpeg,image/jpg,image/png" id="file-input" class="form-control "
+                        formcontrolname="logofile" name="gallery_image" placeholder="Upload Company Logo" type="file"
+                        style="line-height: inherit;padding-top: 0.6rem;
+                                        padding-bottom: 0.6rem;" multiple required>
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback" id="fileError">
+                        Please add atleast one image
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab">
+                <h3 class="pb-2">SETTINGS (OPTIONAL)</h3>
+                <div class="row gx-4 template_tab">
+                  <div class="col-md-7">
+                    <div class="row w-100 m-0">
+                      <div class="col-sm-6">
+                        <h4 class="text-start">Settings</h4>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                          <label class="form-check-label" for="flexCheckChecked">View
+                            count</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                          <label class="form-check-label" for="flexCheckChecked"> About Us
+                            Section </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                          <label class="form-check-label" for="flexCheckChecked">Products/Services Section</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                          <label class="form-check-label" for="flexCheckChecked">Payment
+                            Option Section</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                          <label class="form-check-label" for="flexCheckChecked">Gallery
+                            Section</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                          <label class="form-check-label" for="flexCheckChecked">Video Section
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                          <label class="form-check-label" for="flexCheckChecked">Enquiry
+                            Section</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                          <label class="form-check-label" for="flexCheckChecked">Show Menu
+                          </label>
+                        </div>
+
+                      </div>
+                      <div class="col-sm-6">
+                        <h4 class="text-start">Choose Theme Color</h4>
+                        <div class="d_flex ">
+                          <div class="colors active" id="color_1" onclick="changeToColor1()">
+                          </div>
+                          <div class="colors" id="color_2" onclick="changeToColor2()"></div>
+                          <div class="colors" id="color_3" onclick="changeToColor3()"></div>
+                          <div class="colors" id="color_4" onclick="changeToColor4()"></div>
+                          <div class="colors" id="color_5" onclick="changeToColor5()"></div>
+                          <div class="colors" id="color_6" onclick="changeToColor6()"></div>
+                          <div class="colors" id="color_7" onclick="changeToColor7()"></div>
+                          <div class="colors" id="color_8" onclick="changeToColor8()"></div>
+                          <div class="colors" id="color_9" onclick="changeToColor9()"></div>
+                          <div class="colors" id="color_10" onclick="changeToColor10()"></div>
+                          <div class="colors" id="color_11" onclick="changeToColor11()"></div>
+                          <div class="colors" id="color_12" onclick="changeToColor12()"></div>
+                          <div class="colors" id="color_13" onclick="changeToColor13()"></div>
+                          <div class="colors" id="color_14" onclick="changeToColor14()"></div>
+                          <div class="colors" id="color_15" onclick="changeToColor15()"></div>
+                        </div>
+                        <h4 class="text-start mt-5">Custom Theme Color</h4>
+                        <div class="d-flex align-items-center">
+                          <label for="favcolor">Select your favorite color : &nbsp;</label>
+                          <input type="color" id="myColor" name="favcolor" value="#ff0000">
+                        </div>
+                        <h4 class="text-start mt-5">Choose Font Color</h4>
+                        <select class="form-select" id="form_select" name="department" onchange="selectFontColor()">
+                          <option selected disabled value="">Select Font Color</option>
+                          <option value="black">Black</option>
+                          <option value="white">White</option>
+                        </select>
+
+                        <!-- <select class="form-select " id="form-select" name="department" required>
+                                          <option selected disabled value="">Select Font Color</option>
+                                          <option value="Montserrat" onchange="changeToBlack()">Black</option>
+                                          <option value="Jost" onchange="changeToWhite()">White</option>
+                                        </select> -->
+                        <h4 class="text-start mt-5">Choose Primary Font</h4>
+                        <select class="form-select" id="form_select1" name="department" onchange="selectFontFamily1()">
+                          <option selected disabled value="">Select Primary Font</option>
+                          <option value="Montserrat">Montserrat</option>
+                          <option value="Jost">Jost</option>
+                          <option value="Open Sans">Open Sans</option>
+                          <option value="Roboto">Roboto</option>
+                          <option value="Lato">Lato</option>
+                          <option value="Poppins">Poppins</option>
+                          <option value="Ubuntu">Ubuntu</option>
+                          <option value="Source Sans Pro">Source Sans Pro</option>
+                          <option value="Nunito">Nunito</option>
+                          <option value="Playfair Display">Playfair Display</option>
+                          <option value="Oswald">Oswald</option>
+                          <option value="Lora">Lora</option>
+                          <option value="Merriweather">Merriweather</option>
+                        </select>
+                        <h4 class="text-start mt-5">Choose Secondry Font</h4>
+                        <select class="form-select" id="form_select2" name="department" onchange="selectFontFamily2()">
+                          <option selected disabled value="">Select Secondry Font</option>
+                          <option value="Montserrat">Montserrat</option>
+                          <option value="Jost">Jost</option>
+                          <option value="Open Sans">Open Sans</option>
+                          <option value="Roboto">Roboto</option>
+                          <option value="Lato">Lato</option>
+                          <option value="Poppins">Poppins</option>
+                          <option value="Ubuntu">Ubuntu</option>
+                          <option value="Source Sans Pro">Source Sans Pro</option>
+                          <option value="Nunito">Nunito</option>
+                          <option value="Playfair Display">Playfair Display</option>
+                          <option value="Oswald">Oswald</option>
+                          <option value="Lora">Lora</option>
+                          <option value="Merriweather">Merriweather</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <h4 class="text-start">Template Preview</h4>
+                    <div class="template-box">
+                      <div class="row w-100 m-0">
+                        <div class="mx-auto p-2 col-sm-12 main_card">
+                          <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0"
+                            class="scrollspy-example" tabindex="0">
+                            <div id="scrollspyHeading1" class="card  mb-2" id="step1">
+                              <div class="card-body">
+                                <div class="views-label"><i class="fa fa-eye view_label_icon"></i> Views:
+                                  <b>555</b>
+                                </div>
+                              </div>
+                              <div class="card-body text-center "><img class="company-logo"
+                                  src="https://digitalvcard.online/api/uploads/1594451253_13531.jpg">
+                                <div class="firmname head_font"> AR TRADERS </div>
+                                <hr class="colorgraph1 ">
+                                <h5 class="mt-2 manager_name head_font"> E.Amanullah
+                                  ,B.AbdulRazzaq
+                                </h5>
+                                <h5 class="mt-2 manager_name head_font"> </h5>
+                                <div class="social-media  mt-4 mb-3"><a class="btn  btn-sm   mt-2" target="_blank"
+                                    href="tel:+919942257110" style="font-weight: 600;"><i
+                                      class="icofont-phone"></i></a><a class="btn  btn-sm ml-2  mt-2" target="_blank"
+                                    href="https://wa.me/919714403481?text=Got reference from your Digital vCard. Want to know more about your products and services."
+                                    style="font-weight: 600;"><i class="icofont-whatsapp"></i></a><a
+                                    class="btn  btn-sm ml-2   mt-2" target="_blank" href="" style="font-weight: 600;"><i
+                                      class="icofont-google-map"></i></a><a class="btn  btn-sm ml-2  mt-2"
+                                    rel="publisher" target="_blank" href="mailto:amanullahe6@gmail.com"
+                                    style="font-weight: 600;"><i class="icofont-envelope"></i></a></div>
+                                <div class="card details-box  mt-4">
+                                  <div class="card-body  text-start">
+                                    <div class="info">
+                                      <div class="address">
+                                        <p><i class="icofont-google-map"></i>
+                                          88/17 ,NETHAJI STREET ,
+                                          VENDIPALAYAM, ERODE - 638002. </p>
+                                      </div>
+                                      <div class="email">
+                                        <p><i class="icofont-envelope"></i><a target="_blank"
+                                            href="mailto:amanullahe6@gmail.com">
+                                            amanullahe6@gmail.com </a></p>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-sm-12">
+                                          <div class="phone">
+                                            <p><i class="icofont-phone"></i>+91
+                                              9942257110</p>
+                                          </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                          <div class="phone">
+                                            <p><i class="icofont-whatsapp"></i>+91
+                                              9714403481 </p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="social-media1">
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-md-12 text-center"><button
+                                          class="btn  btn-sm  mt-3 font-weight-600 pl-0 share-btn"
+                                          data-bs-toggle="modal" data-bs-target="#exampleModal" type="button"
+                                          fdprocessedid="teu0eo"><i class="fa fa-share-alt share_b"></i>&nbsp;Share
+                                        </button></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div id="scrollspyHeading2" class="card  mb-2" id="step2">
+                              <div class="card-body">
+                                <h4 class="text-center head_font">ABOUT US</h4>
+                                <hr class="colorgraph1 ">
+                                <div class="company-address">
+                                  <div class=" row col-md-12" style="flex-wrap: nowrap;">
+                                    <label class="about_width_30 col-form-label font-weight-bold p-0 pb-2"
+                                      for="staticEmail">Company Name</label>
+                                    <div class=" width_5 text-center font-weight-bold">
+                                      :
+                                    </div>
+                                    <div class="width_66"> AR TRADERS </div>
+                                  </div>
+                                  <div class="row col-md-12" style="flex-wrap: nowrap;">
+                                    <label class="about_width_30 col-form-label font-weight-bold p-0 pb-2"
+                                      for="staticEmail">Year of Est</label>
+                                    <div class=" width_5 text-center font-weight-bold">
+                                      :
+                                    </div>
+                                    <div class="width_66"> 2015 </div>
+                                  </div>
+                                  <div class="row col-md-12" style="flex-wrap: nowrap;">
+                                    <label class="about_width_30 col-form-label font-weight-bold p-0 pb-2"
+                                      for="staticEmail">Nature of Business</label>
+                                    <div class="width_5 text-center font-weight-bold">
+                                      :
+                                    </div>
+                                    <div class="width_66"><span>Wholesaler</span>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-12 pl-0 pr-0">
+                                    <div class=" w-100 text-justify ">
+                                      <div class="p_custom">Lunki, innscut,
+                                        sarees, shirts
+                                        Whole
+                                        sale
+                                        Resellers</div>
+                                    </div>
+                                  </div>
+                                  <div class="row"><a class="document-wrapper" download="" target="_blank"
+                                      href="https://digitalvcard.online/api/uploads/1594863723_56244.jpg">
+                                      <div class="pdf-icon"><i class="fa fa-file-pdf-o pdf_red"></i>
+                                      </div>
+                                      <div class="pdf-number">1594863723_56244.jpg
+                                      </div>
+                                      <div class="download-icon"><i class="fa fa-download"></i></div>
+                                    </a></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div id="scrollspyHeading3" class="card   mb-2" id="step3">
+                              <div class="card-body">
+                                <h4 class="text-center head_font"> PRODUCTS </h4>
+                                <hr class="colorgraph1 ">
+                                <div class="product-services">
+                                  <div class="card bg-light mt-3">
+                                    <div class="card-header text-center">
+                                      <h6 class="font-weight-xl"> Pure Cotton 2 25
+                                        MTR </h6>
+                                    </div>
+                                    <div class="card-img-top"><img class="product-img text-center"
+                                        src="https://digitalvcard.online/api/uploads/1594451574_812.jpeg">
+                                    </div>
+                                    <div class="bg_white">
+                                      <p class="prod_p"></p><a class="btn btn-sm enuery" target="_blank"
+                                        href="https://wa.me/+919714403481?text=Hi, I am interested in your product/service: Pure Cotton 2 25 MTR.. Please provide more details."
+                                        style=" font-weight: 600;">Enquiry</a>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="product-services">
+                                  <div class="card bg-light mt-3">
+                                    <div class="card-header text-center">
+                                      <h6 class="font-weight-xl head_font"> Cotton
+                                        nylon mix </h6>
+                                    </div>
+                                    <div class="card-img-top"><img class="product-img text-center"
+                                        src="https://digitalvcard.online/api/uploads/1594487439_51450.jpg">
+                                    </div>
+                                    <div class="bg_white">
+                                      <p class="prod_p"></p><a class="btn btn-sm enuery" target="_blank"
+                                        href="https://wa.me/+919714403481?text=Hi, I am interested in your product/service: Cotton  nylon mix.. Please provide more details."
+                                        style=" font-weight: 600;">Enquiry</a>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="product-services">
+                                  <div class="card bg-light mt-3">
+                                    <div class="card-header text-center">
+                                      <h6 class="font-weight-xl head_font"> Cotton
+                                        Nylon mix </h6>
+                                    </div>
+                                    <div class="card-img-top"><img class="product-img text-center"
+                                        src="https://digitalvcard.online/api/uploads/1594525390_6289.jpeg">
+                                    </div>
+                                    <div class="bg_white">
+                                      <p class="prod_p"></p><a class="btn btn-sm enuery" target="_blank"
+                                        href="https://wa.me/+919714403481?text=Hi, I am interested in your product/service: Cotton  Nylon mix.. Please provide more details."
+                                        style=" font-weight: 600;">Enquiry</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div id="scrollspyHeading4" class="card   mb-2" id="step4">
+                              <div class="card-body">
+                                <h4 class="text-center head_font">PAYMENTS</h4>
+                                <hr class="colorgraph1 ">
+                                <div class="payment-details">
+                                  <h5 class="head_font">UPI Payments: </h5>
+                                  <div class="">
+                                    <div class="pt-2">
+                                      <div class="row  col-md-12" style="flex-wrap: nowrap;">
+                                        <label class="width_30 col-form-label font-weight-bold p-0 pb-2"
+                                          for="staticEmail">
+                                          GooglePay No.</label>
+                                        <div class="width_5 text-center font-weight-bold">
+                                          :
+                                        </div>
+                                        <div class="width_70"> 8780285475 </div>
+                                      </div>
+                                      <div class="row  col-md-12" style="flex-wrap: nowrap;">
+                                        <label class="width_30 col-form-label font-weight-bold p-0 pb-2"
+                                          for="staticEmail">
+                                          Paytm No.</label>
+                                        <div class="width_5 text-center font-weight-bold">
+                                          :
+                                        </div>
+                                        <div class="width_70"> 8780285475 </div>
+                                      </div>
+                                      <div class="row  col-md-12" style="flex-wrap: nowrap;">
+                                        <label class="width_30 col-form-label font-weight-bold p-0 pb-2"
+                                          for="staticEmail">
+                                          Phonepe No.</label>
+                                        <div class="width_5 text-center font-weight-bold">
+                                          :
+                                        </div>
+                                        <div class="width_70"> 8780285475 </div>
+                                      </div>
+                                      <hr>
+                                      <div class="row mt-3 mb-3" style="flex-wrap: nowrap;">
+
+                                        <div class="  col-md-6 text-center ">
+                                          <label class="width_100 col-form-label font-weight-bold p-0 pb-2"
+                                            for="staticEmail"> GooglePay
+                                            QR</label>
+                                          <div class="width_100"><img class="qr_img"
+                                              src="https://digitalvcard.online/api/uploads/1594474189_24821.jpg">
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <hr>
+                                  <h5 class="head_font">Account Details: </h5>
+                                  <div class="">
+                                    <div class="pt-2">
+                                      <div class="row  col-md-12" style="flex-wrap: nowrap;">
+                                        <label class="width_30 col-form-label font-weight-bold p-0 pb-2"
+                                          for="staticEmail">
+                                          Account Holder Name</label>
+                                        <div class="width_5 text-center font-weight-bold">
+                                          :
+                                        </div>
+                                        <div class="width_70"> E.Amanullah
+                                        </div>
+                                      </div>
+                                      <div class="row  col-md-12" style="flex-wrap: nowrap;">
+                                        <label class="width_30 col-form-label font-weight-bold p-0 pb-2"
+                                          for="staticEmail">
+                                          Bank Name</label>
+                                        <div class="width_5 text-center font-weight-bold">
+                                          :
+                                        </div>
+                                        <div class="width_70"> HDFC BANK </div>
+                                      </div>
+                                      <div class="row  col-md-12" style="flex-wrap: nowrap;">
+                                        <label class="width_30 col-form-label font-weight-bold p-0 pb-2"
+                                          for="staticEmail">
+                                          Account Number</label>
+                                        <div class="width_5 text-center font-weight-bold">
+                                          :
+                                        </div>
+                                        <div class="width_70"> 50100143873711
+                                        </div>
+                                      </div>
+                                      <div class="row  col-md-12" style="flex-wrap: nowrap;">
+                                        <label class="width_30 col-form-label font-weight-bold p-0 pb-2"
+                                          for="staticEmail">
+                                          Branch</label>
+                                        <div class="width_5 text-center font-weight-bold">
+                                          :
+                                        </div>
+                                        <div class="width_70"> ANJAR </div>
+                                      </div>
+                                      <div class="row  col-md-12" style="flex-wrap: nowrap;">
+                                        <label class="width_30 col-form-label font-weight-bold p-0 pb-2"
+                                          for="staticEmail">
+                                          IFSC code</label>
+                                        <div class="width_5 text-center font-weight-bold">
+                                          :
+                                        </div>
+                                        <div class="width_70"> HDFC0001447
+                                        </div>
+                                      </div>
+                                      <div class="row  col-md-12" style="flex-wrap: nowrap;">
+                                        <label class="width_30 col-form-label font-weight-bold p-0 pb-2"
+                                          for="staticEmail">
+                                          Account Type</label>
+                                        <div class="width_5 text-center font-weight-bold">
+                                          :
+                                        </div>
+                                        <div class="width_70"> Savings </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div id="scrollspyHeading5" class="card  mb-2" id="step5">
+                              <div class="card-body">
+                                <h4 class="text-center head_font">GALLERY</h4>
+                                <hr class="colorgraph1 ">
+                                <div class="row gallery-images justify-content-between">
+                                  <div class="col-sm-4 mt-3 gallery_imgs">
+                                    <button type="button"
+                                      style="width:100%;border: none; background: transparent; padding: 0;"
+                                      data-bs-toggle="modal" data-bs-target="#img_1">
+                                      <img alt="Image 1" class="img-responsive img-fluid galery_img"
+                                        src="https://digitalvcard.online/api/uploads/1594467970_71926.jpeg">
+                                    </button>
+                                  </div>
+                                  <div class="col-sm-4 mt-3 gallery_imgs">
+                                    <button type="button"
+                                      style="width:100%;border: none; background: transparent; padding: 0;"
+                                      data-bs-toggle="modal" data-bs-target="#img_2">
+                                      <img alt="Image 1" class="img-responsive img-fluid galery_img"
+                                        src="https://digitalvcard.online/api/uploads/1594467970_10030.jpeg">
+                                    </button>
+                                  </div>
+                                  <div class="col-sm-4 mt-3 gallery_imgs">
+                                    <button type="button"
+                                      style="width:100%;border: none; background: transparent; padding: 0;"
+                                      data-bs-toggle="modal" data-bs-target="#img_3">
+                                      <img alt="Image 1" class="img-responsive img-fluid galery_img"
+                                        src="https://digitalvcard.online/api/uploads/1594467975_12579.jpeg">
+                                    </button>
+                                  </div>
+                                  <div class="col-sm-4 mt-3 gallery_imgs">
+                                    <button type="button"
+                                      style="width:100%;border: none; background: transparent; padding: 0;"
+                                      data-bs-toggle="modal" data-bs-target="#img_4">
+                                      <img alt="Image 1" class="img-responsive img-fluid galery_img"
+                                        src="https://digitalvcard.online/api/uploads/1594467975_43409.jpeg">
+                                    </button>
+                                  </div>
+                                  <div class="col-sm-4 mt-3 gallery_imgs">
+                                    <button type="button"
+                                      style="width:100%;border: none; background: transparent; padding: 0;"
+                                      data-bs-toggle="modal" data-bs-target="#img_5">
+                                      <img alt="Image 1" class="img-responsive img-fluid galery_img"
+                                        src="https://digitalvcard.online/api/uploads/1594467975_18781.jpeg">
+                                    </button>
+                                  </div>
+                                  <div class="col-sm-4 mt-3 gallery_imgs">
+                                    <button type="button"
+                                      style="width:100%;border: none; background: transparent; padding: 0;"
+                                      data-bs-toggle="modal" data-bs-target="#img_6">
+                                      <img alt="Image 1" class="img-responsive img-fluid galery_img"
+                                        src="https://digitalvcard.online/api/uploads/1594467978_60965.jpeg">
+                                    </button>
+                                  </div>
+                                  <div class="col-sm-4 mt-3 gallery_imgs">
+                                    <button type="button"
+                                      style="width:100%;border: none; background: transparent; padding: 0;"
+                                      data-bs-toggle="modal" data-bs-target="#img_7">
+                                      <img alt="Image 1" class="img-responsive img-fluid galery_img"
+                                        src="https://digitalvcard.online/api/uploads/1594467980_64149.jpeg">
+                                    </button>
+                                  </div>
+                                  <div class="col-sm-4 mt-3 gallery_imgs">
+                                    <button type="button"
+                                      style="width:100%;border: none; background: transparent; padding: 0;"
+                                      data-bs-toggle="modal" data-bs-target="#img_8">
+                                      <img alt="Image 1" class="img-responsive img-fluid galery_img"
+                                        src="https://digitalvcard.online/api/uploads/1594467983_6881.jpeg">
+                                    </button>
+                                  </div>
+                                  <div class="col-sm-4 mt-3 gallery_imgs">
+                                    <button type="button"
+                                      style="width:100%;border: none; background: transparent; padding: 0;"
+                                      data-bs-toggle="modal" data-bs-target="#img_9">
+                                      <img alt="Image 1" class="img-responsive img-fluid galery_img"
+                                        src="https://digitalvcard.online/api/uploads/1594467984_90724.jpeg">
+                                    </button>
+                                  </div>
+                                  <div class="col-sm-4 mt-3 gallery_imgs">
+                                    <button type="button"
+                                      style="width:100%;border: none; background: transparent; padding: 0;"
+                                      data-bs-toggle="modal" data-bs-target="#img_10">
+                                      <img alt="Image 1" class="img-responsive img-fluid galery_img"
+                                        src="https://digitalvcard.online/api/uploads/1594467984_75942.jpeg">
+                                    </button>
+                                  </div>
+                                  <div class="col-sm-4 mt-3 gallery_imgs">
+                                    <button type="button"
+                                      style="width:100%;border: none; background: transparent; padding: 0;"
+                                      data-bs-toggle="modal" data-bs-target="#img_11">
+                                      <img alt="Image 1" class="img-responsive img-fluid galery_img"
+                                        src="https://digitalvcard.online/api/uploads/1594467985_86478.jpeg">
+                                    </button>
+                                  </div>
+                                  <div class="col-sm-4 mt-3 gallery_imgs">
+                                    <button type="button"
+                                      style="width:100%;border: none; background: transparent; padding: 0;"
+                                      data-bs-toggle="modal" data-bs-target="#img_12">
+                                      <img alt="Image 1" class="img-responsive img-fluid galery_img"
+                                        src="https://digitalvcard.online/api/uploads/1594467986_134.jpeg">
+                                    </button>
+                                  </div>
+                                  <div class="col-sm-4 mt-3 gallery_imgs">
+                                    <button type="button"
+                                      style="width:100%;border: none; background: transparent; padding: 0;"
+                                      data-bs-toggle="modal" data-bs-target="#img_13">
+                                      <img alt="Image 1" class="img-responsive img-fluid galery_img"
+                                        src="https://digitalvcard.online/api/uploads/1594467987_61197.jpeg">
+                                    </button>
+                                  </div>
+                                  <div class="col-sm-4 mt-3 gallery_imgs">
+                                    <button type="button"
+                                      style="width:100%;border: none; background: transparent; padding: 0;"
+                                      data-bs-toggle="modal" data-bs-target="#img_14">
+                                      <img alt="Image 1" class="img-responsive img-fluid galery_img"
+                                        src="https://digitalvcard.online/api/uploads/1594467988_16002.jpeg">
+                                    </button>
+                                  </div>
+                                  <div class="col-sm-4 mt-3 gallery_imgs">
+                                    <button type="button"
+                                      style="width:100%;border: none; background: transparent; padding: 0;"
+                                      data-bs-toggle="modal" data-bs-target="#img_15">
+                                      <img alt="Image 1" class="img-responsive img-fluid galery_img"
+                                        src="https://digitalvcard.online/api/uploads/1594467989_81856.jpeg">
+                                    </button>
+                                  </div>
+                                  <div class="col-sm-4 mt-3 gallery_imgs">
+                                    <button type="button"
+                                      style="width:100%;border: none; background: transparent; padding: 0;"
+                                      data-bs-toggle="modal" data-bs-target="#img_16">
+                                      <img alt="Image 1" class="img-responsive img-fluid galery_img"
+                                        src="https://digitalvcard.online/api/uploads/1594467990_40640.jpeg">
+                                    </button>
+                                  </div>
+                                  <div class="col-sm-4 mt-3 gallery_imgs">
+                                    <button type="button"
+                                      style="width:100%;border: none; background: transparent; padding: 0;"
+                                      data-bs-toggle="modal" data-bs-target="#img_17">
+                                      <img alt="Image 1" class="img-responsive img-fluid galery_img"
+                                        src="https://digitalvcard.online/api/uploads/1594467991_16506.jpeg">
+                                    </button>
+                                  </div>
+                                  <div class="col-sm-4 mt-3 gallery_imgs">
+                                    <button type="button"
+                                      style="width:100%;border: none; background: transparent; padding: 0;"
+                                      data-bs-toggle="modal" data-bs-target="#img_18">
+                                      <img alt="Image 1" class="img-responsive img-fluid galery_img"
+                                        src="https://digitalvcard.online/api/uploads/1594467993_2001.jpeg">
+                                    </button>
+                                  </div>
+                                  <div class="col-sm-4 mt-3 gallery_imgs">
+                                    <button type="button"
+                                      style="width:100%;border: none; background: transparent; padding: 0;"
+                                      data-bs-toggle="modal" data-bs-target="#img_19">
+                                      <img alt="Image 1" class="img-responsive img-fluid galery_img"
+                                        src="https://digitalvcard.online/api/uploads/1594467993_82994.jpeg">
+                                    </button>
+                                  </div>
+                                  <div class="col-sm-4 mt-3 gallery_imgs">
+                                    <button type="button"
+                                      style="width:100%;border: none; background: transparent; padding: 0;"
+                                      data-bs-toggle="modal" data-bs-target="#img_20">
+                                      <img alt="Image 1" class="img-responsive img-fluid galery_img"
+                                        src="https://digitalvcard.online/api/uploads/1594467994_78740.jpeg">
+                                    </button>
+                                  </div>
+                                  <div class="col-sm-4 mt-3 gallery_imgs">
+                                    <button type="button"
+                                      style="width:100%;border: none; background: transparent; padding: 0;"
+                                      data-bs-toggle="modal" data-bs-target="#img_21">
+                                      <img alt="Image 1" class="img-responsive img-fluid galery_img"
+                                        src="https://digitalvcard.online/api/uploads/1594467994_60969.jpeg">
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div id="scrollspyHeading6" class="card   mb-2" id="step6">
+                              <div class="card-body">
+                                <h4 class="text-center head_font">VIDEOS</h4>
+                                <hr class="colorgraph1 ">
+                                <div class="container-fluid">
+                                  <div class="embed-responsive embed-responsive-16by9 mt-3">
+                                    <div><iframe src="https://www.youtube.com/embed/kJEn8x8SoIM" frameborder="0"
+                                        allowfullscreen=""></iframe></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div id="scrollspyHeading7" class="card   mb-1" id="step7">
+                              <div class="card-body">
+                                <h4 class="text-center head_font">ENQUIRY FORM</h4>
+                                <hr class="colorgraph1 ">
+                                <form novalidate="" role="form" class="ng-untouched ng-pristine ng-invalid">
+                                  <div class="form-group"><input
+                                      class="form-control input-lg ng-untouched ng-pristine ng-invalid"
+                                      formcontrolname="enqirer_name" id="enqirer_name" name="enqirer_name"
+                                      placeholder="Your Name" tabindex="1" type="text" fdprocessedid="1yvnt">
+                                  </div>
+                                  <div class="form-group"><input
+                                      class="form-control input-lg ng-untouched ng-pristine ng-invalid"
+                                      formcontrolname="mobile_number" id="mobile_number" maxlength="10" minlength="10"
+                                      name="mobile_number" placeholder="Mobile Number" tabindex="3" type="text"
+                                      fdprocessedid="crae"></div>
+                                  <div class="form-group"><textarea
+                                      class="form-control input-lg ng-untouched ng-pristine ng-invalid"
+                                      formcontrolname="messages" id="messages" name="messages"
+                                      placeholder="Enter Message" tabindex="5"
+                                      type="text">                                    </textarea>
+                                  </div><input class="btn send-btn btn-block btn-lg" type="submit" value="SEND"
+                                    fdprocessedid="wqurx6">
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="create_card"><a
+                              href="https://wa.me/918754399898?text=Hi, I am Intrested For Creating Digital Visiting card."
+                              target="_blank">Create your digital business card </a></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /column -->
+                </div>
+              </div>
+              <div>
+                <div style="display: flex;justify-content: center;
+                                align-items: center;">
+                  <button type="button" id="prevBtn" class="btn btn-danger rounded-pill btn-send me-2"
+                    onclick="nextPrev(-1)">Previous</button>
+                  <button type="button" class="btn btn-primary rounded-pill btn-send " id="nextBtn"
+                    onclick="nextPrev(1)">Next</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      var currentTab = 0; // Current tab is set to be the first tab (0)
+      showTab(currentTab); // Display the current tab
+
+      function showTab(n) {
+        // This function will display the specified tab of the form...
+        var x = document.getElementsByClassName("tab");
+        x[n].style.display = "block";
+        //... and fix the Previous/Next buttons:
+        if (n == 0) {
+          document.getElementById("prevBtn").style.display = "none";
+        } else {
+          document.getElementById("prevBtn").style.display = "inline";
+        }
+        if (n == (x.length - 1)) {
+          document.getElementById("nextBtn").innerHTML = "Submit";
+        } else {
+          document.getElementById("nextBtn").innerHTML = "Next";
+        }
+        //... and run a function that will display the correct step indicator:
+        fixStepIndicator(n)
+      }
+
+      function nextPrev(n) {
+        // This function will figure out which tab to display
+        var x = document.getElementsByClassName("tab");
+        // Exit the function if any field in the current tab is invalid:
+        if (n == 1 && !validateForm()) return false;
+        // Hide the current tab:
+        x[currentTab].style.display = "none";
+        // Increase or decrease the current tab by 1:
+        currentTab = currentTab + n;
+        // if you have reached the end of the form...
+        if (currentTab >= x.length) {
+          // ... the form gets submitted:
+          document.getElementById("regForm").submit();
+          return false;
+        }
+        // Otherwise, display the correct tab:
+        showTab(currentTab);
+      }
+
+      function validateForm() {
+        // This function deals with validation of the form fields
+        var x, y, i, valid = true;
+        x = document.getElementsByClassName("tab");
+        y = x[currentTab].querySelectorAll("input[required], select[required], textarea[required]");
+        // A loop that checks every input field in the current tab:
+        for (i = 0; i < y.length; i++) {
+          // If a field is empty...
+          if (y[i].value == "") {
+            // Check if the field is required
+            // add an "invalid" class to the field:
+            y[i].classList.add("invalid");
+
+            // Add an event listener to the input field to remove the error message
+            // when the user adds input to the required field.
+            y[i].addEventListener("input", function () {
+              if (this.value !== "") {
+                this.classList.remove("invalid");
+              }
+            });
+
+            // and set the current valid status to false
+            valid = false;
+          }
+          if (y[i].id === "file-input" && y[i].files.length === 0) {
+            document.getElementById("fileError").style.display = "block";
+            valid = false;
+            y[i].addEventListener("file-input", function () {
+              if (this.value !== "") {
+                this.classList.remove("invalid");
+              }
+            });
+          } else {
+            document.getElementById("fileError").style.display = "none";
+          }
+        }
+        // If the valid status is true, mark the step as finished and valid:
+        if (valid) {
+          document.getElementsByClassName("step")[currentTab].className += " finish";
+        }
+        return valid; // return the valid status
+      }
+
+
+
+      function fixStepIndicator(n) {
+        // This function removes the "active" class of all steps...
+        var i, x = document.getElementsByClassName("step");
+        for (i = 0; i < x.length; i++) {
+          x[i].className = x[i].className.replace(" active", "");
+        }
+        //... and adds the "active" class on the current step:
+        x[n].className += " active";
+      }
+    </script>
+
+
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="bg-soft-primary mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-11 col-xxl-10 mx-auto">
+          <div class="card image-wrapper mt-10 bg-full bg-image bg-overlay bg-overlay-400 mt-n50p mb-n5"
+            data-image-src="{% static 'assets/img/photos/bg3.jpg' %}">
+            <div
+              class="card-body p-6 p-md-11 d-lg-flex flex-row align-items-lg-center justify-content-md-between text-center text-lg-start">
+              <h3 class="display-6 mb-6 mb-lg-0 pe-lg-15 pe-xxl-18 text-white">We are trusted by over
+                5000+ clients.
+                Join them by using our services and grow your business.</h3>
+              <a href="#" class="btn btn-white rounded-pill mb-0 text-nowrap">Join Us</a>
+            </div>
+            <!--/.card-body -->
+          </div>
+          <!--/.card -->
+        </div>
+        <!-- /column -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <div class="container pb-12 text-center">
+      <div class="row mt-n10 mt-lg-0">
+        <div class="col-xl-10 mx-auto">
+          <div class="row mb-3">
+            <div class="col-md-4">
+              <div class="widget">
+                <h4 class="widget-title">Address</h4>
+                <address>Moonshine St. 14/05 <br class="d-none d-md-block" /> Light City, London, UK
+                </address>
+              </div>
+              <!-- /.widget -->
+            </div>
+            <!--/column -->
+            <div class="col-md-4">
+              <div class="widget">
+                <h4 class="widget-title">Phone</h4>
+                <p>00 (123) 456 78 90 <br />00 (987) 654 32 10</p>
+              </div>
+              <!-- /.widget -->
+            </div>
+            <!--/column -->
+            <div class="col-md-4">
+              <div class="widget">
+                <h4 class="widget-title">E-mail</h4>
+                <p><a href="mailto:sandbox@email.com" class="link-body">sandbox@email.com</a> <br
+                    class="d-none d-md-block" /><a href="mailto:help@sandbox.com" class="link-body">help@sandbox.com</a>
+                </p>
+              </div>
+              <!-- /.widget -->
+            </div>
+            <!--/column -->
+          </div>
+          <!--/.row -->
+          <p>© 2023 Sandbox. All rights reserved.</p>
+          <nav class="nav social justify-content-center">
+            <a href="#"><i class="uil uil-twitter"></i></a>
+            <a href="#"><i class="uil uil-facebook-f"></i></a>
+            <a href="#"><i class="uil uil-dribbble"></i></a>
+            <a href="#"><i class="uil uil-instagram"></i></a>
+            <a href="#"><i class="uil uil-youtube"></i></a>
+          </nav>
+          <!-- /.social -->
+        </div>
+        <!-- /column -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- MODALS -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header" style="padding: 1rem;">
+          <h5 class="modal-title" id="exampleModalLongTitle">Share Profile</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+        </div>
+        <div class="modal-body text-center py-5" style="padding-top: 0 !important; padding-bottom: 2rem !important;">
+          <p class="mb-3"> Share my Digital vCard in your network.</p>
+          <div class="social-media1 mt-2"><a target="_blank"
+              href="https://wa.me/919714403481?text=https://digitalvcard.online/p/ar-traders"><i
+                class="share-button-whatsapp icofont-brand-whatsapp share_btn"></i></a><a class="fb-xfbml-parse-ignore"
+              target="_blank"
+              href="https://www.facebook.com/sharer/sharer.php?u=https://digitalvcard.online/p/ar-traders"><i
+                class="share-button-facebook icofont-facebook share_btn"></i></a><a data-size="large" target="_blank"
+              href="https://twitter.com/intent/tweet?text=https://digitalvcard.online/p/ar-traders"><i
+                class="share-button-twitter icofont-twitter share_btn"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="img_1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-body text-center py-5">
+          <img class="lb-image animation fadeIn" src="https://digitalvcard.online/api/uploads/1594467970_71926.jpeg"
+            style="animation-duration: 0.7s;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{% static 'assets/js/plugins.js' %}"></script>
+  <script src="{% static 'assets/js/theme.js' %}"></script>
+  <script src="{% static 'assets/js/colors.js' %}"></script>
+  <script src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+  <script src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+  
+ 
+<script>
+  CKEDITOR.replace('content');
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+    <script>
+       fetch('https://countryapi.greatfuturetechnology.com/api/countries/')
+          .then(response => response.json())
+          .then(data => {
+            const countrySelect = document.getElementById('country');
+            data.forEach(country => {
+              const option = document.createElement('option');
+              option.value = country.name;
+              option.id = country.iso_code;
+              option.text = country.name;
+              countrySelect.add(option);
+            });
+
+            countrySelect.addEventListener('change', e => {
+              const selectedCountry = e.target[e.target.selectedIndex].id;
+              console.log(selectedCountry);
+              fetch(`https://countryapi.greatfuturetechnology.com/api/states/${selectedCountry}`)
+                .then(response => response.json())
+                .then(data => {
+                  const stateSelect = document.getElementById('state');
+                  stateSelect.innerHTML = '<option value="">Select a state</option>';
+                  data.forEach(state => {
+                    const option = document.createElement('option');
+                    option.value = state.name;
+                    option.id = state.iso_code;
+                    option.text = state.name;
+                    stateSelect.add(option);
+                  });
+
+                  stateSelect.addEventListener('change', e => {
+                    const selectedState = e.target[e.target.selectedIndex].id;
+                    console.log(selectedState)
+                    fetch(`https://countryapi.greatfuturetechnology.com/api/cities/${selectedCountry}/${selectedState}`)
+                        .then(response => response.json())
+                        .then(cities => {
+                            const citySelect = document.getElementById('city');
+                            citySelect.innerHTML = '<option value="">Select a city</option>';
+                            cities.forEach(city => {
+                    const option = document.createElement('option');
+                    option.value = city.name;
+                    option.text = city.name;
+                    citySelect.add(option);
+                  });
+                        })
+
+                  })
+                });
+            });
+          });
+
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,82 @@
+{% extends 'cards/base.html' %}
+
+{% load static %}
+
+{% block sidetab %}
+<ul class="nav nav-tabs nav-tabs-basic d-block">
+
+    <li class="nav-item"><a class="nav-link" href="{% url 'add_company_info' card.id %}">Company Info</a></li>
+
+    <li class="nav-item"> <a class="nav-link active" href="{% url 'add_social_video' card.id %}">Social & Video</a></li>
+
+    <li class="nav-item"> <a class="nav-link" href="{% url 'add_about' card.id %}">About Info</a></li>
+
+    <li class="nav-item"> <a class="nav-link" href="{% url 'add_product_and_service' card.id  'id' %}">Product/Services</a></li>
+
+    <li class="nav-item"> <a class="nav-link" href="{% url 'add_bank_detail' card.id %}">Bank Details</a></li>
+
+    <li class="nav-item"> <a class="nav-link" href="{% url 'add_gallery' card.id  'id' %}">Gallery</a></li>
+
+    <li class="nav-item"> <a class="nav-link" href="{% url 'add_setting' card.id %}">Settings</a></li>
+
+</ul>
+
+{% endblock %}
+
+
+
+{% block body  %}
+
+ <div class="tab-content mt-0 mt-md-5">
+        <div class="row gy-10 gx-lg-8 gx-xl-12">
+            <div class="col-lg-12 pt-3 mt-0">
+                <h3 class="pb-2">Social And Video</h3>
+                <form action="{% url 'add_social_video' card.id %}" method="post" enctype="multipart/form-data">
+                    <div class="row gx-4">
+                        {% load crispy_forms_tags %}
+                        {% csrf_token %}
+
+                        <div class="col-md-6">
+                            {{ form.facebook|as_crispy_field }}
+                        </div>
+
+                        <div class="col-md-6">
+                            {{ form.instagram|as_crispy_field }}
+                        </div>
+
+                        <div class="col-md-6">
+                            {{ form.twitter|as_crispy_field }}
+                        </div>
+
+                        <div class="col-md-6">
+                            {{ form.youtube|as_crispy_field }}
+                        </div>
+
+                        <div class="col-md-6">
+                            {{ form.linkedin|as_crispy_field }}
+                        </div>
+
+                        <div class="col-md-6">
+                            {{ form.video_link|as_crispy_field }}
+                        </div>
+
+                        <div class="col-md-6">
+                            {{ form.pinterest|as_crispy_field }}
+                        </div>
+
+                        <div class="col-md-6">
+                        </div>
+
+                        <div class="col-md-6 mt-3">
+                            <input type="submit" class="btn btn-success">
+                        </div>
+
+                    </div>
+                    <!-- /.row -->
+                </form>
+                <!-- /form -->
+            </div>
+        </div>
+</div>
+
+{% endblock %}

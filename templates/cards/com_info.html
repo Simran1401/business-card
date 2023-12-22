@@ -1,0 +1,212 @@
+{% extends 'cards/base.html' %}
+
+{% load static %}
+
+{% block sidetab %}
+<ul class="nav nav-tabs nav-tabs-basic d-block">
+    <li class="nav-item"><a class="nav-link active" href="{% url 'add_company_info' card.id %}">Company Info</a></li>
+
+    <li class="nav-item"> <a class="nav-link" href="{% url 'add_social_video' card.id %}">Social & Video</a></li>
+
+    <li class="nav-item"> <a class="nav-link" href="{% url 'add_about' card.id %}">About Info</a></li>
+
+    <li class="nav-item"> <a class="nav-link" href="{% url 'add_product_and_service' card.id  'id' %}">Product/Services</a></li>
+
+    <li class="nav-item"> <a class="nav-link" href="{% url 'add_bank_detail' card.id %}">Bank Details</a></li>
+
+    <li class="nav-item"> <a class="nav-link" href="{% url 'add_gallery' card.id  'id' %}">Gallery</a></li>
+
+    <li class="nav-item"> <a class="nav-link" href="{% url 'add_setting' card.id %}">Settings</a></li>
+</ul>
+
+{% endblock %}
+
+
+{% block body  %}
+
+ <div class="tab-content mt-0 mt-md-5">
+        <div class="row gy-10 gx-lg-8 gx-xl-12">
+            <div class="col-lg-12 pt-3 mt-0">
+                <h3 class="pb-2">Basic Informations</h3>
+                <form action="{% url 'add_company_info' card.id %}" method="post" enctype="multipart/form-data">
+                    <div class="row gx-4">
+                        {% load crispy_forms_tags %}
+                        {% csrf_token %}
+
+                        <div class="col-md-6">
+                            {{ form.company_name|as_crispy_field }}
+                        </div>
+
+                        <div class="col-md-6">
+                            {{ form.name|as_crispy_field }}
+                        </div>
+
+                        <div class="col-md-6">
+                            {{ form.designation|as_crispy_field }}
+                        </div>
+
+                        <div class="col-md-6">
+                            {{ form.contact_number_1|as_crispy_field }}
+                        </div>
+
+                        <div class="col-md-6">
+                            {{ form.contact_number_2|as_crispy_field }}
+                        </div>
+
+                        <div class="col-md-6">
+                            {{ form.whatsapp_number_1|as_crispy_field }}
+                        </div>
+
+                        <div class="col-md-6">
+                            {{ form.whatsapp_number_2|as_crispy_field }}
+                        </div>
+
+                         <div class="col-md-6">
+                            {{ form.landline_number|as_crispy_field }}
+                        </div>
+
+                        <div class="col-md-6">
+                            {{ form.email|as_crispy_field }}
+                        </div>
+
+                        <div class="col-md-6">
+                            {{ form.website_url|as_crispy_field }}
+                        </div>
+
+                        <div class="col-md-6">
+                            {{ form.google_map_link|as_crispy_field }}
+                        </div>
+
+                        <div class="col-6 col-md-6 col-xs-6 pb-4 input-icons">
+                           <div class="form-group">
+                               <label for="validationFileField" class="form-label">Country*</label>
+                                <div class="form-control-wrap">
+                                    <select id="country" class="form-select select-div" name="country" required style="-webkit-appearance: none !important;">
+                                        {% if get_cominfo %}
+                                            <option value="{{ get_cominfo.country }}">{{ get_cominfo.country }}</option>
+                                        {% else %}
+                                            <option value="">Select a Country</option>
+                                        {% endif %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-6 col-md-6 col-sm-6 pb-4 input-icons">
+                            <div class="form-group">
+                            <label for="validationFileField" class="form-label">State*</label>
+                                <div class="form-control-wrap">
+                                    <select id="state" class="form-select select-div" name="state" required style="-webkit-appearance: none !important;">
+                                        {% if get_cominfo %}
+                                            <option value="{{ get_cominfo.state }}">{{ get_cominfo.state }}</option>
+                                        {% else %}
+                                            <option value="">Select a state</option>
+                                        {% endif %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-6 col-sm-6 pb-4 input-icons">
+                              <div class="form-group">
+                                    <label for="validationFileField" class="form-label">City*</label>
+                                <div class="form-control-wrap">
+                                    <select id="city" class="form-select select-div" name="city" required style="-webkit-appearance: none !important;">
+                                         {% if get_cominfo %}
+                                            <option value="{{ get_cominfo.city }}">{{ get_cominfo.city }}</option>
+                                        {% else %}
+                                            <option value="">Select a city</option>
+                                        {% endif %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                         <div class="col-md-12">
+                            {{ form.address|as_crispy_field }}
+                        </div>
+
+                        <div class="col-md-6">
+                            {{ form.profile_picture|as_crispy_field }}
+                        </div>
+
+                        <div class="col-md-6">
+                            {{ form.logo|as_crispy_field }}
+                        </div>
+
+                        <div class="col-md-6 mb-5">
+                           <input type="submit" class="btn btn-success">
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </form>
+                <!-- /form -->
+            </div>
+        </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="   crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+    <script>
+       fetch('https://countryapi.greatfuturetechnology.com/api/countries/')
+          .then(response => response.json())
+          .then(data => {
+            const countrySelect = document.getElementById('country');
+            data.forEach(country => {
+              const option = document.createElement('option');
+              option.value = country.name;
+              option.id = country.iso_code;
+              option.text = country.name;
+              countrySelect.add(option);
+            });
+
+            countrySelect.addEventListener('change', e => {
+              const selectedCountry = e.target[e.target.selectedIndex].id;
+              console.log(selectedCountry);
+              fetch(`https://countryapi.greatfuturetechnology.com/api/states/${selectedCountry}`)
+                .then(response => response.json())
+                .then(data => {
+                  const stateSelect = document.getElementById('state');
+                  stateSelect.innerHTML = '<option value="">Select a state</option>';
+                  data.forEach(state => {
+                    const option = document.createElement('option');
+                    option.value = state.name;
+                    option.id = state.iso_code;
+                    option.text = state.name;
+                    stateSelect.add(option);
+                  });
+
+                  stateSelect.addEventListener('change', e => {
+                    const selectedState = e.target[e.target.selectedIndex].id;
+                    console.log(selectedState)
+                    fetch(`https://countryapi.greatfuturetechnology.com/api/cities/${selectedCountry}/${selectedState}`)
+                        .then(response => response.json())
+                        .then(cities => {
+                            const citySelect = document.getElementById('city');
+                            citySelect.innerHTML = '<option value="">Select a city</option>';
+                            cities.forEach(city => {
+                    const option = document.createElement('option');
+                    option.value = city.name;
+                    option.text = city.name;
+                    citySelect.add(option);
+                  });
+                        })
+
+                  })
+                });
+            });
+          });
+
+        </script>
+
+
+{% endblock %}

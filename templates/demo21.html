@@ -1,0 +1,1249 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="An impressive and flawless site template that includes various UI elements and countless features, attractive ready-made blocks and rich pages, basically everything you need to create a unique and professional website.">
+  <meta name="keywords"
+    content="bootstrap 5, business, corporate, creative, gulp, marketing, minimal, modern, multipurpose, one page, responsive, saas, sass, seo, startup, html5 template, site template">
+  <meta name="author" content="elemis">
+  <title>Businesscard4u</title>
+  <link rel="shortcut icon" type="image/x-icon" href="{% if websitelogo %} {{ websitelogo.fav_icon.url }} {% endif %}" />
+  <link rel="stylesheet" href="{% static 'assets/css/plugins.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/css/colors/sky.css' %}" />
+  <link rel="preload" href="{% static 'assets/css/fonts/urbanist.css' %}" as="style" onload="this.rel='stylesheet'" />
+  <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}" />
+
+  <style>
+    .form-control {
+      padding: 0.6rem 1rem !important;
+    }
+
+    .icon_div i{
+      color:#5eb9f0 ;
+      font-size:2rem;
+    }
+
+    .logo-img {
+      width: 60%;
+      height: 68px;
+      object-fit: contain;
+    }
+
+    .footer_logo {
+      height: 90px;
+      width: 190px;
+    }
+
+    footer .logo-img{
+      width:auto;
+    }
+
+    /*.lower-footer{*/
+    /*    border-top: 0.5px solid #00000073;*/
+    /*    padding-top: 15px;*/
+    /*    padding-bottom: 15px;*/
+    /*}*/
+
+    @media (max-width:992px) {
+      .navbar-nav .dropdown-menu {
+        position: absolute;
+        left: 50%;
+    transform: translate(-50%,0);
+      }
+    }
+
+    @media (max-width:765px) {
+      .lead {
+        font-size: 16px !important;
+      }
+
+      .navbar-brand {
+        padding: 10px 0 !important;
+      }
+
+      .logo-img {
+        width: auto;
+        height: 68px;
+        object-fit: contain;
+      }
+
+      .offcanvas-header {
+        padding-top: 0.5rem;
+        padding-bottom: .5rem;
+      }
+
+      .mob-view-pills{
+        flex-direction: row !important;
+      }
+
+      .mob-view-pills li:first-child{
+        margin-right: 10px;
+      }
+
+      .features_section .col-md-6{
+        width: 50%;
+      }
+
+      .features_section .col-md-6 .card-body{
+        padding: 30px 15px;
+      }
+
+      .features_section .col-md-6 .card-body h4{
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+  <div class="content-wrapper">
+    <header class="wrapper bg-light">
+      <nav class="navbar navbar-expand-lg classic transparent navbar-light" id="navbar-example2">
+        <div class="container flex-lg-row flex-nowrap align-items-center">
+          <div class="navbar-brand w-100">
+            <a href="/" class="w-100 d-block">
+              {% if websitelogo %}
+              <img src="{{ websitelogo.image.url }}" alt="" class="logo-img" />
+              {% else %}
+              <img src="{% static 'assets/img/BC.png' %}" alt="" class="logo-img" />
+              {% endif %}
+            </a>
+          </div>
+
+          <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
+            <div class="offcanvas-header d-lg-none">
+              {% if websitelogo %}
+              <img src="{{ websitelogo.image.url }}" alt="" class="logo-img" />
+              {% else %}
+              <img src="{% static 'assets/img/BC.png' %}" alt="" class="logo-img" />
+              {% endif %}
+              <!--              <img src="" alt="{% static 'assets/img/BC.png' %}" class="logo-img" />-->
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+            </div>
+
+            <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown dropdown-mega" data-bs-dismiss="offcanvas"
+                aria-label="Close">
+                  <a class="nav-link scroll" href="#home">Home</a>
+                </li>
+                <li class="nav-item dropdown" data-bs-dismiss="offcanvas"
+                aria-label="Close">
+                  <a class="nav-link scroll" href="#about">About</a>
+                </li>
+                <li class="nav-item dropdown" data-bs-dismiss="offcanvas"
+                aria-label="Close">
+                  <a class="nav-link scroll" href="#services">Services</a>
+                </li>
+                <li class="nav-item dropdown" data-bs-dismiss="offcanvas"
+                aria-label="Close">
+                  <a class="nav-link scroll" href="#features">Features</a>
+                </li>
+                <li class="nav-item dropdown dropdown-mega" data-bs-dismiss="offcanvas"
+                aria-label="Close">
+                  <a class="nav-link scroll" href="#pricing">Pricing</a>
+                </li>
+                <li class="nav-item dropdown dropdown-mega" data-bs-dismiss="offcanvas"
+                aria-label="Close">
+                  <a class="nav-link scroll" href="#videos">Demo Video </a>
+                </li>
+                <li class="nav-item dropdown dropdown-mega" data-bs-dismiss="offcanvas"
+                aria-label="Close">
+                  <a class="nav-link scroll" href="#contact">Contact </a>
+                </li>
+
+                <!-- <li class="nav-item d-none d-md-block">
+                  <a href="{% url 'signout' %}" class="btn btn-primary rounded-pill mx-1 mb-2 mt-3 mb-md-0">Logout</a>
+                </li> -->
+
+              </ul>
+              <div class="offcanvas-footer d-lg-none">
+                <div>
+                  <!-- <a href="mailto:first.last@email.com" class="link-inverse">info@email.com</a> -->
+                  <a href="mailto:{{footer.email}}"  class="link-inverse">{{footer.email}}</a>
+
+                  <br />  <a href="tel:{{footer.phone_no}}"  class="mb-0">{{footer.phone_no}}</a><br />
+                  <nav class="nav social social-white mt-4">
+                    <a href="{{ footer.twitter_link }}" target="_blank"><i class="uil uil-twitter"></i></a>
+                    <a href="{{ footer.facebook_link }}" target="_blank"><i class="uil uil-facebook-f"></i></a>
+                    <a href="{{ footer.instagram_link }}" target="_blank"><i class="uil uil-instagram"></i></a>
+                    <a href="{{ footer.youtube_link }}" target="_blank"><i class="uil uil-youtube"></i></a>
+                  </nav>
+                  <!-- /.social -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.navbar-collapse -->
+          <div class="navbar-other ms-lg-4">
+
+            <ul class="navbar-nav flex-row align-items-center ms-auto">
+
+              {% if user.is_authenticated %}
+
+              <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <i class="uil uil-user mr-2"> </i>
+                  &nbsp;{{ request.user }}
+                </button>
+                <ul class="dropdown-menu">
+                  <!--                  <li><a class="dropdown-item" href="#"></a></li>-->
+                  <li><a class="dropdown-item" href="{% url 'mycard' %}">Dashboard</a></li>
+                  <li><a class="dropdown-item" href="{% url 'signout' %}">Logout</a></li>
+                </ul>
+              </div>
+
+              {% else %}
+
+
+              <li class="nav-item d-none d-md-block">
+                <a href="#" class="btn btn-primary rounded-pill mx-1 mb-2 mb-md-0" data-bs-toggle="modal"
+                  data-bs-target="#modal-signup">Sign Up</a>
+              </li>
+
+              <!-- <li class="nav-item ">
+                <button class="hamburger offcanvas-nav-btn"><span></span></button>
+              </li> -->
+
+              {% endif %}
+              <li class="nav-item d-lg-none">
+                <button class="hamburger offcanvas-nav-btn"><span></span></button>
+              </li>
+            </ul>
+            <!-- /.navbar-nav -->
+          </div>
+          <!-- /.navbar-other -->
+        </div>
+        <!-- /.container -->
+      </nav>
+      <!-- /.navbar -->
+    </header>
+    <!-- /header -->
+
+    <section class="wrapper bg-light" id="home">
+      <div class="container pt-5 pt-md-6 pb-4 pb-md-5 text-center">
+        <div class="row gx-lg-8 gx-xl-12 gy-10 gy-xl-0 mb-5 align-items-center">
+          <div class="col-lg-7 order-lg-2">
+            <figure><img class="img-auto" src="{{ banner.image.url }}" alt="" /></figure>
+          </div>
+          <!-- /column -->
+          <div class="col-md-10 offset-md-1 offset-lg-0 col-lg-5 text-center text-lg-start">
+            <h1 class="display-1 fs-54 mb-5 mx-md-n5 mx-lg-0 mt-7">{{banner.title_1}} <br class="d-md-none">
+              <br class="d-md-none"><span class="rotator-fade text-primary">{{banner.title_2}}
+              </span>
+            </h1>
+            <p class="lead fs-lg mb-7">{{banner.desc}}</p>
+            {% if not user.is_authenticated %}
+              <span><a class="btn btn-lg btn-primary rounded-pill me-2" data-bs-toggle="modal"
+                data-bs-target="#modal-signup">Get Started</a></span>
+            {% else %}
+              <span>
+                <a class="btn btn-lg btn-primary rounded-pill me-2" href="{% url 'mycard' %}">Get Started</a></span>
+            {% endif %}
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+
+        <p class="text-center mb-8">Trusted by over 2K+ clients across the world</p>
+        <div
+          class="row row-cols-4 row-cols-md-4 row-cols-lg-7 row-cols-xl-7 gy-10 mb-2 d-flex align-items-center justify-content-center">
+          {% for obj in client_logo %}
+          <div class="col"><img class="img-fluid px-md-3 px-lg-0 px-xl-2 px-xxl-5" src="{{obj.image.url}}" alt="" />
+          </div>
+          {% endfor %}
+        </div>
+        <!-- /.row -->
+      </div>
+
+      <!-- /.container -->
+      <div class="overflow-hidden" >
+        <div class="divider text-soft-primary mx-n2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100">
+            <path fill="currentColor"
+              d="M1260,1.65c-60-5.07-119.82,2.47-179.83,10.13s-120,11.48-180,9.57-120-7.66-180-6.42c-60,1.63-120,11.21-180,16a1129.52,1129.52,0,0,1-180,0c-60-4.78-120-14.36-180-19.14S60,7,30,7H0v93H1440V30.89C1380.07,23.2,1319.93,6.15,1260,1.65Z" />
+          </svg>
+        </div>
+      </div>
+      <!-- /.overflow-hidden -->
+    </section>
+    <!-- /section -->
+
+    <section class="wrapper bg-light angled upper-end lower-end" id="about">
+      <div class="container pt-10 pb-0 pt-md-11">
+        <div class="row gx-lg-8 gx-xl-12 gy-10 mb-6 mb-md-7 align-items-center">
+          <div class="col-lg-6 position-relative order-lg-2">
+            <div class="shape bg-dot primary rellax w-16 h-20" data-rellax-speed="1" style="top: 3rem; left: 5.5rem">
+            </div>
+
+            <div class="overlap-grid overlap-grid-2">
+              <div class="item">
+                <figure class="rounded shadow"><img src="{{about.image_1.url}}" alt=""></figure>
+              </div>
+              <div class="item">
+                <figure class="rounded shadow"><img src="{{about.image_2.url}}" alt=""></figure>
+              </div>
+            </div>
+          </div>
+
+          <!--/column -->
+
+          <div class="col-lg-6">
+            <!--            <img src="{{ about_heading.image.url }}" class="svg-inject icon-svg icon-svg-md mb-4" alt="" />-->
+
+            {% if about_heading %}
+            <h2 class="display-4 mb-3">{{about_heading.short_title}}</h2>
+            {% endif %}
+
+            <p class="lead fs-lg">{{about.title}}</p>
+            <p class="mb-6">{{about.desc|safe}}</p>
+
+            <!--/.row -->
+          </div>
+          <!--/column -->
+        </div>
+        <!--/.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+
+    <section class="wrapper bg-gradient-primary" id="services">
+      <div class="container pt-12 pt-lg-8 pb-7 pb-md-6">
+        <div class="row text-center">
+          <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+            {% if service_heading %}
+            <h2 class="fs-16 text-uppercase text-primary mb-3">{{service_heading.short_title}}</h2>
+            <h3 class="display-3 mb-10 px-xxl-10">{{service_heading.main_title}}
+            </h3>
+            {% endif %}
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+        <div class="row gx-lg-8 gx-xl-12 gy-11 px-xxl-5 text-center d-flex">
+          {% for obj in service %}
+          <div class="col-lg-4">
+            <div class="px-md-15 px-lg-3">
+              <figure class="mb-6"><img class="img-fluid" src="{{ obj.image.url }}" alt="" /></figure>
+              <h3>{{obj.title}}</h3>
+              <p class="mb-2">{{obj.desc}}</p>
+            </div>
+            <!--/.px -->
+          </div>
+          {% endfor %}
+          <!--/column -->
+        </div>
+        <!--/.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+
+    <!-- /section -->
+    <section class="wrapper bg-light" id="features">
+      <div class="container py-10 py-md-11 text-center">
+        <div class="row">
+          <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+            {% if feature_heading %}
+            <h2 class="fs-15 text-uppercase text-muted mb-3">{{feature_heading.short_title}}</h2>
+            <h3 class="display-4 mb-10 px-xl-10"> {{feature_heading.main_title}}</h3>
+            {% endif %}
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+        <div class="position-relative">
+          <div class="shape rounded-circle bg-soft-blue rellax w-16 h-16" data-rellax-speed="1"
+            style="bottom: -0.5rem; right: -2.2rem; z-index: 0;"></div>
+          <div class="shape bg-dot yellow rellax w-16 h-17" data-rellax-speed="1"
+            style="top: -0.5rem; left: -2.5rem; z-index: 0;"></div>
+          <div class="row gx-md-5 gy-5 text-center features_section">
+            {% for obj in features %}
+            <div class="col-md-6 col-xl-3">
+              <div class="card shadow-lg">
+                <div class="card-body">
+                  <div class="icon_div">
+                    {{ obj.icon|safe }}
+                  </div>
+
+<!--                  <img src="{{obj.image.url}}" class="svg-inject icon-svg icon-svg-md text-yellow mb-3" alt="" />-->
+                  <h4>{{obj.title}}</h4>
+                </div>
+                <!--/.card-body -->
+              </div>
+              <!--/.card -->
+            </div>
+            {% endfor %}
+            <!--/column -->
+          </div>
+          <!--/.row -->
+        </div>
+        <!-- /.position-relative -->
+      </div>
+      <!-- /.container -->
+    </section>
+
+    <!-- /section -->
+    <section class="wrapper bg-gradient-reverse-primary">
+      <div class="container pb-10 pb-md-11">
+        <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
+          {% if Why_Choose_Us_heading %}
+          <div class="col-lg-7">
+            <figure><img class="img-auto" src="{{Why_Choose_Us_heading.image.url}}" alt="" /></figure>
+          </div>
+          <!--/column -->
+          <div class="col-lg-5">
+
+            <h2 class="fs-15 text-uppercase text-primary mb-3">{{ Why_Choose_Us_heading.short_title }}</h2>
+            <h3 class="display-3 mb-7">{{ Why_Choose_Us_heading.main_title }}</h3>
+            {% endif %}
+
+            <div class="accordion accordion-wrapper" id="accordionExample">
+              {% for obj in why_choose_us %}
+              <div class="card plain accordion-item">
+                <div class="card-header" id="heading{{obj.id}}">
+                  <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapse{{obj.id}}"
+                    aria-expanded="false" aria-controls="collapse{{obj.id}}">{{obj.title}}</button>
+                </div>
+                <!--/.card-header -->
+                <div id="collapse{{obj.id}}" class="accordion-collapse collapse" aria-labelledby="heading{{obj.id}}"
+                  data-bs-parent="#accordionExample">
+                  <div class="card-body">
+                    <p>{{obj.desc|safe}}</p>
+                  </div>
+                  <!--/.card-body -->
+                </div>
+                <!--/.accordion-collapse -->
+              </div>
+              {% endfor %}
+              <!--/.accordion-item -->
+            </div>
+            <!--/.accordion -->
+          </div>
+          <!--/column -->
+        </div>
+        <!--/.row -->
+      </div>
+      <!-- /.container -->
+      <div class="overflow-hidden" style="height: 50px;">
+        <div class="divider text-light mx-n2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100">
+            <path fill="currentColor"
+              d="M1260,1.65c-60-5.07-119.82,2.47-179.83,10.13s-120,11.48-180,9.57-120-7.66-180-6.42c-60,1.63-120,11.21-180,16a1129.52,1129.52,0,0,1-180,0c-60-4.78-120-14.36-180-19.14S60,7,30,7H0v93H1440V30.89C1380.07,23.2,1319.93,6.15,1260,1.65Z" />
+          </svg>
+        </div>
+      </div>
+      <!-- /.overflow-hidden -->
+    </section>
+    <!-- /section -->
+
+    <section class="wrapper bg-light" id="pricing">
+      <div class="container pb-10 pb-md-11">
+        <div class="row">
+          <div class="col-lg-10 col-xl-9 col-xxl-8 mx-auto text-center">
+            {% if price_heading %}
+            <h2 class="fs-15 text-uppercase text-muted mb-3">{{price_heading.short_title}}</h2>
+            <h3 class="display-4 mb-15 mb-md-6 px-lg-10">{{price_heading.main_title}}
+            </h3>
+            {% endif %}
+          </div>
+          <!--/column -->
+        </div>
+        <!--/.row -->
+        <div class="pricing-wrapper position-relative">
+          <div class="shape bg-dot primary rellax w-16 h-18" data-rellax-speed="1" style="top: 2rem; right: -2.4rem;">
+          </div>
+          <div class="shape rounded-circle bg-line red rellax w-18 h-18 d-none d-lg-block" data-rellax-speed="1"
+            style="bottom: 0.5rem; left: -2.5rem;"></div>
+
+          <ul class="nav nav-tabs nav-pills mob-view-pills justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link active" data-bs-toggle="tab" href="#tab1-1">
+                <!--                <i class="uil uil-phone-volume pe-1"></i>-->
+                <span>₹ India</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#tab1-2">
+                <!--                <i class="uil uil-shield-exclamation pe-1"></i>-->
+                <span>$ Other Country</span>
+              </a>
+            </li>
+          </ul>
+
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="tab1-1">
+              <div class="row gy-6 mt-3 mt-md-5">
+                {% for obj in price %}
+                {% if obj.plan_type == 'Individual' %}
+                <div class="col-md-6 col-lg-4">
+                  <div class="pricing card text-center">
+                    <div class="card-body">
+                      <img src=" {{obj.icon.url}}" class="svg-inject icon-svg icon-svg-md text-primary mb-3" alt="" />
+                      <h4 class="card-title">{{obj.title}}</h4>
+                      <div class="prices text-dark">
+                        <div class="price price-show"><span class="price-currency">₹</span><span
+                            class="price-value">{{obj.amounts_INR}}</span></div>
+                      </div>
+                      <p>Validity : {{obj.validity}} Year</p>
+
+                      {% if not user.is_authenticated %}
+                        <a data-bs-toggle="modal" data-bs-target="#modal-signup"
+                          class="btn btn-primary rounded-pill">{{obj.button}}</a>
+                      {% else %}
+                        <a href="{% url 'mycard' %}" class="btn btn-primary rounded-pill">{{obj.button}}</a>
+                      {% endif %}
+
+                      <!--/.prices -->
+                      <ul class="icon-list bullet-bg bullet-soft-primary mt-7 mb-8 text-start">
+                        {% for x in obj.features.all %}
+                        <li><i class="uil uil-check"></i><span> {{x.title}}</span></li>
+                        {% endfor %}
+                      </ul>
+
+                    </div>
+                    <!--/.card-body -->
+                  </div>
+                  <!--/.pricing -->
+                </div>
+
+                {% else %}
+
+                <div class="col-md-6 col-lg-4">
+                  <div class="pricing card text-center">
+                    <div class="card-body">
+                      <img src=" {{obj.icon.url}}" class="svg-inject icon-svg icon-svg-md text-primary mb-3" alt="" />
+                      <h4 class="card-title">{{obj.title}}</h4>
+
+
+                       {% if not user.is_authenticated %}
+                          <a href="#contact" class="btn btn-primary rounded-pill mt-3">{{obj.button}}</a>
+
+                      {% else %}
+                        <a href="{% url 'mycard' %}" class="btn btn-primary rounded-pill">{{obj.button}}</a>
+                      {% endif %}
+
+                      <ul class="icon-list bullet-bg bullet-soft-primary mt-7 mb-8 text-start">
+                        {% for x in obj.features.all %}
+                        <li><i class="uil uil-check"></i><span> {{x.title}}</span></li>
+                        {% endfor %}
+                      </ul>
+
+                    </div>
+                    <!--/.card-body -->
+                  </div>
+                  <!--/.pricing -->
+                </div>
+                {% endif %}
+                {% endfor %}
+
+              </div>
+            </div>
+
+            <!--/.tab-pane -->
+
+            <div class="tab-pane fade" id="tab1-2">
+              <div class="row gy-6 mt-3 mt-md-5">
+
+                {% for obj in price %}
+                {% if obj.plan_type == 'Individual' %}
+                <div class="col-md-6 col-lg-4">
+                  <div class="pricing card text-center">
+                    <div class="card-body">
+                      <img src=" {{obj.icon.url}}" class="svg-inject icon-svg icon-svg-md text-primary mb-3" alt="" />
+                      <h4 class="card-title">{{obj.title}}</h4>
+                      <div class="prices text-dark">
+                        <div class="price price-show"><span class="price-currency">$</span><span
+                            class="price-value">{{obj.amounts_USD}}</span></div>
+                      </div>
+                      <p>Validity : {{obj.validity}} Year</p>
+
+                      <a data-bs-toggle="modal" data-bs-target="#modal-signin" class="btn btn-primary rounded-pill">{{obj.button}}</a>
+
+                      <!--/.prices -->
+                      <ul class="icon-list bullet-bg bullet-soft-primary mt-7 mb-8 text-start">
+                        {% for x in obj.features.all %}
+                        <li><i class="uil uil-check"></i><span> {{x.title}}</span></li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                    <!--/.card-body -->
+                  </div>
+                  <!--/.pricing -->
+                </div>
+
+                {% else %}
+
+                <div class="col-md-6 col-lg-4">
+                  <div class="pricing card text-center">
+                    <div class="card-body">
+                      <img src=" {{obj.icon.url}}" class="svg-inject icon-svg icon-svg-md text-primary mb-3" alt="" />
+                      <h4 class="card-title">{{obj.title}}</h4>
+
+                      <a href="#contact" class="btn btn-primary rounded-pill mt-3">{{obj.button}}</a>
+
+                      <ul class="icon-list bullet-bg bullet-soft-primary mt-7 mb-8 text-start">
+                        {% for x in obj.features.all %}
+                        <li><i class="uil uil-check"></i><span> {{x.title}}</span></li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                    <!--/.card-body -->
+                  </div>
+                  <!--/.pricing -->
+                </div>
+                {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <!--/.row -->
+        </div>
+        <!--/.pricing-wrapper -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /section -->
+
+<!--    {% if video %}-->
+
+<!--    <section id="videos" class="wrapper bg-dark angled lower-start">-->
+<!--      <div class="container pt-7 pt-md-11 pb-8">-->
+<!--        <div class="row gx-0 gy-10 align-items-center">-->
+<!--          <div class="col-lg-6" data-cues="slideInDown" data-group="page-title" data-delay="600">-->
+<!--            <h1 class="display-1 text-white mb-4">{{ video.title_1 }} <br /><span class="typer text-primary text-nowrap"-->
+<!--                data-delay="100" data-words="{{video.title_2}}"></span><span class="cursor text-primary"-->
+<!--                data-owner="typer"></span></h1>-->
+<!--            <p class="lead fs-24 lh-sm text-white mb-7 pe-md-18 pe-lg-0 pe-xxl-15">{{video.desc}}</p>-->
+<!--            &lt;!&ndash;            <div>&ndash;&gt;-->
+<!--            &lt;!&ndash;              <a class="btn btn-lg btn-primary rounded">Get Started</a>&ndash;&gt;-->
+<!--            &lt;!&ndash;            </div>&ndash;&gt;-->
+<!--          </div>-->
+<!--          &lt;!&ndash; /column &ndash;&gt;-->
+<!--          <div class="col-lg-5 offset-lg-1 mb-n18" data-cues="slideInDown">-->
+<!--            <div class="position-relative">-->
+<!--              <a href="{{ video.iframe }}"-->
+<!--                class="btn btn-circle btn-primary btn-play ripple mx-auto mb-6 position-absolute"-->
+<!--                style="top:50%; left: 50%; transform: translate(-50%,-50%); z-index:3;" data-glightbox><i-->
+<!--                  class="icn-caret-right"></i></a>-->
+<!--              <figure class="rounded shadow-lg"><img src="{% if video.image %}{{ video.image.url }}{% endif %}" alt="">-->
+<!--              </figure>-->
+<!--              &lt;!&ndash; <video src="{{video.iframe}}"></video> &ndash;&gt;-->
+<!--              &lt;!&ndash; <iframe src="{{ video.iframe }}" frameborder="0"></iframe> &ndash;&gt;-->
+<!--            </div>-->
+<!--            &lt;!&ndash; /div &ndash;&gt;-->
+<!--          </div>-->
+<!--          &lt;!&ndash; /column &ndash;&gt;-->
+<!--        </div>-->
+<!--        &lt;!&ndash; /.row &ndash;&gt;-->
+<!--      </div>-->
+<!--      &lt;!&ndash; /.container &ndash;&gt;-->
+<!--    </section>-->
+
+<!--    {% endif %}-->
+    <!-- /section -->
+    <!--/.ratio -->
+    <!-- /section -->
+
+    <section id="contact" class="wrapper bg-light wrapper-border">
+      <div class="container pt-18 pt-md-20 pb-13 pb-md-15">
+        <div class="card bg-soft-primary">
+          <div class="card-body p-12 contact-box">
+            <div class="row gx-md-8 gx-xl-12 gy-10">
+              <div class="col-lg-6">
+
+                <img src="../static/assets/img/icons/lineal/email.svg"  class="svg-inject icon-svg icon-svg-sm mb-4" alt="" />
+                <h2 class="display-4 mb-3 pe-lg-10">{{contact_heading.title}}</h2>
+                <p class="lead pe-lg-12 mb-0">{{contact_heading.desc}}</p>
+              </div>
+              <!-- /column -->
+              <div class="col-lg-6">
+                <form class="contact-form" novalidate id="send_contact-form" method="POST" action="{% url 'send' %}">
+                  {% csrf_token %}
+                  <div class="messages"></div>
+                  <div class="row gx-4">
+                    <div class="col-md-6">
+                      <div class="form-floating mb-4">
+                        <input id="contact_name" type="text" name="name" class="form-control border-0" placeholder="Jane" required="required">
+                        <!-- <div class="invalid-feedback"> Please enter your name. </div> -->
+                      </div>
+                    </div>
+                    <!-- /column -->
+                    <div class="col-md-6">
+                      <div class="form-floating mb-4">
+                        <input id="contact_email" type="email" name="email" class="form-control border-0" placeholder="jane.doe@example.com" required="required">
+                        <!-- <div class="valid-feedback"> Looks good! </div>
+                        <div class="invalid-feedback"> Please provide a valid email address. </div> -->
+                      </div>
+                    </div>
+                    <!-- /column -->
+                    <div class="col-12">
+                      <div class="form-floating mb-4">
+                        <textarea id="contact_message" name="message" class="form-control border-0"
+                          placeholder="Your message" style="height: 150px"></textarea>
+
+                      </div>
+                    </div>
+                    <!-- /column -->
+                    <div class="col-12">
+                      <input type="submit" class="btn btn-outline-primary rounded-pill btn-send mb-3" value="Send message">
+                    </div>
+
+                    <!-- /column -->
+                  </div>
+                  <div class="text-start" style="text-align: start;">
+
+                    <h2 id="contact_id"></h2>
+                  </div>
+                  <!-- /.row -->
+                </form>
+                <!-- /form -->
+              </div>
+              <!-- /column -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!--/.card-body -->
+        </div>
+        <!--/.card -->
+      </div>
+    </section>
+    <!-- /section -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="bg-soft-primary">
+    <div class="container">
+      <div class="row">
+        {% if footer %}
+        <div class="col-xl-11 col-xxl-10 mx-auto">
+          <div class="card image-wrapper bg-full bg-image bg-overlay bg-overlay-400 mt-n50p mb-n5" data-image-src="{{ footer.image.url }}">
+            <div class="card-body p-6 p-md-11 d-lg-flex flex-row align-items-lg-center justify-content-md-between text-center text-lg-start">
+              <h3 class="display-6 mb-6 mb-lg-0 pe-lg-15 pe-xxl-18 text-white">
+                {{ footer.joinus_description }}
+                <!-- We are trusted by over {{ footer.joinus_client|default:0 }}+ clients. Join them by using our services and grow your business.-->
+              </h3>
+
+              {% if not user.is_authenticated %}
+              <button href="#" class="btn btn-white rounded-pill mb-0 text-nowrap" data-bs-toggle="modal"
+               data-bs-target="#modal-signup">Join Us</button>
+
+              {% else %}
+                <a href="{% url 'mycard' %}" class="btn btn-white rounded-pill mb-0 text-nowrap">Join Us</a>
+
+              {% endif %}
+            </div>
+            <!--/.card-body -->
+          </div>
+          {% endif %}
+          <!--/.card -->
+        </div>
+        <!-- /column -->
+      </div>
+      <!-- /.row -->
+    </div>
+
+    <div class="container pb-12 ">
+      <div class="row gy-6 gy-lg-0">
+        <div class="col-md-4 col-lg-3">
+          <div class="widget">
+            {% if websitelogo %}
+                <img src="{{ websitelogo.image.url }}" alt="" class="logo-img" />
+            {% else %}
+                <img src="{% static 'assets/img/BC.png' %}" alt="" class="logo-img"  />
+            {% endif %}
+            <p>{{footer.footer_description}}</p>
+<!--            <img class="mb-1 footer_logo" src="../static/assets/img/BC.png" alt="" width="100%" />-->
+<!--            <p class="mb-4">© 2023 All Right Reserved.<br class="d-none d-lg-block" />Proudly Coded by Team GFTPL</p>-->
+            <nav class="nav social">
+              <a href="{{ footer.twitter_link }}" target="_blank"><i class="uil uil-twitter"></i></a>
+              <a href="{{ footer.facebook_link }}" target="_blank"><i class="uil uil-facebook-f"></i></a>
+              <a href="{{ footer.instagram_link }}" target="_blank"><i class="uil uil-instagram"></i></a>
+              <a href="{{ footer.youtube_link }}" target="_blank"><i class="uil uil-youtube"></i></a>
+            </nav>
+            <!-- /.social -->
+          </div>
+          <!-- /.widget -->
+        </div>
+        <!-- /column -->
+        <div class="col-md-4 col-lg-3">
+          <div class="widget">
+            <h4 class="widget-title mb-3">Get in Touch</h4>
+            <div class="d-flex pe-2">
+              <i class="uil uil-map-marker me-1"></i>
+              <address class="">{{footer.address}}</address>
+            </div>
+            <div class="d-flex mb-2">
+              <i class="uil uil-envelope-alt me-1"></i>
+              <a href="mailto:{{footer.email}}" style="color: #60697b;">{{footer.email}}</a>
+            </div>
+            <div class="d-flex mb-2">
+              <i class="uil uil-phone-alt me-1"></i>
+              <a href="tel:{{footer.phone_no}}" style="color: #60697b;" class="mb-0">{{footer.phone_no}}</a>
+            </div>
+          </div>
+          <!-- /.widget -->
+        </div>
+        <!-- /column -->
+        <div class="col-md-4 col-lg-3">
+          <div class="widget">
+            <h4 class="widget-title mb-3">Learn More</h4>
+            <ul class="list-unstyled  mb-0">
+              <li><a href="{% url 'about_us' %}" style="color: #60697b;">About Us</a></li>
+              <li><a href="{% url 'contact_us' %}" style="color: #60697b;">Contact Us</a></li>
+<!--              <li><a href="#" style="color: #60697b;">Projects</a></li>-->
+<!--              <li><a href="#" style="color: #60697b;">Terms of Use</a></li>-->
+              <li><a href="{% url 'static_page' 'Terms-&-Conditions' %}" target="_blank" style="color: #60697b;">Terms & Conditions</a></li>
+              <li><a href="{% url 'static_page' 'Shipping-&-Delivery-Policy' %}" target="_blank" style="color: #60697b;">Shipping & Delivery Policy</a></li>
+              <li><a href="{% url 'static_page' 'Refund-&-Cancellation-Policy' %}" target="_blank" style="color: #60697b;">Refund & Cancellation Policy</a></li>
+              <li><a href="{% url 'static_page' 'Privacy-Policy' %}" target="_blank" style="color: #60697b;">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <!-- /.widget -->
+        </div>
+        <!-- /column -->
+        <div class="col-md-12 col-lg-3">
+          <div class="widget">
+            <h4 class="widget-title mb-3">Our Newsletter</h4>
+            <p class="mb-5">Subscribe to our newsletter to get our news & deals delivered to you.</p>
+            <div class="newsletter-wrapper">
+              <!-- Begin Mailchimp Signup Form -->
+              <div id="mc_embed_signup2">
+                <form action="{% url 'subscribe' %}" method="post" id="subscribe_form1" name="mc-embedded-subscribe-form"
+                  class="validate dark-fields" target="_blank" novalidate>
+                  <div id="mc_embed_signup_scroll2">
+                    <div class="mc-field-group input-group form-floating">
+                      <input type="email" value="" required name="email" class="required email form-control"
+                        placeholder="Email Address" id="mce-EMAIL2">
+                      <!-- <label for="mce-EMAIL2">Email Address</label> -->
+                      <input type="submit" value="Join" class="btn btn-primary">
+                    </div>
+                    <div id="mce-responses2" class="clear">
+                      <div class="response" id="mce-error-response2" style="display:none"></div>
+                      <div class="response" id="mce-success-response2" style="display:none"></div>
+                    </div>
+                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                      <input type="text" name="b_ddc180777a163e0f9f66ee014_4b1bcfa0bc" tabindex="-1" value=""></div>
+                    <div class="clear"></div>
+                  </div>
+                </form>
+                 <h2 id="subscrbe_id_id"></h2>
+
+              </div>
+              <!--End mc_embed_signup-->
+            </div>
+            <!-- /.newsletter-wrapper -->
+          </div>
+          <!-- /.widget -->
+        </div>
+        <!-- /column -->
+      </div>
+      <!--/.row -->
+    </div>
+    <!-- /.container -->
+    <div class="container lower-footer">
+      <div class="text-center">
+        <p class="mb-0">© 2023 All Right Reserved. Proudly Coded by <a href="https://gftpl.in/" target="_blank" style="font-weight: 600;">Team GFTPL</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="progress-wrap">
+    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+      <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+    </svg>
+  </div>
+
+  <div class="modal fade" id="modal-signin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content text-center">
+        <div class="modal-body">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h2 class="mb-3 text-start">Welcome Back</h2>
+          <p class="lead mb-6 text-start">Fill your email and password to sign in.</p>
+
+          <form class="text-start mb-3" action="{% url 'signin' %}" method="post" id="signin-form">
+            {% csrf_token %}
+            <div class="form-floating mb-4">
+              <input type="email" class="form-control" name="email" placeholder="Email" id="signin_email">
+
+            </div>
+            <div class="form-floating password-field mb-4">
+              <input type="password" class="form-control" name="password" placeholder="Password" id="signin_password">
+              <span class="password-toggle"><i class="uil uil-eye"></i></span>
+
+            </div>
+            <button type="submit" class="btn btn-primary rounded-pill btn-login w-100 mb-2">Sign In</button>
+            <div class="text-start" style="text-align: start;">
+
+              <h2 id="signin_id"></h2>
+            </div>
+          </form>
+          <!-- /form -->
+          <p class="mb-1"><a href="#" class="hover" data-bs-target="#modal-forgotPass" data-bs-toggle="modal"
+              data-bs-dismiss="modal">Forgot Password?</a></p>
+          <p class="mb-0">Don't have an account? <a href="#" data-bs-target="#modal-signup" data-bs-toggle="modal"
+              data-bs-dismiss="modal" class="hover">Sign up</a></p>
+          <!--/.social -->
+        </div>
+        <!--/.modal-content -->
+      </div>
+      <!--/.modal-body -->
+    </div>
+    <!--/.modal-dialog -->
+  </div>
+
+  <div class="modal fade" id="modal-signup" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content text-center">
+        <div class="modal-body">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h2 class="mb-3 text-start">Sign up </h2>
+          <p class="lead mb-6 text-start">Registration takes less than a minute.</p>
+
+          <form class="text-start mb-3" action="{% url 'signup' %}" id="sign-form" method="POST">
+            {% csrf_token %}
+            <div class="form-floating mb-4">
+              <input type="text" class="form-control" placeholder="Name" id="sign_name" name="full_name">
+
+            </div>
+            <div class="form-floating mb-4">
+              <input type="email" class="form-control" name="email" placeholder="Email" id="sign_email">
+
+            </div>
+            <div class="form-floating password-field mb-4">
+              <input type="password" class="form-control" placeholder="Password" id="sign_password" name="password">
+              <span class="password-toggle"><i class="uil uil-eye"></i></span>
+
+            </div>
+            <div class="form-floating password-field mb-4">
+              <input type="password" class="form-control" placeholder="Confirm Password" name="confirm_password"
+                id="sign_confirm_password">
+              <span class="password-toggle"><i class="uil uil-eye"></i></span>
+
+            </div>
+            <button class="btn btn-primary rounded-pill btn-login w-100 mb-2" type="submit">Sign Up</button>
+
+            <div class="text-start" style="text-align: start;">
+
+              <h2 id="msg_id"></h2>
+            </div>
+          </form>
+          <!-- /form -->
+          <p class="mb-0">Already have an account? <a href="#" data-bs-target="#modal-signin" data-bs-toggle="modal"
+              data-bs-dismiss="modal" class="hover">Sign in</a></p>
+
+
+          <!--/.social -->
+        </div>
+        <!--/.modal-content -->
+      </div>
+      <!--/.modal-body -->
+    </div>
+    <!--/.modal-dialog -->
+  </div>
+
+  <div class="modal fade" id="modal-forgotPass" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content text-center">
+        <div class="modal-body">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h2 class="mb-3 text-start">Forgot Password</h2>
+          <!-- <p class="lead mb-6 text-start">Enter new password</p> -->
+          <form class="text-start mb-3" action="{% url 'forgot_password' %}" method="post" id="forget-password-form">
+            <div class="form-floating password-field mb-4">
+              <label for="loginPassword">Email</label>
+              <input type="email" required class="form-control" placeholder="Enter Your Email"
+                id="forget_password_email">
+            </div>
+
+            <button type="submit" class="btn btn-primary rounded-pill btn-login w-100 mb-2">Foregot Password</button>
+          </form>
+          <!-- /form -->
+          <!--          <p class="mb-1"><a href="#" class="hover">Forgot Password?</a></p>-->
+          <p class="mb-0">Already have an account? <a href="#" data-bs-target="#modal-signin" data-bs-toggle="modal"
+              data-bs-dismiss="modal" class="hover">Sign in</a></p>
+
+          <!--/.social -->
+        </div>
+        <!--/.modal-content -->
+      </div>
+      <!--/.modal-body -->
+    </div>
+    <!--/.modal-dialog -->
+  </div>
+  <!--/.modal -->
+  <div _ngcontent-ipa-c1="" class="chat_btn"><!---->
+    <a _ngcontent-ipa-c1="" class="static_link" href="https://wa.me/{{footer.whatsapp_no}}" target="_blank" tooltip="Message Us">
+      <img _ngcontent-ipa-c1="" class="width_160" src="{% static 'assets/img/we_r_here.png' %}">
+    </a>
+  </div>
+
+  <script src="{% static 'assets/js/plugins.js' %}"></script>
+  <script src="{% static 'assets/js/theme.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+  <script>
+    function getCookie(cname) {
+      var name = cname + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1);
+        if (c.indexOf(name) == 0)
+          return c.substring(name.length, c.length);
+      }
+      return "";
+    }
+  </script>
+
+  <script type="text/javascript">
+    $(document).on('submit', '#sign-form', function (e) {
+      e.preventDefault();
+
+      $.ajaxSetup({
+        headers: {
+          "X-CSRFToken": getCookie("csrftoken")
+        },
+      });
+
+      $.ajax({
+        type: 'POST',
+        url: "{% url 'signup' %}",
+        data: {
+          name: $('#sign_name').val(),
+          email: $('#sign_email').val(),
+          password: $('#sign_password').val(),
+          confirm_password: $('#sign_confirm_password').val(),
+          csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+
+        },
+        success: function (data) {
+
+          $('#sign_email').val('');
+          var my_email = document.getElementById('sign_email');
+          my_email.value = null;
+
+          var my_name = document.getElementById('sign_name');
+          my_name.value = null;
+
+          var my_password = document.getElementById('sign_password');
+          my_password.value = null;
+
+          var my_confirm_password = document.getElementById('sign_confirm_password');
+          my_confirm_password.value = null;
+
+          var msg_id = document.getElementById("msg_id");
+          msg_id.innerHTML = '';
+
+          const msg_newDiv = document.createElement("div");
+          msg_newDiv.innerHTML = data.msg;
+          console.log(data.msg)
+          msg_newDiv.classList.add('success-toast', data.color_class);
+
+          msg_id.appendChild(msg_newDiv);
+          setTimeout(function () {
+            msg_newDiv.remove();
+          }, 3000);
+
+        }
+      });
+    });
+
+  </script>
+
+
+  <script type="text/javascript">
+    $(document).on('submit', '#send_contact-form', function (e) {
+      e.preventDefault();
+
+      $.ajaxSetup({
+        headers: {
+          "X-CSRFToken": getCookie("csrftoken")
+        },
+      });
+
+      $.ajax({
+        type: 'POST',
+        url: "{% url 'send' %}",
+        data: {
+          email: $('#contact_email').val(),
+          name: $('#contact_name').val(),
+          message: $('#contact_message').val(),
+
+        },
+        success: function (data) {
+          $('#contact_email').val('');
+          var my_email = document.getElementById('contact_email');
+          my_email.value = null;
+
+          var my_name = document.getElementById('contact_name');
+          my_name.value = null;
+
+          var my_message = document.getElementById('contact_message');
+          my_message.value = null;
+
+          var contact_id = document.getElementById("contact_id");
+          contact_id.innerHTML = '';
+
+          const contact_newDiv = document.createElement("div");
+          contact_newDiv.innerHTML = data.msg;
+          console.log(data.msg)
+          contact_newDiv.classList.add('success-toast', data.color_class);
+
+          contact_id.appendChild(contact_newDiv);
+          setTimeout(function () {
+            contact_newDiv.remove();
+          }, 3000);
+
+        }
+      });
+    });
+
+  </script>
+
+
+
+  <script type="text/javascript">
+    $(document).on('submit', '#signin-form', function (e) {
+      e.preventDefault();
+
+      $.ajaxSetup({
+        headers: {
+          "X-CSRFToken": getCookie("csrftoken")
+        },
+      });
+
+      $.ajax({
+        type: 'POST',
+        url: "{% url 'signin' %}",
+        data: {
+          email: $('#signin_email').val(),
+          password: $('#signin_password').val(),
+
+        },
+        success: function (data) {
+          $('#signin_email').val('');
+          var my_email = document.getElementById('signin_email');
+          my_email.value = null;
+
+          var my_password = document.getElementById('signin_password');
+          my_password.value = null;
+
+          var signin_id = document.getElementById("signin_id");
+          signin_id.innerHTML = '';
+
+          const signin_newDiv = document.createElement("div");
+          signin_newDiv.innerHTML = data.msg;
+          console.log(data.msg)
+          signin_newDiv.classList.add('success-toast', data.color_class);
+
+          signin_id.appendChild(signin_newDiv);
+          setTimeout(function () {
+            signin_newDiv.remove();
+            if (data.redirect_url) {
+              window.location.href = data.redirect_url;
+            }
+          }, 3000);
+
+        }
+      });
+    });
+  </script>
+
+
+<!--  subscribe -->
+  <script type="text/javascript">
+    $(document).on('submit', '#subscribe_form1', function (e) {
+      e.preventDefault();
+
+      $.ajaxSetup({
+        headers: {
+          "X-CSRFToken": getCookie("csrftoken")
+        },
+      });
+
+      $.ajax({
+        type: 'POST',
+        url: "{% url 'subscribe' %}",
+        data: {
+          email: $('#mce-EMAIL2').val(),
+
+        },
+        success: function (data) {
+          $('#mce-EMAIL2').val('');
+          var my_email = document.getElementById('mce-EMAIL2');
+          my_email.value = null;
+
+          var signin_id = document.getElementById("subscrbe_id_id");
+          signin_id.innerHTML = '';
+
+          const signin_newDiv = document.createElement("div");
+          signin_newDiv.innerHTML = data.msg;
+          console.log(data.msg)
+          signin_newDiv.classList.add('success-toast', data.color_class);
+
+          signin_id.appendChild(signin_newDiv);
+          setTimeout(function () {
+            signin_newDiv.remove();
+          }, 3000);
+
+        }
+      });
+    });
+  </script>
+
+
+
+  <script type="text/javascript">
+    $(document).on('submit', '#forget-password-form', function (e) {
+      e.preventDefault();
+
+      $.ajaxSetup({
+        headers: {
+          "X-CSRFToken": getCookie("csrftoken")
+        },
+      });
+
+      $.ajax({
+        type: 'POST',
+        url: "{% url 'forgot_password' %}",
+        data: {
+          email: $('#forget_password_email').val(),
+        },
+
+        success: function (data) {
+          // alert(data.msg)
+          $('#forget_password_email').val('');
+          var my_email = document.getElementById('forget_password_email');
+          my_email.value = null;
+
+          var contact_id = document.getElementById("contact_id");
+          contact_id.innerHTML = '';
+
+          const signin_newDiv = document.createElement("div");
+          signin_newDiv.innerHTML = data.msg;
+          console.log(data.msg)
+          signin_newDiv.classList.add('success-toast', data.color_class);
+
+          contact_id.appendChild(signin_newDiv);
+          setTimeout(function () {
+            signin_newDiv.remove();
+          }, 5000);
+        }
+      });
+    });
+  </script>
+
+
+</body>
+
+</html>
